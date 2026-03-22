@@ -245,23 +245,24 @@ footer {
   font-family: var(--font-display);
   letter-spacing: clamp(1px, 2vw, 10px);
   font-weight: 900;
+  color: #ffffff;
   text-transform: uppercase;
   margin-top: -5px;
   position: relative;
-  filter: drop-shadow(0 0 15px rgba(100, 200, 255, 0.5));
   
-  /* Animated Sweep Highlight */
-  background: linear-gradient(90deg, #ffffff 0%, #e0eaff 40%, #64C8FF 50%, #e0eaff 60%, #ffffff 100%);
-  background-size: 200% auto;
-  color: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  animation: koalaGlowSweep 4s linear infinite;
+  /* Elegant Breathing Glow Animation */
+  animation: gentlePulseKoalas 4s ease-in-out infinite alternate;
 }
 
-@keyframes koalaGlowSweep {
-  0% { background-position: 200% center; }
-  100% { background-position: -200% center; }
+@keyframes gentlePulseKoalas {
+  0% { 
+    text-shadow: 0 0 10px rgba(89, 86, 214, 0.4), 0 0 20px rgba(89, 86, 214, 0.2); 
+    transform: scale(1);
+  }
+  100% { 
+    text-shadow: 0 0 20px rgba(100, 200, 255, 0.8), 0 0 40px rgba(100, 200, 255, 0.4), 0 0 80px rgba(100, 200, 255, 0.2); 
+    transform: scale(1.02);
+  }
 }
 
 .glow-waitlist {
@@ -289,7 +290,7 @@ footer {
 }
 
 /* Volumetric Glow via ::after pseudo-element */
-.fluent::after, .fast::after, .glow-koalas::after, .glow-waitlist::after {
+.fluent::after, .fast::after, .glow-waitlist::after {
   content: attr(data-text);
   position: absolute;
   top: 0;
@@ -307,7 +308,6 @@ footer {
 
 .premium-on.fluent::after { opacity: 0.4; color: rgba(255,255,255,0.5); }
 .premium-on.fast::after { opacity: 0.6; color: var(--brand-light); filter: blur(35px); }
-.premium-on.glow-koalas::after { opacity: 0.6; color: rgba(89, 86, 214, 0.6); filter: blur(25px); }
 .premium-on.glow-waitlist::after { opacity: 0.4; color: rgba(255, 255, 255, 0.4); filter: blur(40px); }
 
 .brand-text {
