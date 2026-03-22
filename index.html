@@ -413,17 +413,74 @@
       </h1>
       
       <div class="koalas glow-koalas" data-text="KOALAS" style="position: relative; z-index: 5;">KOALAS</div>
-      <!-- Premium Symmetric Horizontal Scroll Gallery -->
-      <div class="elegant-h-scroll" style="width: 100vw; margin-top: 25px; margin-bottom: 25px; margin-left: calc(-50vw + 50%); position: relative; z-index: 10;">
-        <div style="display: flex; gap: 15px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 25px calc(50vw - 70px); -webkit-overflow-scrolling: touch; scrollbar-width: none;">
-          <style>.elegant-h-scroll div::-webkit-scrollbar { display: none; }</style>
+      <!-- Interactive 3D Expanding Cylinder Gallery -->
+      <div class="carousel-wrapper" style="perspective: 1000px; height: 220px; width: 100vw; max-width: 600px; display: flex; justify-content: center; align-items: center; margin: 30px auto; z-index: 10; position: relative; cursor: pointer;">
+        <style>
+          .carousel-wrapper::after {
+            content: 'Tap to Expand & Rotate';
+            position: absolute;
+            bottom: -30px;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+            font-family: var(--font-body);
+            transition: opacity 0.3s;
+          }
+          .carousel-wrapper:hover::after, .carousel-wrapper:active::after { opacity: 0; }
+
+          .carousel-ring {
+            width: 140px;
+            height: 180px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+            animation: none;
+          }
           
-          <img src="./public/brand1.jpg" style="scroll-snap-align: center; width: 140px; height: 180px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 20px rgba(0,0,0,0.5); flex-shrink: 0;" alt="Concept">
-          <img src="./public/new_concept6.jpg" style="scroll-snap-align: center; width: 140px; height: 180px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 20px rgba(0,0,0,0.5); flex-shrink: 0;" alt="Concept">
-          <img src="./public/new_concept8.jpg" style="scroll-snap-align: center; width: 140px; height: 180px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 20px rgba(0,0,0,0.5); flex-shrink: 0;" alt="Concept">
-          <img src="./public/brand5.jpg" style="scroll-snap-align: center; width: 140px; height: 180px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 20px rgba(0,0,0,0.5); flex-shrink: 0;" alt="Concept">
-          <img src="./public/brand2.jpg" style="scroll-snap-align: center; width: 140px; height: 180px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 20px rgba(0,0,0,0.5); flex-shrink: 0;" alt="Concept">
-          <img src="./public/new_concept10.jpg" style="scroll-snap-align: center; width: 140px; height: 180px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 20px rgba(0,0,0,0.5); flex-shrink: 0;" alt="Concept">
+          .carousel-wrapper:hover .carousel-ring, .carousel-wrapper:active .carousel-ring {
+            animation: ringSpin 20s infinite linear;
+          }
+
+          @keyframes ringSpin {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+          }
+
+          .carousel-item {
+            position: absolute;
+            top: 0; left: 0; right: 0; margin: 0 auto;
+            height: 180px;
+            width: auto;
+            max-width: 140px;
+            border-radius: 12px;
+            object-fit: contain; 
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.6));
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+          }
+
+          /* Default compact stack - precisely stacked to look like one clean card */
+          .carousel-item:nth-child(n) { transform: rotateY(0deg) translateZ(0px); opacity: 0; z-index: 1; }
+          .carousel-item:nth-child(4) { opacity: 1; z-index: 5; } /* Visible front */
+
+          /* Hover State: Fleshes out completely into a rotatable circle cylinder */
+          .carousel-wrapper:hover .carousel-item, .carousel-wrapper:active .carousel-item { opacity: 1; }
+          .carousel-wrapper:hover .carousel-item:nth-child(1), .carousel-wrapper:active .carousel-item:nth-child(1) { transform: rotateY(0deg) translateZ(160px); }
+          .carousel-wrapper:hover .carousel-item:nth-child(2), .carousel-wrapper:active .carousel-item:nth-child(2) { transform: rotateY(51.4deg) translateZ(160px); }
+          .carousel-wrapper:hover .carousel-item:nth-child(3), .carousel-wrapper:active .carousel-item:nth-child(3) { transform: rotateY(102.8deg) translateZ(160px); }
+          .carousel-wrapper:hover .carousel-item:nth-child(4), .carousel-wrapper:active .carousel-item:nth-child(4) { transform: rotateY(154.2deg) translateZ(160px); }
+          .carousel-wrapper:hover .carousel-item:nth-child(5), .carousel-wrapper:active .carousel-item:nth-child(5) { transform: rotateY(205.6deg) translateZ(160px); }
+          .carousel-wrapper:hover .carousel-item:nth-child(6), .carousel-wrapper:active .carousel-item:nth-child(6) { transform: rotateY(257deg) translateZ(160px); }
+          .carousel-wrapper:hover .carousel-item:nth-child(7), .carousel-wrapper:active .carousel-item:nth-child(7) { transform: rotateY(308.4deg) translateZ(160px); }
+        </style>
+        
+        <div class="carousel-ring">
+          <img class="carousel-item" src="./public/brand1.jpg" alt="Brand Concept">
+          <img class="carousel-item" src="./public/new_concept6.jpg" alt="Brand Concept">
+          <img class="carousel-item" src="./public/brand5.jpg" alt="Brand Concept">
+          <img class="carousel-item" src="./public/new_concept8.jpg" alt="Brand Concept">
+          <img class="carousel-item" src="./public/brand3.jpg" alt="Brand Concept">
+          <img class="carousel-item" src="./public/brand2.jpg" alt="Brand Concept">
+          <img class="carousel-item" src="./public/new_concept10.jpg" alt="Brand Concept">
         </div>
       </div>
 
