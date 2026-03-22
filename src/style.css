@@ -241,9 +241,10 @@ footer {
 }
 
 .glow-koalas {
-  font-size: clamp(4rem, 19vw, 11rem);
+  font-size: clamp(3.4rem, 16vw, 9.35rem);
   font-family: var(--font-display);
   letter-spacing: clamp(5px, 4.5vw, 42px);
+  padding-left: clamp(5px, 4.5vw, 42px);
   text-align: center;
   font-weight: 900;
   color: #ffffff;
