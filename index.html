@@ -206,18 +206,19 @@
 
   <div class="container alt-layout" style="padding-top: 2rem; position: relative;">
     
-    <!-- Transparent Decorative Images (Massive & Visible) -->
-    <img src="./public/koala_parachute.png" class="deco-koala floating" style="top: -10%; left: -5%; max-width: 400px; width: 35vw; opacity: 0.55; z-index: -1;" alt="Decorative Koala">
-    <img src="./public/koala_juggling.png" class="deco-koala floating" style="top: 25%; right: -10%; max-width: 450px; width: 40vw; opacity: 0.55; z-index: -1; animation-delay: 1.2s;" alt="Decorative Koala">
-    <img src="./public/koala_phone.png" class="deco-koala floating" style="bottom: 12%; left: -8%; max-width: 380px; width: 35vw; opacity: 0.6; z-index: -1; animation-delay: 2.1s;" alt="Decorative Koala">
-    <img src="./public/koala_happy.png" class="deco-koala floating" style="bottom: -5%; right: 0%; max-width: 350px; width: 30vw; opacity: 0.65; z-index: -1; animation-delay: 0.7s;" alt="Decorative Koala">
+    <!-- Giant Main Decorative Koala (Moved under waitlist & behind form) -->
+    <img src="./public/koala_parachute.png" class="deco-koala floating" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); max-width: 1000px; width: 100vw; opacity: 1; z-index: -1;" alt="Decorative Koala Parachute">
+    
+    <!-- Other Transparent Decorative Images -->
+    <img src="./public/koala_juggling.png" class="deco-koala floating" style="top: 25%; right: -10%; max-width: 450px; width: 40vw; opacity: 0.55; z-index: -2; animation-delay: 1.2s;" alt="Decorative Koala">
+    <img src="./public/koala_phone.png" class="deco-koala floating" style="bottom: 12%; left: -8%; max-width: 380px; width: 35vw; opacity: 0.6; z-index: -2; animation-delay: 2.1s;" alt="Decorative Koala">
+    <img src="./public/koala_happy.png" class="deco-koala floating" style="bottom: -5%; right: 0%; max-width: 350px; width: 30vw; opacity: 0.65; z-index: -2; animation-delay: 0.7s;" alt="Decorative Koala">
     
     <!-- Interest Registration Form Moved to Top -->
-    <section class="inline-form-section hidden-reveal" id="interestFormSection" style="margin-top: 0;">
+    <section class="inline-form-section hidden-reveal" id="interestFormSection" style="margin-top: 0; background: rgba(15, 18, 37, 0.5); backdrop-filter: blur(8px);">
       <div class="form-header">
-        <img src="./public/koala_meditating.png" loading="lazy" class="koala-form-guide" alt="Koala meditating">
-        <h2>Sign up for 10 power phrases</h2>
-        <p>to launch you into a new language fast.</p>
+        <h2 style="position: relative; z-index: 2;">Sign up for 10 power phrases</h2>
+        <p style="position: relative; z-index: 2;">to launch you into a new language fast.</p>
       </div>
 
       <form class="interest-form" id="investorForm">
