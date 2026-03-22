@@ -210,6 +210,7 @@
   <div class="nav-alt">
     <div class="brand-text">
       <span class="fluent">FLUENT</span><span class="fast">FAST</span>
+      <span class="koalas" style="font-size: 0.7em; color: var(--brand-light); margin-left: 8px;">KOALAS</span>
     </div>
   </div>
 
@@ -217,16 +218,20 @@
     
     <section class="hero-split hidden-reveal">
       <div class="hero-text-block">
-        <div class="tagline-pill">WAITLIST</div>
+        <div class="tagline-pill">PLAY. LEARN. SPEAK. TOGETHER.</div>
         <h1 class="hero-huge-title">Are you interested in learning a new language?</h1>
         <p class="hero-lead">Are you interested in learning a new language faster? We're going to run through a different type of course on how you can be learning languages a lot more efficiently.</p>
-        <button class="primary-cta-btn pulse-btn" onclick="document.getElementById('interestFormSection').scrollIntoView({behavior: 'smooth'})">
-          JOIN THE WAITLIST
-        </button>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <button class="primary-cta-btn pulse-btn" onclick="document.getElementById('interestFormSection').scrollIntoView({behavior: 'smooth'})">
+            JOIN THE WAITLIST
+          </button>
+          <button class="secondary-cta-btn pulse-btn" style="background: transparent; border: 2px solid var(--brand-light); color: white; border-radius: 100px; padding: 1.2rem 2rem; font-weight: bold; cursor: pointer; text-transform: uppercase;" onclick="document.getElementById('interestFormSection').scrollIntoView({behavior: 'smooth'})">
+            Sign up for 10 power phrases to launch you into a new language fast
+          </button>
+        </div>
       </div>
-      <div class="hero-visual-block">
-        <div id="hero-lottie" class="header-lottie-koala floating"></div>
-        <img src="./public/brand3.jpg" fetchpriority="high" alt="Brand visual" class="curved-hero-img floating" style="animation-delay: 1.5s;">
+      <div class="hero-visual-block" style="min-height: 350px;">
+        <div id="hero-lottie" class="header-lottie-koala floating" style="width: 350px; height: 350px; top: 0; position: relative;"></div>
       </div>
     </section>
 
@@ -301,6 +306,15 @@
 
         <button type="submit" class="submit-button primary-cta-btn" style="width: 100%; border-radius: 12px;">COMPLETE SIGNUP</button>
       </form>
+    </section>
+
+    <section class="feature-buttons-section hidden-reveal" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 4rem;">
+      <h3 style="color: var(--brand-light); text-transform: uppercase; font-size: 1.5rem; margin-bottom: 1rem;">Coming Soon</h3>
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+        <button class="tagline-pill" style="background: rgba(255,255,255,0.05); font-size: 1.1rem; cursor: default;">Speed Classes</button>
+        <button class="tagline-pill" style="background: rgba(255,255,255,0.05); font-size: 1.1rem; cursor: default;">Multiplayer App</button>
+        <button class="tagline-pill" style="background: rgba(255,255,255,0.05); font-size: 1.1rem; cursor: default;">Early Access</button>
+      </div>
     </section>
 
     <div class="brand-gallery hidden-reveal" id="stackedGallery">
