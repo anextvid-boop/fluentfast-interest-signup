@@ -255,6 +255,11 @@ footer {
   animation: electricPurple 2.5s ease-in-out infinite alternate;
 }
 
+@keyframes floatKoalas {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-10px) rotate(1deg); }
+}
+
 @keyframes electricPurple {
   0% { text-shadow: 0 0 10px rgba(142, 140, 246, 0.4), 0 0 20px rgba(142, 140, 246, 0.2), 0 10px 30px rgba(0,0,0,0.8); }
   50% { text-shadow: 0 0 15px rgba(142, 140, 246, 0.9), 0 0 30px rgba(142, 140, 246, 0.6), 0 0 45px rgba(255, 255, 255, 0.5), 0 10px 30px rgba(0,0,0,0.8); color: #f0f0ff; }
