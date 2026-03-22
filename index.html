@@ -398,37 +398,45 @@
       box-shadow: 0 0 50px rgba(0,0,0,0.5); /* Strong shadow cast on adjacent dark sections */
       z-index: 5;
     }
-    @keyframes driftUp {
-      0% { 
-        background-position: 0 0, 15vh 10vh, 25vh 5vh; 
-        opacity: 0.2; 
-      }
-      50% { 
-        opacity: 0.8; 
-      }
-      100% { 
-        background-position: 0 -100vh, 15vh -90vh, 25vh -95vh; 
-        opacity: 0.2; 
-      }
+    .particles-container { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+    .particle {
+      position: absolute;
+      bottom: -20px;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #fff, 0 0 20px rgba(82, 78, 230, 0.8), 0 0 30px rgba(40, 42, 65, 0.8);
+      opacity: 0;
     }
-    .bg-sparkles {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      z-index: 1; 
-      pointer-events: none;
-      background-image: 
-        radial-gradient(circle, rgba(255,255,255,0.9) 1.5px, transparent 2.5px),
-        radial-gradient(circle, rgba(255,255,255,0.7) 1px, transparent 2px),
-        radial-gradient(circle, rgba(255,255,255,0.4) 2px, transparent 3px);
-      background-size: 20vh 20vh, 30vh 30vh, 40vh 40vh;
-      animation: driftUp 15s infinite linear;
+    @keyframes zigZagUp {
+      0% { transform: translateY(0) translateX(0); opacity: 0; }
+      20% { opacity: 1; }
+      25% { transform: translateY(-25vh) translateX(25px); }
+      50% { transform: translateY(-50vh) translateX(-20px); }
+      75% { transform: translateY(-75vh) translateX(15px); }
+      100% { transform: translateY(-110vh) translateX(-25px); opacity: 0; }
     }
+    .p1 { left: 10%; width: 4px; height: 4px; animation: zigZagUp 8s infinite linear 0s; }
+    .p2 { left: 25%; width: 3px; height: 3px; animation: zigZagUp 10s infinite linear 2s; }
+    .p3 { left: 40%; width: 5px; height: 5px; animation: zigZagUp 7s infinite linear 4s; }
+    .p4 { left: 60%; width: 3px; height: 3px; animation: zigZagUp 11s infinite linear 1s; }
+    .p5 { left: 75%; width: 4px; height: 4px; animation: zigZagUp 6s infinite linear 5s; }
+    .p6 { left: 90%; width: 2px; height: 2px; animation: zigZagUp 12s infinite linear 3s; }
+    .p7 { left: 15%; width: 5px; height: 5px; animation: zigZagUp 9s infinite linear 6s; }
+    .p8 { left: 35%; width: 3px; height: 3px; animation: zigZagUp 8s infinite linear 7s; }
+    .p9 { left: 50%; width: 4px; height: 4px; animation: zigZagUp 10s infinite linear 0.5s; }
+    .p10 { left: 70%; width: 2px; height: 2px; animation: zigZagUp 7s infinite linear 8s; }
+    .p11 { left: 85%; width: 3px; height: 3px; animation: zigZagUp 11s infinite linear 4.5s; }
+    .p12 { left: 95%; width: 4px; height: 4px; animation: zigZagUp 9s infinite linear 1.5s; }
   </style>
 </head>
 
 <body>
   <div class="bg-gradient"></div>
-  <div class="bg-sparkles"></div>
+  <div class="particles-container">
+    <div class="particle p1"></div><div class="particle p2"></div><div class="particle p3"></div><div class="particle p4"></div>
+    <div class="particle p5"></div><div class="particle p6"></div><div class="particle p7"></div><div class="particle p8"></div>
+    <div class="particle p9"></div><div class="particle p10"></div><div class="particle p11"></div><div class="particle p12"></div>
+  </div>
 
   <header class="hero-header" style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; z-index: 999; padding-top: 100px; padding-bottom: 20px;">
     <img src="./public/media__1774174625088.png" style="position: absolute; top: 15px; left: 50%; transform: translateX(-50%); height: 50px; z-index: 1000; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.9)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.8));" alt="FluentFast Logo F">
@@ -439,21 +447,51 @@
       </h1>
       
       <div class="koalas glow-koalas" data-text="KOALAS" style="position: relative; z-index: 5;">KOALAS</div>
-      <!-- Premium Symmetric Horizontal Scroll Gallery (Uncropped) -->
-      <div class="elegant-h-scroll" style="width: 100vw; margin-top: 25px; margin-bottom: 25px; margin-left: calc(-50vw + 50%); position: relative; z-index: 10;">
-        <div style="display: flex; gap: 15px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 25px calc(50vw - 70px); -webkit-overflow-scrolling: touch; scrollbar-width: none;">
-          <style>.elegant-h-scroll div::-webkit-scrollbar { display: none; }</style>
-          
-          <img src="./public/brand1.jpg" style="scroll-snap-align: center; height: 180px; width: auto; max-width: 140px; object-fit: contain; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 20px rgba(0,0,0,0.5); flex-shrink: 0;" alt="Concept">
-          <img src="./public/new_concept6.jpg" style="scroll-snap-align: center; height: 180px; width: auto; max-width: 140px; object-fit: contain; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 20px rgba(0,0,0,0.5); flex-shrink: 0;" alt="Concept">
-          <img src="./public/new_concept8.jpg" style="scroll-snap-align: center; height: 180px; width: auto; max-width: 140px; object-fit: contain; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 20px rgba(0,0,0,0.5); flex-shrink: 0;" alt="Concept">
-          <img src="./public/brand5.jpg" style="scroll-snap-align: center; height: 180px; width: auto; max-width: 140px; object-fit: contain; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 20px rgba(0,0,0,0.5); flex-shrink: 0;" alt="Concept">
-          <img src="./public/brand2.jpg" style="scroll-snap-align: center; height: 180px; width: auto; max-width: 140px; object-fit: contain; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 20px rgba(0,0,0,0.5); flex-shrink: 0;" alt="Concept">
-          <img src="./public/new_concept10.jpg" style="scroll-snap-align: center; height: 180px; width: auto; max-width: 140px; object-fit: contain; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 20px rgba(0,0,0,0.5); flex-shrink: 0;" alt="Concept">
-        </div>
+      <!-- Sleek Dynamic Bento Collage Gallery -->
+      <div class="collage-gallery" style="columns: 2; column-gap: 15px; width: 90vw; max-width: 550px; margin: 30px auto; padding: 0 10px; z-index: 10; position: relative;">
+        <style>
+          .collage-gallery {
+            /* Fixes jumping column gaps */
+            -webkit-column-break-inside: avoid;
+            page-break-inside: avoid;
+            break-inside: avoid;
+          }
+          .collage-item {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
+          }
+          .collage-item:hover {
+            transform: scale(1.03) translateY(-3px);
+            z-index: 15;
+            position: relative;
+            box-shadow: 0 15px 30px rgba(82, 78, 230, 0.4);
+          }
+          .collage-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+          }
+        </style>
+        <div class="collage-item"><img src="./public/new_concept6.jpg" alt="Brand Concept"></div>
+        <div class="collage-item"><img src="./public/brand1.jpg" alt="Brand Concept"></div>
+        <div class="collage-item"><img src="./public/new_concept8.jpg" alt="Brand Concept"></div>
+        <div class="collage-item"><img src="./public/brand5.jpg" alt="Brand Concept"></div>
+        <div class="collage-item"><img src="./public/brand2.jpg" alt="Brand Concept"></div>
+        <div class="collage-item"><img src="./public/new_concept10.jpg" alt="Brand Concept"></div>
       </div>
 
-      <div class="waitlist glow-waitlist" data-text="WAITLIST" style="margin-top: 40px;">WAITLIST</div>
+      <div class="waitlist glow-waitlist" data-text="WAITLIST" style="margin-top: 50px; margin-bottom: 25px;">WAITLIST</div>
+      
+      <div style="margin-bottom: 60px; z-index: 15; position: relative;">
+        <a href="https://anextvid-boop.github.io/fluentfast-investors/?cache=v6" class="primary-cta-btn" style="display: inline-block; padding: 20px 45px; font-size: 1.5rem; letter-spacing: 1px; border-radius: 40px; text-decoration: none; font-weight: 900; filter: drop-shadow(0 0 25px rgba(82, 78, 230, 0.6)); text-transform: uppercase;">FUND THE PROJECT</a>
+      </div>
     </div>
   </header>
 
@@ -888,8 +926,8 @@
       </a>
     </div>
 
-    <div style="text-align: center; margin: 60px 0 40px 0; position: relative; z-index: 10;">
-      <a href="https://anextvid-boop.github.io/fluentfast-investors/?cache=v6" class="primary-cta-btn" style="display: inline-block; padding: 15px 40px; font-size: 1.1rem; border-radius: 30px; text-decoration: none; font-weight: 700; filter: drop-shadow(0 0 15px rgba(82, 78, 230, 0.4));">FUND THE PROJECT</a>
+    <div style="text-align: center; margin: 40px 0 20px 0; position: relative; z-index: 10;">
+      <!-- Main investor CTA moved upwards to hero -->
     </div>
 
     <footer>
