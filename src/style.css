@@ -34,7 +34,7 @@ body {
   line-height: 1.4;
   overflow-x: hidden;
   position: relative;
-  background: linear-gradient(rgba(82, 78, 230, 0.7), rgba(11, 12, 26, 0.95)), url('../public/brand3.jpg') no-repeat center center fixed;
+  background: linear-gradient(rgba(82, 78, 230, 0.7), rgba(11, 12, 26, 0.95)), url('../public/brand3.jpg') no-repeat 20% 85% fixed;
   background-size: cover;
   min-height: 100vh;
 }
