@@ -447,66 +447,84 @@
       </h1>
       
       <div class="koalas glow-koalas" data-text="KOALAS" style="position: relative; z-index: 5;">KOALAS</div>
-      <!-- Elegant Symmetrical Auto-Scrolling Gallery -->
-      <div class="sliding-gallery-wrapper" style="width: 100vw; margin: 40px 0; margin-left: calc(-50vw + 50%); position: relative; z-index: 10; overflow: hidden; padding: 30px 0; background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(20,20,40,0.6) 20%, rgba(20,20,40,0.6) 80%, rgba(0,0,0,0) 100%);">
+      <!-- Vertical Expandable Stack Gallery -->
+      <div class="expandable-gallery-container" style="width: 90vw; max-width: 450px; margin: 30px auto; position: relative; z-index: 10;">
         <style>
-          .sliding-track {
+          .gallery-stack {
+            cursor: pointer;
             display: flex;
-            width: max-content;
-            animation: slideGallery 25s linear infinite;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            transition: all 0.5s ease;
+            position: relative;
           }
-          /* Pause on hover */
-          .sliding-gallery-wrapper:hover .sliding-track {
-            animation-play-state: paused;
-          }
-          @keyframes slideGallery {
-            from { transform: translateX(0); }
-            to { transform: translateX(-50%); }
-          }
-          .slide-item {
-            width: 150px;
-            height: 220px;
-            margin: 0 10px;
-            flex-shrink: 0;
+          .gallery-stack img {
+            width: 100%;
+            height: auto;
             border-radius: 12px;
-            overflow: hidden;
             box-shadow: 0 10px 20px rgba(0,0,0,0.5);
             border: 1px solid rgba(255,255,255,0.1);
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            background: rgba(30, 32, 50, 0.6);
-            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
           }
-          .slide-item:hover {
-            transform: scale(1.15) translateY(-5px);
-            z-index: 15;
-            position: relative;
-            box-shadow: 0 15px 30px rgba(82, 78, 230, 0.6);
-            border-color: rgba(255,255,255,0.4);
+          .gallery-stack:hover img.gallery-main-img {
+            transform: scale(1.02);
+            box-shadow: 0 15px 30px rgba(82, 78, 230, 0.4);
           }
-          .slide-item img {
+          .gallery-stack.expanded:hover img.gallery-main-img {
+            transform: scale(1); /* Reset on hover when expanded */
+          }
+          .gallery-hidden-imgs {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top center;
+            
+            /* Hidden trick for smooth expansion */
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.8s cubic-bezier(0.175, 0.885, 0.32, 1), opacity 0.5s ease;
+            pointer-events: none;
+            margin-top: 0;
+          }
+          .gallery-stack.expanded .gallery-hidden-imgs {
+            max-height: 2500px;
+            opacity: 1;
+            pointer-events: auto;
+          }
+          /* Visual cue to click */
+          .tap-expand {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            pointer-events: none;
+            transition: opacity 0.4s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.2);
+          }
+          .gallery-stack.expanded .tap-expand {
+            opacity: 0;
           }
         </style>
         
-        <div class="sliding-track">
-          <!-- First set of images -->
-          <div class="slide-item"><img src="./public/new_concept6.jpg" alt="Gallery Concept"></div>
-          <div class="slide-item"><img src="./public/brand1.jpg" alt="Gallery Concept"></div>
-          <div class="slide-item"><img src="./public/new_concept8.jpg" alt="Gallery Concept"></div>
-          <div class="slide-item"><img src="./public/brand5.jpg" alt="Gallery Concept"></div>
-          <div class="slide-item"><img src="./public/brand2.jpg" alt="Gallery Concept"></div>
-          <div class="slide-item"><img src="./public/new_concept10.jpg" alt="Gallery Concept"></div>
-          
-          <!-- Exact duplicate set for infinite seamless looping -->
-          <div class="slide-item"><img src="./public/new_concept6.jpg" alt="Gallery Concept"></div>
-          <div class="slide-item"><img src="./public/brand1.jpg" alt="Gallery Concept"></div>
-          <div class="slide-item"><img src="./public/new_concept8.jpg" alt="Gallery Concept"></div>
-          <div class="slide-item"><img src="./public/brand5.jpg" alt="Gallery Concept"></div>
-          <div class="slide-item"><img src="./public/brand2.jpg" alt="Gallery Concept"></div>
-          <div class="slide-item"><img src="./public/new_concept10.jpg" alt="Gallery Concept"></div>
+        <div class="gallery-stack" id="galleryStack" onclick="this.classList.toggle('expanded')">
+          <img src="./public/new_concept6.jpg" alt="Gallery Concept" class="gallery-main-img">
+          <div class="tap-expand">Tap to Expand ▼</div>
+          <div class="gallery-hidden-imgs">
+            <img src="./public/brand1.jpg" alt="Gallery Concept">
+            <img src="./public/new_concept8.jpg" alt="Gallery Concept">
+            <img src="./public/brand5.jpg" alt="Gallery Concept">
+            <img src="./public/brand2.jpg" alt="Gallery Concept">
+            <img src="./public/new_concept10.jpg" alt="Gallery Concept">
+          </div>
         </div>
       </div>
 
