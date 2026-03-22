@@ -377,6 +377,59 @@
       100% { opacity: 1; transform: scale(1) translateY(0); }
     }
   </style>
+
+  <style>
+    .light-parallax-section {
+      width: 100%;
+      position: relative;
+      background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(240, 240, 255, 0.95)), url('./public/brand3.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #1a1b41;
+      padding-bottom: 4rem;
+      border-top: 2px solid rgba(82, 78, 230, 0.1);
+      box-shadow: inset 0 20px 40px rgba(0,0,0,0.05);
+    }
+    .light-parallax-section .hero-huge-title {
+      background: linear-gradient(90deg, var(--royal-blue), var(--deep-navy)) !important;
+      -webkit-background-clip: text !important;
+      background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      text-shadow: 0 5px 20px rgba(82, 78, 230, 0.15) !important;
+    }
+    .light-parallax-section .hero-lead {
+      color: #333 !important;
+      font-weight: 500;
+    }
+    .light-parallax-section .contact-card {
+      background: rgba(255, 255, 255, 0.6);
+      border-color: rgba(82, 78, 230, 0.15);
+      color: #1a1b41;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+    }
+    .light-parallax-section .contact-card h3 {
+      color: var(--royal-blue);
+    }
+    .light-parallax-section .contact-subtitle {
+      color: #555;
+    }
+    .light-parallax-section .contact-label {
+      color: #888;
+    }
+    .light-parallax-section .contact-link, .light-parallax-section .contact-phone {
+      color: var(--royal-blue);
+    }
+    .light-parallax-section footer a {
+      color: #555 !important;
+    }
+    .light-parallax-section footer a:hover {
+      color: var(--royal-blue) !important;
+    }
+    .light-parallax-section .tagline-pill {
+      border-color: var(--royal-blue);
+      color: var(--royal-blue);
+      background: rgba(82, 78, 230, 0.1);
+    }
+  </style>
 </head>
 
 <body>
@@ -446,7 +499,104 @@
       </details>
     </section>
 
+    <!-- Success / Starter Words Area -->
+    <section class="success-section" id="successSection" style="display: none;">
+      <h2 class="success-title">You're In!</h2>
+      <p class="success-subtitle">Welcome to FluentFast. Let's get you set up to speak from day one.</p>
+
+      <div class="language-selectors">
+        <div class="lang-group">
+          <label for="speak-lang">What language do you speak?</label>
+          <select id="speak-lang">
+            <option value="English" selected>English</option>
+            <option value="Spanish">Spanish</option>
+            <option value="French">French</option>
+            <option value="German">German</option>
+            <option value="Italian">Italian</option>
+            <option value="Portuguese">Portuguese</option>
+            <option value="Mandarin">Mandarin (Chinese)</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Korean">Korean</option>
+            <option value="Arabic">Arabic</option>
+            <option value="Russian">Russian</option>
+            <option value="Hindi">Hindi</option>
+          </select>
+        </div>
+        <div class="lang-group">
+          <label for="learn-lang">What language do you want to speak?</label>
+          <select id="learn-lang">
+            <option value="" disabled selected>Select a language...</option>
+            <option value="English">English</option>
+            <option value="Spanish">Spanish</option>
+            <option value="French">French</option>
+            <option value="German">German</option>
+            <option value="Italian">Italian</option>
+            <option value="Portuguese">Portuguese</option>
+            <option value="Mandarin">Mandarin (Chinese)</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Korean">Korean</option>
+            <option value="Arabic">Arabic</option>
+            <option value="Russian">Russian</option>
+            <option value="Hindi">Hindi</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="powerPhrasesArea">
+        <p style="color: rgba(255,255,255,0.9); font-weight: 600; margin-top: 2.5rem; font-size: 1.15rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">Here are your 10 Starter Phrases. Use these to jump-start your conversations today.</p>
+
+        <div class="phrases-grid">
+          <div class="phrase-card">
+            <span class="phrase-number">1</span>
+            <span class="phrase-text">Hello.</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">2</span>
+            <span class="phrase-text">My name is _____</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">3</span>
+            <span class="phrase-text">Can you help, please.</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">4</span>
+            <span class="phrase-text">What is that called?</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">5</span>
+            <span class="phrase-text">Can you repeat it?</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">6</span>
+            <span class="phrase-text">Can you say it again?</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">7</span>
+            <span class="phrase-text">Say it slower.</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">8</span>
+            <span class="phrase-text">Is this correct?</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">9</span>
+            <span class="phrase-text">Can you correct me</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">10</span>
+            <span class="phrase-text">Thanks</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     
+    
+  </div> <!-- Close first alt-layout container -->
+
+  <div class="light-parallax-section">
+    <div class="container alt-layout" style="padding-top: 2rem; padding-bottom: 0;">
+
     <div style="width: 100%; overflow: hidden; margin-top: 4rem; margin-bottom: 4rem; margin-left: auto; margin-right: auto; white-space: nowrap; position: relative; padding: 2rem 0;">
       <!-- Glowing background behind the gallery to make it pop -->
       <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 100%; background: radial-gradient(ellipse at center, rgba(89, 86, 214, 0.15) 0%, transparent 70%); z-index: 0; pointer-events: none;"></div>
@@ -642,96 +792,7 @@
       }
     </style>
 
-    <!-- Success / Starter Words Area -->
-    <section class="success-section" id="successSection" style="display: none;">
-      <h2 class="success-title">You're In!</h2>
-      <p class="success-subtitle">Welcome to FluentFast. Let's get you set up to speak from day one.</p>
-
-      <div class="language-selectors">
-        <div class="lang-group">
-          <label for="speak-lang">What language do you speak?</label>
-          <select id="speak-lang">
-            <option value="English" selected>English</option>
-            <option value="Spanish">Spanish</option>
-            <option value="French">French</option>
-            <option value="German">German</option>
-            <option value="Italian">Italian</option>
-            <option value="Portuguese">Portuguese</option>
-            <option value="Mandarin">Mandarin (Chinese)</option>
-            <option value="Japanese">Japanese</option>
-            <option value="Korean">Korean</option>
-            <option value="Arabic">Arabic</option>
-            <option value="Russian">Russian</option>
-            <option value="Hindi">Hindi</option>
-          </select>
-        </div>
-        <div class="lang-group">
-          <label for="learn-lang">What language do you want to speak?</label>
-          <select id="learn-lang">
-            <option value="" disabled selected>Select a language...</option>
-            <option value="English">English</option>
-            <option value="Spanish">Spanish</option>
-            <option value="French">French</option>
-            <option value="German">German</option>
-            <option value="Italian">Italian</option>
-            <option value="Portuguese">Portuguese</option>
-            <option value="Mandarin">Mandarin (Chinese)</option>
-            <option value="Japanese">Japanese</option>
-            <option value="Korean">Korean</option>
-            <option value="Arabic">Arabic</option>
-            <option value="Russian">Russian</option>
-            <option value="Hindi">Hindi</option>
-          </select>
-        </div>
-      </div>
-
-      <div id="powerPhrasesArea">
-        <p style="color: rgba(255,255,255,0.9); font-weight: 600; margin-top: 2.5rem; font-size: 1.15rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">Here are your 10 Starter Phrases. Use these to jump-start your conversations today.</p>
-
-        <div class="phrases-grid">
-          <div class="phrase-card">
-            <span class="phrase-number">1</span>
-            <span class="phrase-text">Hello.</span>
-          </div>
-          <div class="phrase-card">
-            <span class="phrase-number">2</span>
-            <span class="phrase-text">My name is _____</span>
-          </div>
-          <div class="phrase-card">
-            <span class="phrase-number">3</span>
-            <span class="phrase-text">Can you help, please.</span>
-          </div>
-          <div class="phrase-card">
-            <span class="phrase-number">4</span>
-            <span class="phrase-text">What is that called?</span>
-          </div>
-          <div class="phrase-card">
-            <span class="phrase-number">5</span>
-            <span class="phrase-text">Can you repeat it?</span>
-          </div>
-          <div class="phrase-card">
-            <span class="phrase-number">6</span>
-            <span class="phrase-text">Can you say it again?</span>
-          </div>
-          <div class="phrase-card">
-            <span class="phrase-number">7</span>
-            <span class="phrase-text">Say it slower.</span>
-          </div>
-          <div class="phrase-card">
-            <span class="phrase-number">8</span>
-            <span class="phrase-text">Is this correct?</span>
-          </div>
-          <div class="phrase-card">
-            <span class="phrase-number">9</span>
-            <span class="phrase-text">Can you correct me</span>
-          </div>
-          <div class="phrase-card">
-            <span class="phrase-number">10</span>
-            <span class="phrase-text">Thanks</span>
-          </div>
-        </div>
-      </div>
-    </section>
+    
 
     
 
@@ -804,6 +865,7 @@
       </a>
     </footer>
   </div>
+  </div> <!-- Close light-parallax-section -->
 
   <!-- Floating Pinned WhatsApp Button -->
   <a href="https://wa.me/447538068550" target="_blank" class="floating-whatsapp" aria-label="Message us on WhatsApp">
