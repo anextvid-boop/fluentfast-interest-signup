@@ -447,44 +447,67 @@
       </h1>
       
       <div class="koalas glow-koalas" data-text="KOALAS" style="position: relative; z-index: 5;">KOALAS</div>
-      <!-- Sleek Dynamic Bento Collage Gallery -->
-      <div class="collage-gallery" style="columns: 2; column-gap: 15px; width: 90vw; max-width: 550px; margin: 30px auto; padding: 0 10px; z-index: 10; position: relative;">
+      <!-- Elegant Symmetrical Auto-Scrolling Gallery -->
+      <div class="sliding-gallery-wrapper" style="width: 100vw; margin: 40px 0; margin-left: calc(-50vw + 50%); position: relative; z-index: 10; overflow: hidden; padding: 30px 0; background: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(20,20,40,0.6) 20%, rgba(20,20,40,0.6) 80%, rgba(0,0,0,0) 100%);">
         <style>
-          .collage-gallery {
-            /* Fixes jumping column gaps */
-            -webkit-column-break-inside: avoid;
-            page-break-inside: avoid;
-            break-inside: avoid;
+          .sliding-track {
+            display: flex;
+            width: max-content;
+            animation: slideGallery 25s linear infinite;
           }
-          .collage-item {
-            display: inline-block;
-            width: 100%;
-            margin-bottom: 15px;
+          /* Pause on hover */
+          .sliding-gallery-wrapper:hover .sliding-track {
+            animation-play-state: paused;
+          }
+          @keyframes slideGallery {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+          }
+          .slide-item {
+            width: 150px;
+            height: 220px;
+            margin: 0 10px;
+            flex-shrink: 0;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
             border: 1px solid rgba(255,255,255,0.1);
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: rgba(30, 32, 50, 0.6);
+            cursor: pointer;
           }
-          .collage-item:hover {
-            transform: scale(1.03) translateY(-3px);
+          .slide-item:hover {
+            transform: scale(1.15) translateY(-5px);
             z-index: 15;
             position: relative;
-            box-shadow: 0 15px 30px rgba(82, 78, 230, 0.4);
+            box-shadow: 0 15px 30px rgba(82, 78, 230, 0.6);
+            border-color: rgba(255,255,255,0.4);
           }
-          .collage-item img {
+          .slide-item img {
             width: 100%;
-            height: auto;
-            display: block;
-            object-fit: contain;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
           }
         </style>
-        <div class="collage-item"><img src="./public/new_concept6.jpg" alt="Brand Concept"></div>
-        <div class="collage-item"><img src="./public/brand1.jpg" alt="Brand Concept"></div>
-        <div class="collage-item"><img src="./public/new_concept8.jpg" alt="Brand Concept"></div>
-        <div class="collage-item"><img src="./public/brand5.jpg" alt="Brand Concept"></div>
-        <div class="collage-item"><img src="./public/brand2.jpg" alt="Brand Concept"></div>
-        <div class="collage-item"><img src="./public/new_concept10.jpg" alt="Brand Concept"></div>
+        
+        <div class="sliding-track">
+          <!-- First set of images -->
+          <div class="slide-item"><img src="./public/new_concept6.jpg" alt="Gallery Concept"></div>
+          <div class="slide-item"><img src="./public/brand1.jpg" alt="Gallery Concept"></div>
+          <div class="slide-item"><img src="./public/new_concept8.jpg" alt="Gallery Concept"></div>
+          <div class="slide-item"><img src="./public/brand5.jpg" alt="Gallery Concept"></div>
+          <div class="slide-item"><img src="./public/brand2.jpg" alt="Gallery Concept"></div>
+          <div class="slide-item"><img src="./public/new_concept10.jpg" alt="Gallery Concept"></div>
+          
+          <!-- Exact duplicate set for infinite seamless looping -->
+          <div class="slide-item"><img src="./public/new_concept6.jpg" alt="Gallery Concept"></div>
+          <div class="slide-item"><img src="./public/brand1.jpg" alt="Gallery Concept"></div>
+          <div class="slide-item"><img src="./public/new_concept8.jpg" alt="Gallery Concept"></div>
+          <div class="slide-item"><img src="./public/brand5.jpg" alt="Gallery Concept"></div>
+          <div class="slide-item"><img src="./public/brand2.jpg" alt="Gallery Concept"></div>
+          <div class="slide-item"><img src="./public/new_concept10.jpg" alt="Gallery Concept"></div>
+        </div>
       </div>
 
       <div class="waitlist glow-waitlist" data-text="WAITLIST" style="margin-top: 50px; margin-bottom: 25px;">WAITLIST</div>
@@ -840,11 +863,11 @@
 
     <!-- New Text Section -->
     <div class="light-section-text-container" style="max-width: 1000px; margin: 0 auto; text-align: center; padding: 2rem 2rem 5rem 2rem; color: #1a1b41; position: relative; z-index: 10;">
-      <h2 style="font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; letter-spacing: 1px; line-height: 1.2; margin-bottom: 1.5rem; text-shadow: 0 4px 15px rgba(255,255,255,0.8);" class="gradient-text-animate">
+      <h2 style="font-family: var(--font-display); font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; letter-spacing: 0px; line-height: 1.1; margin-bottom: 1.5rem; text-shadow: 0 4px 15px rgba(255,255,255,0.8);" class="gradient-text-animate">
         <span style="color: var(--royal-blue); display: inline-block;" class="pop-in-sequence" style="--seq-delay: 0.1s;">FLUENT FAST:</span> <br>
         <span class="pop-in-sequence" style="--seq-delay: 0.3s; display: inline-block;">#1 LANGUAGE LAUNCHER</span>
       </h2>
-      <p class="pop-in-sequence" style="--seq-delay: 0.5s; font-size: clamp(1.2rem, 3vw, 1.5rem); font-weight: 500; color: #333; margin-bottom: 3rem; line-height: 1.6;">
+      <p class="pop-in-sequence" style="--seq-delay: 0.5s; font-size: clamp(1.4rem, 4vw, 1.8rem); font-weight: 600; color: #333; margin-bottom: 3rem; line-height: 1.6;">
         Having fun with friends. Learning with friends. Play together. Speak together.
       </p>
       
