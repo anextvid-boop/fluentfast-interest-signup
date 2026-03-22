@@ -453,14 +453,25 @@
       submitBtn.innerText = 'SENDING...';
       submitBtn.style.opacity = '0.7';
 
-      // Simulate high-fidelity submission
-      setTimeout(() => {
+      // Capture Form Data
+      const formData = new FormData(investorForm);
+
+      // Submit via FormSubmit (No backend required)
+      fetch('https://formsubmit.co/ajax/fluentfastkoalas@gmail.com', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json'
+        },
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
         submitBtn.innerText = '✓ SENT SUCCESSFULLY';
         submitBtn.style.background = 'var(--brand-light)';
         submitBtn.style.opacity = '1';
 
         setTimeout(() => {
-          alert('Thanks for joining the waitlist! We will be in touch soon.');
+          alert('Thanks for joining the waitlist! We will be in touch soon.\n\n(Note for founder: please check fluentfastkoalas@gmail.com to activate this form if this is your first submission.)');
 
           investorForm.reset();
 
@@ -476,7 +487,14 @@
           window.scrollTo({ top: 0, behavior: 'smooth' });
 
         }, 2000);
-      }, 1500);
+      })
+      .catch(error => {
+          console.error(error);
+          alert('Oops! There was a problem submitting your form. Please try again.');
+          submitBtn.disabled = false;
+          submitBtn.innerText = originalText;
+          submitBtn.style.opacity = '1';
+      });
     });
 
     // --- NEW PREMIUM UI FEATURES ---
