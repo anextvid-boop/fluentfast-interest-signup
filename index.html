@@ -13,23 +13,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
 
   <style>
-    /* DRASTICALLY NEW LAYOUT OVERRIDES */
-    .nav-alt {
-      width: 100%;
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 50;
-    }
 
-    .nav-alt .brand-text {
-      font-size: clamp(2rem, 5vw, 3rem);
-      margin: 0;
-    }
 
     .alt-layout {
       max-width: 1400px;
@@ -207,12 +191,12 @@
 <body>
   <div class="bg-gradient"></div>
 
-  <div class="nav-alt">
-    <div class="brand-text">
-      <span class="fluent">FLUENT</span><span class="fast">FAST</span>
-      <span class="koalas" style="font-size: 0.7em; color: var(--brand-light); margin-left: 8px;">KOALAS</span>
+  <header style="padding-top: 4rem;">
+    <div class="brand-text" style="display: flex; flex-direction: column; align-items: center;">
+      <div><span class="fluent">FLUENT</span><span class="fast">FAST</span></div>
+      <div class="koalas" style="font-size: 0.3em; letter-spacing: 8px; color: var(--brand-light); text-shadow: 0 0 10px rgba(89,86,214,0.3);">KOALAS</div>
     </div>
-  </div>
+  </header>
 
   <div class="container alt-layout">
     
@@ -224,9 +208,6 @@
         <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
           <button class="primary-cta-btn pulse-btn" onclick="document.getElementById('interestFormSection').scrollIntoView({behavior: 'smooth'})">
             JOIN THE WAITLIST
-          </button>
-          <button class="secondary-cta-btn pulse-btn" style="background: transparent; border: 2px solid var(--brand-light); color: white; border-radius: 100px; padding: 1.2rem 2rem; font-weight: bold; cursor: pointer; text-transform: uppercase;" onclick="document.getElementById('interestFormSection').scrollIntoView({behavior: 'smooth'})">
-            Sign up for 10 power phrases to launch you into a new language fast
           </button>
         </div>
       </div>
@@ -256,8 +237,8 @@
     <section class="inline-form-section hidden-reveal" id="interestFormSection">
       <div class="form-header">
         <img src="./public/koala_meditating.png" loading="lazy" class="koala-form-guide" alt="Koala meditating">
-        <h2>Join Waitlist</h2>
-        <p>Sign up to show your interest and get exclusive updates about our upcoming strategy courses and multiplayer app.</p>
+        <h2>Sign up for 10 power phrases</h2>
+        <p>to launch you into a new language fast.</p>
       </div>
 
       <form class="interest-form" id="investorForm">
@@ -308,14 +289,6 @@
       </form>
     </section>
 
-    <section class="feature-buttons-section hidden-reveal" style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 4rem;">
-      <h3 style="color: var(--brand-light); text-transform: uppercase; font-size: 1.5rem; margin-bottom: 1rem;">Coming Soon</h3>
-      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
-        <button class="tagline-pill" style="background: rgba(255,255,255,0.05); font-size: 1.1rem; cursor: default;">Speed Classes</button>
-        <button class="tagline-pill" style="background: rgba(255,255,255,0.05); font-size: 1.1rem; cursor: default;">Multiplayer App</button>
-        <button class="tagline-pill" style="background: rgba(255,255,255,0.05); font-size: 1.1rem; cursor: default;">Early Access</button>
-      </div>
-    </section>
 
     <div class="brand-gallery hidden-reveal" id="stackedGallery">
       <div class="gallery-item item-0"><img src="./public/brand2.jpg" loading="lazy" alt="Brand Visual 1"></div>
