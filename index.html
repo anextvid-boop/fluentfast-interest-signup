@@ -191,34 +191,52 @@
 <body>
   <div class="bg-gradient"></div>
 
-  <header style="padding-top: 6rem; padding-bottom: 2rem; width: 100%; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+    <img src="./public/media__1774174625088.png" style="position: absolute; top: 20px; right: 20px; height: 35px; z-index: 100;" alt="FluentFast Logo (Top Corner)">
+
     <div class="brand-text" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%;">
       <style>
-        @keyframes subtleFadeUp {
-          0% { opacity: 0; transform: translateY(20px); }
-          100% { opacity: 1; transform: translateY(0); }
+        @keyframes textShine {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        @keyframes pulseScale {
+          0% { transform: scale(1); }
+          50% { transform: scale(1.05); }
+          100% { transform: scale(1); }
+        }
+        .shiny-text {
+          background: linear-gradient(270deg, #5956d6, #00d4ff, #ff007a, #5956d6);
+          background-size: 200% 200%;
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: textShine 3s ease infinite, pulseScale 3s ease-in-out infinite;
         }
         .fluent-fast-container {
           margin-bottom: 5px;
           display: flex;
-          flex-direction: column;
+          flex-direction: row;
           align-items: center;
           justify-content: center;
           width: 100%;
           text-align: center;
+          gap: clamp(10px, 3vw, 30px);
         }
       </style>
       
       <div class="fluent-fast-container">
-        <span class="fluent" style="font-size: clamp(5rem, 25vw, 15rem); line-height: 0.85; width: 100%; text-align: center; font-weight: 900; animation: subtleFadeUp 1s ease-out forwards;">FLUENT</span>
-        <span class="fast" style="font-size: clamp(5rem, 25vw, 15rem); line-height: 0.85; width: 100%; text-align: center; font-weight: 900; letter-spacing: clamp(10px, 8vw, 65px); margin-left: clamp(10px, 8vw, 65px); animation: subtleFadeUp 1.2s ease-out forwards;">FAST</span>
+        <span class="shiny-text" style="font-size: clamp(3rem, 14vw, 8rem); line-height: 0.85; font-weight: 900;">FLUENT</span>
+        <span class="shiny-text" style="font-size: clamp(3rem, 14vw, 8rem); line-height: 0.85; font-weight: 900;">FAST</span>
       </div>
       
-      <div class="koalas" style="font-size: clamp(2rem, 10vw, 4rem); letter-spacing: clamp(5px, 3vw, 20px); color: #C4C2FF; text-shadow: 0 0 15px rgba(89,86,214,0.4); font-weight: 800; text-transform: uppercase; margin-top: 15px; margin-bottom: 25px; animation: subtleFadeUp 1.4s ease-out forwards;">KOALAS</div>
+      <div class="koalas" style="font-size: clamp(2rem, 8vw, 4rem); letter-spacing: clamp(5px, 3vw, 15px); color: #C4C2FF; text-shadow: 0 0 15px rgba(89,86,214,0.4); font-weight: 800; text-transform: uppercase; margin-top: 15px; margin-bottom: 25px; animation: koalaPulse 4s ease-in-out infinite;">KOALAS</div>
       
-      <img src="./public/media__1774174625088.png" style="height: 100px; margin-bottom: 25px; animation: subtleFadeUp 1.6s ease-out forwards; object-fit: contain;" alt="FluentFast Logo">
+      <div style="margin-bottom: 25px;">
+        <img src="./public/media__1774174625139.png" style="height: 60px; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));" alt="Decoration">
+      </div>
       
-      <div class="waitlist-basic" style="font-size: clamp(3.5rem, 18vw, 10rem); font-family: var(--font-display); font-weight: 900; letter-spacing: clamp(5px, 2.5vw, 15px); text-transform: uppercase; color: #fff; animation: subtleFadeUp 1.8s ease-out forwards;">
+      <div class="waitlist-basic" style="font-size: clamp(3.5rem, 15vw, 9rem); font-family: var(--font-display); font-weight: 900; letter-spacing: clamp(5px, 2.5vw, 15px); text-transform: uppercase; color: #fff;">
         WAITLIST
       </div>
     </div>
@@ -231,63 +249,68 @@
       <img src="./public/media__1774174625139.png" style="max-width: 700px; width: 100vw; opacity: 1; display: block;" alt="Bunch of Koalas Language Group">
     </div>
 
-    <!-- Interest Registration Form -->
+    <!-- Interest Registration Form (Expandable Box) -->
     <section class="inline-form-section hidden-reveal" id="interestFormSection" style="margin-top: 0; background: rgba(15, 18, 37, 0.5); backdrop-filter: blur(8px);">
-      <div class="form-header">
-        <h2 style="position: relative; z-index: 2;">Sign up for 10 power phrases</h2>
-        <p style="position: relative; z-index: 2;">to launch you into a new language fast.</p>
-      </div>
+      <details class="expandable-form-box" style="border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 1rem; cursor: pointer; transition: all 0.3s ease; position: relative; z-index: 10;">
+        <summary style="font-weight: 800; font-size: clamp(1.2rem, 4vw, 1.8rem); outline: none; list-style: none; text-align: center; color: #fff; padding: 0.5rem; user-select: none;">
+          Sign up for 10 power phrases <span style="font-size: 0.8em; margin-left: 10px;">▼</span>
+        </summary>
+        
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 1rem; padding-top: 1.5rem;">
+          <p style="text-align: center; margin-bottom: 2rem; color: #ccc;">to launch you into a new language fast.</p>
 
-      <form class="interest-form" id="investorForm">
-        <div class="form-group">
-          <label for="name">Full Name</label>
-          <input type="text" id="name" name="name" placeholder="John Doe" required>
+          <form class="interest-form" id="investorForm" style="cursor: default;">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="John Doe" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="john@example.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+44 7000 000000" required>
+            </div>
+
+            <div class="form-group">
+              <label for="contact">Best way to contact</label>
+              <select id="contact" name="contact" required>
+                <option value="" disabled selected>Select method</option>
+                <option value="email">Email</option>
+                <option value="phone">Phone Call</option>
+                <option value="whatsapp">WhatsApp</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="location">Where you from?</label>
+              <input type="text" id="location" name="location" placeholder="City, Country" required>
+            </div>
+
+            <div class="form-group" style="display: none;">
+              <label for="amount">Investment Tier</label>
+              <select id="amount" name="amount" required>
+                <option value="waitlist" selected>Waitlist</option>
+              </select>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="background">What languages are you learning? (Optional)</label>
+              <textarea id="background" name="background" rows="3"
+                placeholder="Tell us about your language goals or what interests you about FluentFast..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-button primary-cta-btn" style="width: 100%; border-radius: 12px; margin-top: 1rem;">COMPLETE SIGNUP</button>
+          </form>
         </div>
-
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="john@example.com" required>
-        </div>
-
-        <div class="form-group">
-          <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="phone" placeholder="+44 7000 000000" required>
-        </div>
-
-        <div class="form-group">
-          <label for="contact">Best way to contact</label>
-          <select id="contact" name="contact" required>
-            <option value="" disabled selected>Select method</option>
-            <option value="email">Email</option>
-            <option value="phone">Phone Call</option>
-            <option value="whatsapp">WhatsApp</option>
-          </select>
-        </div>
-
-        <div class="form-group">
-          <label for="location">Where you from?</label>
-          <input type="text" id="location" name="location" placeholder="City, Country" required>
-        </div>
-
-        <div class="form-group" style="display: none;">
-          <label for="amount">Investment Tier</label>
-          <select id="amount" name="amount" required>
-            <option value="waitlist" selected>Waitlist</option>
-          </select>
-        </div>
-
-        <div class="form-group full-width">
-          <label for="background">What languages are you learning? (Optional)</label>
-          <textarea id="background" name="background" rows="3"
-            placeholder="Tell us about your language goals or what interests you about FluentFast..."></textarea>
-        </div>
-
-        <button type="submit" class="submit-button primary-cta-btn" style="width: 100%; border-radius: 12px;">COMPLETE SIGNUP</button>
-      </form>
+      </details>
     </section>
 
     <!-- Details At The End -->
-    <section class="hero-split hidden-reveal" style="margin-top: 4rem; text-align: center; flex-direction: column; align-items: center;">
+    <section class="hero-split hidden-reveal" style="margin-top: 2rem; text-align: center; flex-direction: column; align-items: center;">
       <div class="hero-text-block" style="display: flex; flex-direction: column; align-items: center; padding: 0;">
         <div class="tagline-pill">PLAY. LEARN. SPEAK. TOGETHER.</div>
         <h1 class="hero-huge-title" style="font-size: clamp(2rem, 5vw, 4rem);">Are you interested in learning a new language?</h1>
