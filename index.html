@@ -194,38 +194,31 @@
   <header style="padding-top: 6rem; padding-bottom: 2rem; width: 100%; overflow: hidden; display: flex; justify-content: center; align-items: center;">
     <div class="brand-text" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%;">
       <style>
-        @keyframes fluentSlideIn {
-          0% { transform: translateX(-50px) scale(0.95); opacity: 0; }
-          100% { transform: translateX(0) scale(1); opacity: 1; }
-        }
-        @keyframes fastSlideIn {
-          0% { transform: translateX(50px) scale(0.95); opacity: 0; }
-          100% { transform: translateX(0) scale(1); opacity: 1; }
+        @keyframes subtleFadeUp {
+          0% { opacity: 0; transform: translateY(20px); }
+          100% { opacity: 1; transform: translateY(0); }
         }
         .fluent-fast-container {
-          font-size: clamp(4rem, 25vw, 20rem);
-          line-height: 0.8;
-          margin-bottom: 20px;
+          margin-bottom: 5px;
           display: flex;
           flex-direction: column;
-          width: 100vw;
-          box-sizing: border-box;
-          overflow: hidden;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          text-align: center;
         }
       </style>
+      
       <div class="fluent-fast-container">
-        <span class="fluent" style="display: block; width: 100%; text-align: left; padding-left: 4vw; white-space: nowrap; font-weight: 900; animation: fluentSlideIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;">FLUENT</span>
-        <span class="fast" style="display: block; width: 100%; text-align: right; padding-right: 4vw; white-space: nowrap; font-weight: 900; animation: fastSlideIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; margin-top: -5px;">FAST</span>
+        <span class="fluent" style="font-size: clamp(5rem, 25vw, 15rem); line-height: 0.85; width: 100%; text-align: center; font-weight: 900; animation: subtleFadeUp 1s ease-out forwards;">FLUENT</span>
+        <span class="fast" style="font-size: clamp(5rem, 25vw, 15rem); line-height: 0.85; width: 100%; text-align: center; font-weight: 900; letter-spacing: clamp(10px, 8vw, 65px); margin-left: clamp(10px, 8vw, 65px); animation: subtleFadeUp 1.2s ease-out forwards;">FAST</span>
       </div>
-      <div class="koalas" style="font-size: clamp(4rem, 20vw, 12rem); letter-spacing: clamp(10px, 4vw, 35px); color: var(--brand-light); text-shadow: 0 0 25px rgba(89,86,214,0.7); font-weight: 900; text-transform: uppercase; animation: koalaPulse 4s ease-in-out infinite;">KOALAS</div>
-      <style>
-        @keyframes koalaPulse {
-          0% { transform: scale(1); text-shadow: 0 0 25px rgba(89,86,214,0.7); }
-          50% { transform: scale(1.05); text-shadow: 0 0 45px rgba(89,86,214,1); }
-          100% { transform: scale(1); text-shadow: 0 0 25px rgba(89,86,214,0.7); }
-        }
-      </style>
-      <div class="waitlist-basic" style="font-size: clamp(3.5rem, 18vw, 10rem); margin-top: 2rem; font-family: var(--font-display); font-weight: 900; letter-spacing: clamp(5px, 2.5vw, 15px); text-transform: uppercase; color: #fff;">
+      
+      <div class="koalas" style="font-size: clamp(2rem, 10vw, 4rem); letter-spacing: clamp(5px, 3vw, 20px); color: #C4C2FF; text-shadow: 0 0 15px rgba(89,86,214,0.4); font-weight: 800; text-transform: uppercase; margin-top: 15px; margin-bottom: 25px; animation: subtleFadeUp 1.4s ease-out forwards;">KOALAS</div>
+      
+      <img src="./public/media__1774174625119.png" style="height: 80px; margin-bottom: 25px; animation: subtleFadeUp 1.6s ease-out forwards;" alt="FluentFast Logo">
+      
+      <div class="waitlist-basic" style="font-size: clamp(3.5rem, 18vw, 10rem); font-family: var(--font-display); font-weight: 900; letter-spacing: clamp(5px, 2.5vw, 15px); text-transform: uppercase; color: #fff; animation: subtleFadeUp 1.8s ease-out forwards;">
         WAITLIST
       </div>
     </div>
