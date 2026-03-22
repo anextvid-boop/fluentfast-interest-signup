@@ -413,26 +413,11 @@
       </h1>
       
       <div class="koalas glow-koalas" data-text="KOALAS" style="position: relative; z-index: 5;">KOALAS</div>
-      <!-- Dynamic Top Collection Gallery (Moves Opposite Direction) -->
-      <div style="width: 100vw; overflow: hidden; margin-top: 15px; margin-bottom: 5px; margin-left: calc(-50vw + 50%); position: relative; z-index: 10;">
-        <div class="marquee-gallery gallery-rev" style="display: inline-flex; gap: 1rem; position: relative;">
-          <div class="gallery-card" style="height: 160px; min-width: 160px;"><img src="./public/new_concept8.jpg" style="height: 100%; width: 100%; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));" alt="Concept"></div>
-          <div class="gallery-card" style="height: 160px; min-width: 160px;"><img src="./public/brand1.jpg" style="height: 100%; width: 100%; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));" alt="Concept"></div>
-          <div class="gallery-card" style="height: 160px; min-width: 160px;"><img src="./public/new_concept6.jpg" style="height: 100%; width: 100%; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));" alt="Concept"></div>
-          <div class="gallery-card" style="height: 160px; min-width: 160px;"><img src="./public/brand3.jpg" style="height: 100%; width: 100%; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));" alt="Concept"></div>
-          <div class="gallery-card" style="height: 160px; min-width: 160px;"><img src="./public/brand5.jpg" style="height: 100%; width: 100%; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));" alt="Concept"></div>
-          <div class="gallery-card" style="height: 160px; min-width: 160px;"><img src="./public/brand2.jpg" style="height: 100%; width: 100%; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));" alt="Concept"></div>
-          <div class="gallery-card" style="height: 160px; min-width: 160px;"><img src="./public/new_concept10.jpg" style="height: 100%; width: 100%; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));" alt="Concept"></div>
-          
-          <!-- Doubled Loop for seamless scrolling -->
-          <div class="gallery-card" style="height: 160px; min-width: 160px;"><img src="./public/new_concept8.jpg" style="height: 100%; width: 100%; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));" alt="Concept"></div>
-          <div class="gallery-card" style="height: 160px; min-width: 160px;"><img src="./public/brand1.jpg" style="height: 100%; width: 100%; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));" alt="Concept"></div>
-          <div class="gallery-card" style="height: 160px; min-width: 160px;"><img src="./public/new_concept6.jpg" style="height: 100%; width: 100%; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));" alt="Concept"></div>
-          <div class="gallery-card" style="height: 160px; min-width: 160px;"><img src="./public/brand3.jpg" style="height: 100%; width: 100%; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));" alt="Concept"></div>
-          <div class="gallery-card" style="height: 160px; min-width: 160px;"><img src="./public/brand5.jpg" style="height: 100%; width: 100%; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));" alt="Concept"></div>
-          <div class="gallery-card" style="height: 160px; min-width: 160px;"><img src="./public/brand2.jpg" style="height: 100%; width: 100%; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));" alt="Concept"></div>
-          <div class="gallery-card" style="height: 160px; min-width: 160px;"><img src="./public/new_concept10.jpg" style="height: 100%; width: 100%; object-fit: cover; border-radius: 12px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));" alt="Concept"></div>
-        </div>
+      <!-- Dynamic Top Collection Gallery (Overlapping Cards Fan Variant) -->
+      <div style="display: flex; justify-content: center; align-items: center; height: 260px; position: relative; perspective: 1000px; margin-top: 30px; margin-bottom: 25px; z-index: 10;">
+        <img src="./public/brand1.jpg" style="position: absolute; height: 180px; width: auto; object-fit: cover; border-radius: 12px; transform: translateX(-110px) rotate(-12deg); filter: drop-shadow(0 10px 20px rgba(0,0,0,0.6)); opacity: 0.9; z-index: 1;" alt="Concept">
+        <img src="./public/brand5.jpg" style="position: absolute; height: 180px; width: auto; object-fit: cover; border-radius: 12px; transform: translateX(110px) rotate(12deg); filter: drop-shadow(0 10px 20px rgba(0,0,0,0.6)); opacity: 0.9; z-index: 1;" alt="Concept">
+        <img src="./public/new_concept8.jpg" style="position: absolute; height: 220px; width: auto; object-fit: cover; border-radius: 15px; transform: translateZ(30px); filter: drop-shadow(0 20px 40px rgba(0,0,0,0.8)); z-index: 3;" alt="Concept">
       </div>
 
       <div class="waitlist glow-waitlist" data-text="WAITLIST">WAITLIST</div>
@@ -442,8 +427,8 @@
   <div class="container alt-layout" style="padding-top: 1rem; position: relative;">
     
     <!-- Centerpiece High-Res Koala -->
-    <div style="display: flex; justify-content: center; width: 100%; position: relative; z-index: 12; margin-bottom: -50px; transform: translateY(15px);">
-      <img src="./public/media__1774174625160.png" style="max-height: 480px; width: auto; max-width: 95vw; opacity: 1; display: block; filter: drop-shadow(0px 15px 30px rgba(0, 0, 0, 0.4)); object-fit: contain; object-position: bottom;" alt="FluentFast Hero Koala">
+    <div style="display: flex; justify-content: center; width: 100%; position: relative; z-index: 12; margin-bottom: -15px;">
+      <img src="./public/media__1774174625160.png" style="max-height: 240px; width: auto; max-width: 95vw; opacity: 1; display: block; filter: drop-shadow(0px 15px 30px rgba(0, 0, 0, 0.4)); animation: floatUpAndDown 4s ease-in-out infinite; object-fit: contain; object-position: bottom;" alt="FluentFast Hero Koala">
     </div>
 
     <!-- Interest Registration Form (Expandable Box) -->
@@ -580,8 +565,8 @@
     </section>
 
     <!-- Under Form transparent koala image -->
-    <div style="display: flex; justify-content: center; margin-top: 2rem; position: relative; z-index: 5;">
-      <img src="./public/media_hero_koala_2.png" style="max-height: 300px; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.5));" alt="Waitlist Koala">
+    <div style="display: flex; justify-content: center; margin-top: 4rem; margin-bottom: -4rem; position: relative; z-index: 5;">
+      <img src="./public/media_hero_koala_2.png" style="max-height: 360px; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.5));" alt="Waitlist Koala">
     </div>
   </div> <!-- Close original alt-layout -->
 
