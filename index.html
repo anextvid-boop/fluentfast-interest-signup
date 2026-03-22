@@ -191,50 +191,18 @@
 <body>
   <div class="bg-gradient"></div>
 
-  <header style="padding-top: 4rem;">
-    <div class="brand-text" style="display: flex; flex-direction: column; align-items: center;">
-      <div><span class="fluent">FLUENT</span><span class="fast">FAST</span></div>
-      <div class="koalas" style="font-size: 0.3em; letter-spacing: 8px; color: var(--brand-light); text-shadow: 0 0 10px rgba(89,86,214,0.3);">KOALAS</div>
+  <header style="padding-top: 6rem; padding-bottom: 2rem;">
+    <div class="brand-text" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <div style="font-size: clamp(4rem, 12vw, 9rem); line-height: 0.9; margin-bottom: 5px;"><span class="fluent">FLUENT</span><span class="fast">FAST</span></div>
+      <div class="koalas" style="font-size: clamp(1.2rem, 4vw, 3rem); letter-spacing: clamp(8px, 2vw, 15px); color: var(--brand-light); text-shadow: 0 0 15px rgba(89,86,214,0.5); font-weight: 800; margin-left: clamp(8px, 2vw, 15px);">KOALAS</div>
+      <div style="font-size: clamp(3rem, 10vw, 7rem); color: white; margin-top: 2.5rem; font-family: var(--font-display); font-weight: 900; letter-spacing: 12px; text-shadow: 0 10px 30px rgba(0,0,0,0.8); margin-left: 12px;">WAITLIST</div>
     </div>
   </header>
 
-  <div class="container alt-layout">
+  <div class="container alt-layout" style="padding-top: 2rem;">
     
-    <section class="hero-split hidden-reveal">
-      <div class="hero-text-block">
-        <div class="tagline-pill">PLAY. LEARN. SPEAK. TOGETHER.</div>
-        <h1 class="hero-huge-title">Are you interested in learning a new language?</h1>
-        <p class="hero-lead">Are you interested in learning a new language faster? We're going to run through a different type of course on how you can be learning languages a lot more efficiently.</p>
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-          <button class="primary-cta-btn pulse-btn" onclick="document.getElementById('interestFormSection').scrollIntoView({behavior: 'smooth'})">
-            JOIN THE WAITLIST
-          </button>
-        </div>
-      </div>
-      <div class="hero-visual-block" style="min-height: 350px;">
-        <div id="hero-lottie" class="header-lottie-koala floating" style="width: 350px; height: 350px; top: 0; position: relative;"></div>
-      </div>
-    </section>
-
-    <section class="info-grid-section">
-      <div class="info-card hidden-reveal">
-        <div class="theme-box theme-learn">THE STRATEGY</div>
-        <p>Using different types of techniques, it's a lot less about the language itself, and more about the strategy behind how you're going to be able to learn the language as quick as humanly possible.</p>
-      </div>
-      
-      <div class="info-card hidden-reveal" style="transition-delay: 0.1s;">
-        <div class="theme-box theme-fast">SOCIAL & APP</div>
-        <p>You can learn with friends, you can learn with family. There's going to be a supportive app that's going to be developed and everything in between.</p>
-      </div>
-
-      <div class="info-card hidden-reveal" style="transition-delay: 0.2s;">
-        <div class="theme-box theme-ultimate">THE WAITLIST</div>
-        <p>Right now this is just a waitlist to see who actually wants to go at FluentFast to learn a language. Maybe you want to learn some Spanish, or French, or something similar. Well, this is going to help you.</p>
-      </div>
-    </section>
-
-    <!-- Interest Registration Form (Fully Visible) -->
-    <section class="inline-form-section hidden-reveal" id="interestFormSection">
+    <!-- Interest Registration Form Moved to Top -->
+    <section class="inline-form-section hidden-reveal" id="interestFormSection" style="margin-top: 0;">
       <div class="form-header">
         <img src="./public/koala_meditating.png" loading="lazy" class="koala-form-guide" alt="Koala meditating">
         <h2>Sign up for 10 power phrases</h2>
@@ -287,6 +255,35 @@
 
         <button type="submit" class="submit-button primary-cta-btn" style="width: 100%; border-radius: 12px;">COMPLETE SIGNUP</button>
       </form>
+    </section>
+
+    <!-- Details At The End -->
+    <section class="hero-split hidden-reveal" style="margin-top: 4rem; text-align: center; flex-direction: column; align-items: center;">
+      <div class="hero-text-block" style="display: flex; flex-direction: column; align-items: center; padding: 0;">
+        <div class="tagline-pill">PLAY. LEARN. SPEAK. TOGETHER.</div>
+        <h1 class="hero-huge-title" style="font-size: clamp(2rem, 5vw, 4rem);">Are you interested in learning a new language?</h1>
+        <p class="hero-lead" style="margin: 0 auto; margin-top: 1rem;">Are you interested in learning a new language faster? We're going to run through a different type of course on how you can be learning languages a lot more efficiently.</p>
+      </div>
+      <div class="hero-visual-block" style="min-height: 250px;">
+        <div id="hero-lottie" class="header-lottie-koala floating" style="width: 250px; height: 250px; top: 0; position: relative;"></div>
+      </div>
+    </section>
+
+    <section class="info-grid-section">
+      <div class="info-card hidden-reveal">
+        <div class="theme-box theme-learn">THE STRATEGY</div>
+        <p>Using different types of techniques, it's a lot less about the language itself, and more about the strategy behind how you're going to be able to learn the language as quick as humanly possible.</p>
+      </div>
+      
+      <div class="info-card hidden-reveal" style="transition-delay: 0.1s;">
+        <div class="theme-box theme-fast">SOCIAL & APP</div>
+        <p>You can learn with friends, you can learn with family. There's going to be a supportive app that's going to be developed and everything in between.</p>
+      </div>
+
+      <div class="info-card hidden-reveal" style="transition-delay: 0.2s;">
+        <div class="theme-box theme-ultimate">THE WAITLIST</div>
+        <p>Right now this is just a waitlist to see who actually wants to go at FluentFast to learn a language. Maybe you want to learn some Spanish, or French, or something similar. Well, this is going to help you.</p>
+      </div>
     </section>
 
 
