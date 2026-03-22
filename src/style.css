@@ -123,8 +123,9 @@ footer {
 /* koala-footer styling removed */
 
 .koala-form-guide {
-  width: clamp(250px, 80vw, 480px);
-  margin: 0 auto 2rem;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
   display: block;
 }
 
