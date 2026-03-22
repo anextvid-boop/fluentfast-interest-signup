@@ -123,10 +123,9 @@ footer {
 /* koala-footer styling removed */
 
 .koala-form-guide {
-  width: 120px;
-  margin: 0 auto 1rem;
+  width: clamp(250px, 80vw, 480px);
+  margin: 0 auto 2rem;
   display: block;
-  animation: floating 4s infinite ease-in-out;
 }
 
 .brand-header {
