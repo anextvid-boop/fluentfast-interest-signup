@@ -9,147 +9,250 @@
   <link rel="preload" href="./Koalas_flying.json" as="fetch" type="application/json" crossorigin="anonymous" />
   <link rel="preload" href="./public/brand3.jpg" as="image" fetchpriority="high" />
   
-  <link rel="stylesheet" href="./src/style.css?v=3" />
+  <link rel="stylesheet" href="./src/style.css?v=4" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+
+  <style>
+    /* DRASTICALLY NEW LAYOUT OVERRIDES */
+    .nav-alt {
+      width: 100%;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 50;
+    }
+
+    .nav-alt .brand-text {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin: 0;
+    }
+
+    .alt-layout {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 8rem 2rem 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6rem;
+    }
+
+    .hero-split {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    @media (min-width: 900px) {
+      .hero-split {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+      }
+      .hero-text-block {
+        flex: 1;
+        padding-right: 2rem;
+      }
+      .hero-visual-block {
+        flex: 1;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .tagline-pill {
+      display: inline-block;
+      background: rgba(89, 86, 214, 0.2);
+      color: var(--brand-light);
+      border: 1px solid var(--brand-light);
+      padding: 0.4rem 1.2rem;
+      border-radius: 100px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      font-family: var(--font-display);
+    }
+
+    .hero-huge-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    }
+
+    .hero-lead {
+      font-size: 1.3rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+      font-weight: 400;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+    }
+
+    .hero-visual-block .curved-hero-img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 30px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 40px rgba(89, 86, 214, 0.4);
+      object-fit: cover;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .hero-visual-block .header-lottie-koala {
+      position: absolute;
+      top: -100px;
+      right: 0;
+      width: 250px;
+      height: 250px;
+      z-index: 10;
+    }
+
+    .primary-cta-btn {
+      background: linear-gradient(135deg, var(--royal-blue), #8e8cf6);
+      color: #fff;
+      border: none;
+      padding: 1.2rem 3rem;
+      border-radius: 100px;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(89, 86, 214, 0.5);
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+    }
+
+    .primary-cta-btn:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(89, 86, 214, 0.8);
+    }
+
+    .info-grid-section {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .info-grid-section {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .info-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      transition: transform 0.3s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .info-card p {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+      margin-top: 1rem;
+    }
+
+    .inline-form-section {
+      background: var(--card-bg);
+      border-radius: 30px;
+      padding: 3rem;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    @media (max-width: 600px) {
+      .inline-form-section {
+        padding: 2rem 1.5rem;
+      }
+      .nav-alt {
+        justify-content: center;
+      }
+      .hero-visual-block .header-lottie-koala {
+        position: relative;
+        top: 0;
+        margin-bottom: -50px;
+        width: 150px;
+        height: 150px;
+      }
+    }
+  </style>
 </head>
 
 <body>
   <div class="bg-gradient"></div>
 
-  <div class="container">
-    <header style="position: relative;">
-      <div class="brand-header">
-        <div id="hero-lottie" class="header-lottie-koala floating">
-          <!-- Lottie injects SVG here natively -->
-        </div>
-        <div class="brand-text">
-          <span class="fluent">FLUENT</span><span class="fast">FAST</span>
-        </div>
-        <div class="brand-tagline">
-          <span class="inv-char">W</span><span class="inv-char">A</span><span class="inv-char">I</span><span
-            class="inv-char">T</span><span class="inv-char">L</span><span class="inv-char">I</span><span
-            class="inv-char">S</span><span class="inv-char">T</span>
-        </div>
-        <div class="brand-motivation">"YOU GOT THIS, YOU UNIT"</div>
-
-        <div class="hero-brand-image">
-          <img src="./public/brand3.jpg" fetchpriority="high" alt="Brand visual" class="center-image">
-        </div>
-      </div>
-
-      <h1 class="title-animated">
-        <span class="word-group">PLAY.</span>
-        <span class="word-group">LEARN.</span>
-        <span class="word-group">SPEAK.</span>
-        <span class="word-group">TOGETHER.</span>
-      </h1>
-
-
-    </header>
-
-    <!-- Action Buttons Container -->
-    <div class="action-buttons-container">
-      <button class="form-loader-btn" id="togglePitch">
-        <span>Learn More</span>
-        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-          stroke-linecap="round" stroke-linejoin="round">
-          <line x1="12" y1="5" x2="12" y2="19"></line>
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-        </svg>
-      </button>
-
-      <button class="form-loader-btn" id="toggleInterest">
-        <span>Join Waitlist</span>
-        <svg class="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-          stroke-linecap="round" stroke-linejoin="round">
-          <line x1="12" y1="5" x2="12" y2="19"></line>
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-        </svg>
-      </button>
+  <div class="nav-alt">
+    <div class="brand-text">
+      <span class="fluent">FLUENT</span><span class="fast">FAST</span>
     </div>
+  </div>
 
-    <!-- Expanded Pitch Details -->
-    <section class="form-section" id="pitchBox">
-      <div class="message-section intro-visible">
-        <p>
-          <strong>FluentFast</strong><br>
-          The Future of Language Learning.<br>
-          <br>
-          We are redefining how people learn languages. Join the waitlist to be part of our early community.<br>
-          <br>
-          Get access to exclusive speed learning classes, explore efficient learning strategies, and be the first to experience our upcoming multiplayer language app.
-        </p>
+  <div class="container alt-layout">
+    
+    <section class="hero-split hidden-reveal">
+      <div class="hero-text-block">
+        <div class="tagline-pill">WAITLIST</div>
+        <h1 class="hero-huge-title">Are you interested in learning a new language?</h1>
+        <p class="hero-lead">Are you interested in learning a new language faster? We're going to run through a different type of course on how you can be learning languages a lot more efficiently.</p>
+        <button class="primary-cta-btn pulse-btn" onclick="document.getElementById('interestFormSection').scrollIntoView({behavior: 'smooth'})">
+          JOIN THE WAITLIST
+        </button>
       </div>
-
-      <div class="message-section accordion">
-        <div class="accordion-header">
-          <h3>Speed Learning Classes</h3>
-          <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </div>
-        <div class="accordion-content">
-          <p style="margin-bottom: 0.8rem;">Discover powerful strategies to accelerate language acquisition.</p>
-          <p style="margin-bottom: 0.8rem;">We explore cognitive techniques and meta-learning principles to help you absorb information faster and more effectively.</p>
-          <p>Stop wasting time on slow methods and unlock your true learning potential.</p>
-        </div>
+      <div class="hero-visual-block">
+        <div id="hero-lottie" class="header-lottie-koala floating"></div>
+        <img src="./public/brand3.jpg" fetchpriority="high" alt="Brand visual" class="curved-hero-img floating" style="animation-delay: 1.5s;">
       </div>
-
-      <div class="message-section accordion">
-        <div class="accordion-header">
-          <h3>The Multiplayer App</h3>
-          <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </div>
-        <div class="accordion-content">
-          <p style="margin-bottom: 0.8rem;">A multiplayer language learning app coming soon.</p>
-          <p style="margin-bottom: 0.8rem;">Encouraging, fun, and built to play with friends.</p>
-          <p style="margin-bottom: 1.5rem;">Aiming to create a rich, immersive language learning environment through peer-to-peer interactions.</p>
-
-          <p style="margin-bottom: 0.8rem;">Immersion is the best form of learning... but what if you can't travel?</p>
-          <p style="margin-bottom: 1.5rem;">This app brings the immersive experience directly to you.</p>
-
-          <p style="margin-bottom: 0.8rem;">When learning with friends, you practice with friends... Learning
-            <strong>fluent faster</strong> together.</p>
-        </div>
-      </div>
-
-      <div class="message-section isolate-quote accordion">
-        <div class="accordion-header">
-          <h3>Join the Waitlist</h3>
-          <svg class="accordion-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-            stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="6 9 12 15 18 9"></polyline>
-          </svg>
-        </div>
-        <div class="accordion-content">
-          <div
-            style="font-size: 0.95rem; margin-top: 0.5rem; color: #ffffff; background: rgba(255, 255, 255, 0.08); padding: 1rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); line-height: 1.6; text-align: left;">
-            <p style="margin-bottom: 0.75rem;">We want to see who is supportive of the project before it fully launches.</p>
-            <p style="margin-bottom: 0.75rem;">By signing up, you will get updates for what is different and what's going to be happening in the future leading forward.</p>
-            <p style="margin-bottom: 0;">Try the form below to register your interest and join the waiting list!</p>
-          </div>
-        </div>
-      </div>
-
-      <button class="fast-close-btn" id="fastClosePitch">
-        CLOSE DETAILS
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
-          stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="18 15 12 9 6 15"></polyline>
-        </svg>
-      </button>
     </section>
 
-    <!-- Interest Registration Form -->
-    <section class="form-section" id="interestFormSection">
+    <section class="info-grid-section">
+      <div class="info-card hidden-reveal">
+        <div class="theme-box theme-learn">THE STRATEGY</div>
+        <p>Using different types of techniques, it's a lot less about the language itself, and more about the strategy behind how you're going to be able to learn the language as quick as humanly possible.</p>
+      </div>
+      
+      <div class="info-card hidden-reveal" style="transition-delay: 0.1s;">
+        <div class="theme-box theme-fast">SOCIAL & APP</div>
+        <p>You can learn with friends, you can learn with family. There's going to be a supportive app that's going to be developed and everything in between.</p>
+      </div>
+
+      <div class="info-card hidden-reveal" style="transition-delay: 0.2s;">
+        <div class="theme-box theme-ultimate">THE WAITLIST</div>
+        <p>Right now this is just a waitlist to see who actually wants to go at FluentFast to learn a language. Maybe you want to learn some Spanish, or French, or something similar. Well, this is going to help you.</p>
+      </div>
+    </section>
+
+    <!-- Interest Registration Form (Fully Visible) -->
+    <section class="inline-form-section hidden-reveal" id="interestFormSection">
       <div class="form-header">
         <img src="./public/koala_meditating.png" loading="lazy" class="koala-form-guide" alt="Koala meditating">
         <h2>Join Waitlist</h2>
-        <p>Sign up to show your support and get exclusive updates about our speed learning classes and the multiplayer app launch.</p>
+        <p>Sign up to show your interest and get exclusive updates about our upcoming strategy courses and multiplayer app.</p>
       </div>
 
       <form class="interest-form" id="investorForm">
@@ -196,137 +299,30 @@
             placeholder="Tell us about your language goals or what interests you about FluentFast..."></textarea>
         </div>
 
-        <button type="submit" class="submit-button">Join Waitlist</button>
+        <button type="submit" class="submit-button primary-cta-btn" style="width: 100%; border-radius: 12px;">COMPLETE SIGNUP</button>
       </form>
     </section>
 
-    <div class="tiers-container">
-      <!-- Classes Tier -->
-      <div class="tier-card" id="tierClasses">
-        <div class="tier-name">Speed Classes</div>
-        <div class="tier-price" style="font-size: 2.2rem;">COMING SOON</div>
-
-        <button class="tier-expand-btn">
-          <span>DETAILS</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6 9l6 6 6-6" />
-          </svg>
-        </button>
-
-        <div class="tier-details">
-          <div class="theme-box theme-learn">ACCELERATED LEARNING</div>
-          <ul class="execution-list">
-            <li>Learn speed language acquisition strategies.</li>
-            <li>Master cognitive techniques and mnemonics.</li>
-            <li>Stop wasting time and learn efficiently.</li>
-          </ul>
-        </div>
-
-        <button class="invest-button pulse-btn" onclick="document.getElementById('toggleInterest').click()">JOIN WAITLIST</button>
-      </div>
-
-      <!-- App Tier -->
-      <div class="tier-card" id="tierApp">
-        <div class="tier-name">Multiplayer App</div>
-        <div class="tier-price" style="font-size: 2.2rem;">IN DEVELOPMENT</div>
-
-        <button class="tier-expand-btn">
-          <span>DETAILS</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6 9l6 6 6-6" />
-          </svg>
-        </button>
-
-        <div class="tier-details">
-          <div class="theme-box theme-fast">PLAY & LEARN</div>
-          <ul class="execution-list">
-            <li>A fun, encouraging environment.</li>
-            <li>Immersive peer-to-peer gameplay.</li>
-            <li>Practice and become fluent faster together.</li>
-          </ul>
-        </div>
-
-        <button class="invest-button pulse-btn" onclick="document.getElementById('toggleInterest').click()">JOIN WAITLIST</button>
-      </div>
-
-      <!-- Community Tier -->
-      <div class="tier-card" id="tierCommunity">
-        <div class="tier-name">Early Access</div>
-        <div class="tier-price" style="font-size: 2.2rem;">FREE</div>
-
-        <button class="tier-expand-btn">
-          <span>DETAILS</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M6 9l6 6 6-6" />
-          </svg>
-        </button>
-
-        <div class="tier-details">
-          <div class="theme-box theme-ultimate">SUPPORT US</div>
-          <ul class="execution-list">
-            <li>Receive exclusive project updates.</li>
-            <li>Shape the future of language learning.</li>
-            <li>Be the first to know when we launch.</li>
-          </ul>
-        </div>
-
-        <button class="invest-button pulse-btn" onclick="document.getElementById('toggleInterest').click()">JOIN WAITLIST</button>
-      </div>
+    <div class="brand-gallery hidden-reveal" id="stackedGallery">
+      <div class="gallery-item item-0"><img src="./public/brand2.jpg" loading="lazy" alt="Brand Visual 1"></div>
+      <div class="gallery-item item-2"><img src="./public/brand1.jpg" loading="lazy" alt="Brand Image 2"></div>
+      <div class="gallery-item item-3"><img src="./public/brand4.jpg" loading="lazy" alt="Brand Image 3"></div>
+      <div class="gallery-item item-4"><img src="./public/brand3.jpg" loading="lazy" alt="Brand Image 4"></div>
+      <div class="gallery-item item-5"><img src="./public/brand5.jpg" loading="lazy" alt="Brand Image 5"></div>
+      <div class="gallery-item item-6"><img src="./public/new_concept1.jpg" loading="lazy" alt="New Concept 1"></div>
+      <div class="gallery-item item-7"><img src="./public/new_concept2.jpg" loading="lazy" alt="New Concept 2"></div>
+      <div class="gallery-item item-8"><img src="./public/new_concept3.png" loading="lazy" alt="New Concept 3"></div>
+      <div class="gallery-item item-9"><img src="./public/new_concept4.png" loading="lazy" alt="New Concept 4"></div>
+      <div class="gallery-item item-10"><img src="./public/new_concept5.png" loading="lazy" alt="New Concept 5"></div>
+      <div class="gallery-item item-11"><img src="./public/new_concept6.jpg" loading="lazy" alt="New Concept 6"></div>
+      <div class="gallery-item item-12"><img src="./public/new_concept7.jpg" loading="lazy" alt="New Concept 7"></div>
+      <div class="gallery-item item-13"><img src="./public/new_concept8.jpg" loading="lazy" alt="New Concept 8"></div>
+      <div class="gallery-item item-14"><img src="./public/new_concept9.jpg" loading="lazy" alt="New Concept 9"></div>
+      <div class="gallery-item item-15"><img src="./public/new_concept10.jpg" loading="lazy" alt="New Concept 10"></div>
+      <div class="gallery-item item-16"><img src="./public/comparison.png" loading="lazy" alt="Comparison Visual"></div>
     </div>
 
-    <div class="brand-gallery" id="stackedGallery">
-      <div class="gallery-item item-0">
-        <img src="./public/brand2.jpg" loading="lazy" alt="Brand Visual 1">
-      </div>
-
-      <div class="gallery-item item-2">
-        <img src="./public/brand1.jpg" loading="lazy" alt="Brand Image 2">
-      </div>
-      <div class="gallery-item item-3">
-        <img src="./public/brand4.jpg" loading="lazy" alt="Brand Image 3">
-      </div>
-      <div class="gallery-item item-4">
-        <img src="./public/brand3.jpg" loading="lazy" alt="Brand Image 4">
-      </div>
-      <div class="gallery-item item-5">
-        <img src="./public/brand5.jpg" loading="lazy" alt="Brand Image 5">
-      </div>
-      <div class="gallery-item item-6">
-        <img src="./public/new_concept1.jpg" loading="lazy" alt="New Concept 1">
-      </div>
-      <div class="gallery-item item-7">
-        <img src="./public/new_concept2.jpg" loading="lazy" alt="New Concept 2">
-      </div>
-      <div class="gallery-item item-8">
-        <img src="./public/new_concept3.png" loading="lazy" alt="New Concept 3">
-      </div>
-      <div class="gallery-item item-9">
-        <img src="./public/new_concept4.png" loading="lazy" alt="New Concept 4">
-      </div>
-      <div class="gallery-item item-10">
-        <img src="./public/new_concept5.png" loading="lazy" alt="New Concept 5">
-      </div>
-      <div class="gallery-item item-11">
-        <img src="./public/new_concept6.jpg" loading="lazy" alt="New Concept 6">
-      </div>
-      <div class="gallery-item item-12">
-        <img src="./public/new_concept7.jpg" loading="lazy" alt="New Concept 7">
-      </div>
-      <div class="gallery-item item-13">
-        <img src="./public/new_concept8.jpg" loading="lazy" alt="New Concept 8">
-      </div>
-      <div class="gallery-item item-14">
-        <img src="./public/new_concept9.jpg" loading="lazy" alt="New Concept 9">
-      </div>
-      <div class="gallery-item item-15">
-        <img src="./public/new_concept10.jpg" loading="lazy" alt="New Concept 10">
-      </div>
-      <div class="gallery-item item-16">
-        <img src="./public/comparison.png" loading="lazy" alt="Comparison Visual">
-      </div>
-    </div>
-
-    <div class="contact-card">
+    <div class="contact-card hidden-reveal">
       <h3>CONTACT US</h3>
       <p class="contact-subtitle">Have questions or ideas? Get in touch directly.</p>
 
@@ -348,8 +344,7 @@
 
       <a href="https://wa.me/447538068550" target="_blank" class="whatsapp-btn">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.347-.272.297-1.039 1.016-1.039 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.347-.272.297-1.039 1.016-1.039 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
         </svg>
         MESSAGE ON WHATSAPP
       </a>
@@ -358,89 +353,24 @@
     <footer>
       <a href="https://www.instagram.com/fluentfast_koalas/?hl=en" target="_blank" class="insta-link">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0 3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
-          </path>
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0 3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
         </svg>
         @fluentfast_koalas
       </a>
     </footer>
   </div>
 
-  <!-- Investment Details Modal Removed -->
-
   <!-- Floating Pinned WhatsApp Button -->
   <a href="https://wa.me/447538068550" target="_blank" class="floating-whatsapp" aria-label="Message us on WhatsApp">
     <svg viewBox="0 0 24 24" fill="currentColor">
-      <path
-        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.347-.272.297-1.039 1.016-1.039 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.347-.272.297-1.039 1.016-1.039 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
     </svg>
     <span>Contact me for more information</span>
   </a>
 
-  <script type="module" src="./src/main.js?v=3"></script>
+  <script type="module" src="./src/main.js?v=4"></script>
   <script>
-    const toggleBtn = document.getElementById('toggleInterest');
-    const formSection = document.getElementById('interestFormSection');
     const investorForm = document.getElementById('investorForm');
-    const pitchBox = document.getElementById('pitchBox');
-    const togglePitch = document.getElementById('togglePitch');
-
-    togglePitch.addEventListener('click', () => {
-      const isExpanded = pitchBox.classList.toggle('expanded');
-      togglePitch.classList.toggle('active');
-      togglePitch.querySelector('span').innerText = isExpanded ? 'CLOSE DETAILS' : 'EXPAND DETAILS';
-
-      if (isExpanded) {
-        setTimeout(() => {
-          pitchBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 400);
-      }
-    });
-
-    // Pitch Detail Accordion Logic
-    document.querySelectorAll('.accordion-header').forEach(header => {
-      header.addEventListener('click', () => {
-        header.parentElement.classList.toggle('active');
-      });
-    });
-
-    // Fast Close Button (Pitch Box)
-    const fastClosePitch = document.getElementById('fastClosePitch');
-    if (fastClosePitch) {
-      fastClosePitch.addEventListener('click', () => {
-        pitchBox.classList.remove('expanded');
-        togglePitch.classList.remove('active');
-        togglePitch.querySelector('span').innerText = 'EXPAND DETAILS';
-
-        setTimeout(() => {
-          togglePitch.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }, 100);
-      });
-    }
-
-    // Tier Card Expansion Logic
-    document.querySelectorAll('.tier-card').forEach(card => {
-      const btn = card.querySelector('.tier-expand-btn');
-      btn.addEventListener('click', () => {
-        card.classList.toggle('expanded');
-        btn.querySelector('span').innerText = card.classList.contains('expanded') ? 'HIDE' : 'DETAILS';
-      });
-    });
-
-    toggleBtn.addEventListener('click', () => {
-      const isExpanded = formSection.classList.toggle('expanded');
-      toggleBtn.classList.toggle('active');
-
-      // Update button text and icon rotation handled by CSS
-      toggleBtn.querySelector('span').innerText = isExpanded ? 'Close Form' : 'Register Interest';
-
-      if (isExpanded) {
-        setTimeout(() => {
-          formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 400);
-      }
-    });
 
     investorForm.addEventListener('submit', (e) => {
       e.preventDefault();
@@ -448,15 +378,12 @@
       const submitBtn = investorForm.querySelector('.submit-button');
       const originalText = submitBtn.innerText;
 
-      // Polish: Loading State
       submitBtn.disabled = true;
       submitBtn.innerText = 'SENDING...';
       submitBtn.style.opacity = '0.7';
 
-      // Capture Form Data
       const formData = new FormData(investorForm);
 
-      // Submit via FormSubmit (No backend required)
       fetch('https://formsubmit.co/ajax/fluentfastkoalas@gmail.com', {
         method: 'POST',
         headers: {
@@ -474,32 +401,20 @@
           alert('Thanks for joining the waitlist! We will be in touch soon.\n\n(Note for founder: please check fluentfastkoalas@gmail.com to activate this form if this is your first submission.)');
 
           investorForm.reset();
-
-          // Return to original state
           submitBtn.disabled = false;
-          submitBtn.innerText = originalText;
+          submitBtn.innerText = 'COMPLETE SIGNUP';
           submitBtn.style.background = '';
-
-          // Collapse form
-          formSection.classList.remove('expanded');
-          toggleBtn.classList.remove('active');
-          toggleBtn.querySelector('span').innerText = 'Join Waitlist';
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-
         }, 2000);
       })
       .catch(error => {
           console.error(error);
           alert('Oops! There was a problem submitting your form. Please try again.');
           submitBtn.disabled = false;
-          submitBtn.innerText = originalText;
+          submitBtn.innerText = 'COMPLETE SIGNUP';
           submitBtn.style.opacity = '1';
       });
     });
 
-    // --- NEW PREMIUM UI FEATURES ---
-
-    // 1. Subtle Parallax Background Effect - fixed direction
     const bgGradient = document.querySelector('.bg-gradient');
     let tickingBg = false;
     window.addEventListener('scroll', () => {
@@ -512,7 +427,6 @@
       }
     }, { passive: true });
 
-    // 2. Scroll-Triggered Reveal Animations
     const observerOptions = {
       root: null,
       rootMargin: '0px',
@@ -527,53 +441,41 @@
       });
     }, observerOptions);
 
-    // Apply animation tracking to layout blocks
-    document.querySelectorAll('.tier-card, .message-section, .gallery-item, .title-animated').forEach(el => {
-      el.classList.add('hidden-reveal'); // Initialize hidden state
+    document.querySelectorAll('.info-card, .hero-split > *, .inline-form-section, .gallery-item, .contact-card').forEach(el => {
+      el.classList.add('hidden-reveal');
       revealObserver.observe(el);
     });
 
-    // 3. Premium Synthesized Hover Sounds (Web Audio API - Zero Asset Dependency)
     let audioCtx = null;
     function playHoverSound() {
-      // Initialize only on user interaction to abide by browser autoplay policies
       if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       if (audioCtx.state === 'suspended') audioCtx.resume();
-
       const osc = audioCtx.createOscillator();
       const gainNode = audioCtx.createGain();
-
       osc.type = 'sine';
-      osc.frequency.setValueAtTime(800, audioCtx.currentTime); // Sharp tick frequency
+      osc.frequency.setValueAtTime(800, audioCtx.currentTime);
       osc.frequency.exponentialRampToValueAtTime(300, audioCtx.currentTime + 0.05);
-
-      gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime); // Very soft volume
+      gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime);
       gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
-
       osc.connect(gainNode);
       gainNode.connect(audioCtx.destination);
-
       osc.start();
       osc.stop(audioCtx.currentTime + 0.05);
     }
 
-    // Attach premium click/hover sounds to interactive elements
-    document.querySelectorAll('.invest-button, .form-loader-btn, .accordion-header').forEach(btn => {
+    document.querySelectorAll('.primary-cta-btn').forEach(btn => {
       btn.addEventListener('mouseenter', playHoverSound);
     });
 
-    // 4. Lottie Animations Integration
     if (document.getElementById('hero-lottie')) {
       lottie.loadAnimation({
         container: document.getElementById('hero-lottie'),
         renderer: 'canvas',
         loop: true,
         autoplay: true,
-        path: './Koalas_flying.json' // Correct Vite path
+        path: './Koalas_flying.json'
       });
     }
-
   </script>
 </body>
-
 </html>
