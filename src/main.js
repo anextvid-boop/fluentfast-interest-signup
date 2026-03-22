@@ -6,7 +6,7 @@
 let cards = null;
 
 function initCardHover() {
-    if (!cards) cards = document.querySelectorAll('.tier-card');
+    if (!cards) cards = document.querySelectorAll('.tier-card, .info-card, .inline-form-section');
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
@@ -65,8 +65,29 @@ function initializeObservers() {
         el.addEventListener('mousedown', playClickSound);
     });
     
-    // REMOVED Intersection Observer for glowing word groups
-    // The animated title words are now completely driven by continuous scroll interpolation.
+    // Premium Typography Text Splitting
+    const premiumTexts = document.querySelectorAll('.premium-text-reveal');
+    premiumTexts.forEach(el => {
+        const text = el.innerText.trim();
+        el.innerHTML = '';
+        [...text].forEach((char, i) => {
+            const span = document.createElement('span');
+            span.className = 'premium-char';
+            span.innerText = char === ' ' ? '\u00A0' : char;
+            span.style.transitionDelay = `${i * 0.05}s`;
+            el.appendChild(span);
+        });
+    });
+
+    const premiumTextObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('premium-on');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    premiumTexts.forEach(el => premiumTextObserver.observe(el));
     
     // Setup Intersection Observer for Invest buttons (to expand nicely)
     const btnObserver = new IntersectionObserver((entries) => {

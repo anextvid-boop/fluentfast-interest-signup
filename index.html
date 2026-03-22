@@ -137,7 +137,8 @@
 
     .info-card {
       background: var(--card-bg);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--card-border);
       border-radius: 20px;
       padding: 2.5rem;
@@ -145,11 +146,37 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      transition: transform 0.3s ease;
+      scale: var(--scroll-scale, 1);
+      transition: box-shadow 0.3s ease, filter 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .info-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle 300px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.08), transparent);
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .info-card:hover::before {
+      opacity: 1;
+    }
+
+    .info-card > * {
+      position: relative;
+      z-index: 10;
     }
 
     .info-card:hover {
-      transform: translateY(-10px);
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
     }
 
     .info-card p {
@@ -168,6 +195,27 @@
       max-width: 800px;
       margin: 0 auto;
       width: 100%;
+      scale: var(--scroll-scale, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .inline-form-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.05), transparent);
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    
+    .inline-form-section:hover::before {
+      opacity: 1;
     }
 
     @media (max-width: 600px) {
@@ -185,67 +233,167 @@
         height: 150px;
       }
     }
+
+    /* Starter Words Success Section */
+    .success-section {
+      background: rgba(15, 18, 37, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 30px;
+      padding: 3rem;
+      border: 1px solid rgba(89, 86, 214, 0.5);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+      text-align: center;
+    }
+    .success-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      color: #fff;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    }
+    .success-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-dim);
+      margin-bottom: 2rem;
+    }
+    .language-selectors {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    @media (min-width: 600px) {
+      .language-selectors {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+    .lang-group {
+      flex: 1;
+      text-align: left;
+    }
+    .lang-group label {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .lang-group select {
+      width: 100%;
+      padding: 1rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      color: #fff;
+      font-size: 1.1rem;
+      outline: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .lang-group select:focus {
+      border-color: var(--brand-light);
+      background: rgba(255,255,255,0.1);
+    }
+    .lang-group select option {
+      background: #0f1225;
+      color: #fff;
+    }
+
+    .phrases-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    @media (min-width: 600px) {
+      .phrases-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    .phrase-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 1.5rem;
+      border-radius: 16px;
+      text-align: left;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .phrase-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--brand-light);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .phrase-card:hover {
+      background: rgba(89, 86, 214, 0.1);
+      border-color: rgba(89, 86, 214, 0.3);
+      transform: translateY(-3px);
+    }
+    .phrase-card:hover::before {
+      opacity: 1;
+    }
+    .phrase-number {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--brand-light);
+      opacity: 0.5;
+      min-width: 30px;
+    }
+    .phrase-text {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.9);
+      font-weight: 500;
+    }
+
+    #powerPhrasesArea {
+      display: none;
+    }
+    .reveal-phrases {
+      display: block !important;
+      animation: popUpFade 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+    @keyframes popUpFade {
+      0% { opacity: 0; transform: scale(0.95) translateY(20px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
   </style>
 </head>
 
 <body>
   <div class="bg-gradient"></div>
 
+  <header class="hero-header" style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; z-index: 10;">
     <img src="./public/media__1774174625088.png" style="position: absolute; top: 20px; right: 20px; height: 35px; z-index: 100;" alt="FluentFast Logo (Top Corner)">
 
-    <div class="brand-text" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%;">
-      <style>
-        @keyframes textShine {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-        @keyframes pulseScale {
-          0% { transform: scale(1); }
-          50% { transform: scale(1.03); }
-          100% { transform: scale(1); }
-        }
-        @keyframes glowShimmer {
-          0% { text-shadow: 0 0 10px rgba(89,86,214,0.4), 0 0 5px rgba(255,255,255,0.1); transform: scale(1); }
-          50% { text-shadow: 0 0 25px rgba(89,86,214,0.8), 0 0 10px rgba(255,255,255,0.6); transform: scale(1.02); }
-          100% { text-shadow: 0 0 10px rgba(89,86,214,0.4), 0 0 5px rgba(255,255,255,0.1); transform: scale(1); }
-        }
-        @keyframes glowWaitlist {
-          0% { text-shadow: 0 0 15px rgba(0,0,0,0.8), 0 0 20px rgba(89,86,214,0.3); }
-          50% { text-shadow: 0 0 15px rgba(0,0,0,0.8), 0 0 40px rgba(255,255,255,0.7), 0 0 60px rgba(89,86,214,0.9); }
-          100% { text-shadow: 0 0 15px rgba(0,0,0,0.8), 0 0 20px rgba(89,86,214,0.3); }
-        }
-        .shiny-text {
-          background: linear-gradient(270deg, #ffffff, #D9D8FF, #8E8AF0, #D9D8FF, #ffffff);
-          background-size: 200% 200%;
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
-          animation: textShine 5s linear infinite;
-          filter: drop-shadow(0 4px 15px rgba(0,0,0,0.8));
-        }
-        .fluent-fast-container {
-          margin-bottom: 5px;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-          width: 100%;
-          text-align: center;
-          gap: clamp(10px, 3vw, 30px);
-        }
-      </style>
-      
+    <div class="brand-text brand-header-premium" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%;">
       <div class="fluent-fast-container">
-        <span style="font-size: clamp(3rem, 14vw, 8rem); line-height: 0.85; font-weight: 900; color: #ffffff; text-shadow: 0 5px 20px rgba(0,0,0,0.8);">FLUENT</span>
-        <span class="shiny-text" style="font-size: clamp(3rem, 14vw, 8rem); line-height: 0.85; font-weight: 900;">FAST</span>
+        <div class="fluent premium-text-reveal" data-text="FLUENT">FLUENT</div>
+        <div class="fast premium-text-reveal mesh-gradient-text" data-text="FAST">FAST</div>
       </div>
       
-      <div class="koalas" style="font-size: clamp(2.5rem, 9vw, 4.5rem); letter-spacing: clamp(5px, 3vw, 15px); color: #C4C2FF; font-weight: 800; text-transform: uppercase; margin-top: 15px; margin-bottom: 40px; animation: glowShimmer 3s ease-in-out infinite;">KOALAS</div>
+      <div class="koalas premium-text-reveal glow-koalas" data-text="KOALAS">KOALAS</div>
       
-      <div class="waitlist-basic" style="font-size: clamp(3.5rem, 15vw, 9rem); font-family: var(--font-display); font-weight: 900; letter-spacing: clamp(5px, 2.5vw, 15px); text-transform: uppercase; color: #fff; animation: glowWaitlist 3s ease-in-out infinite;">
-        WAITLIST
-      </div>
+      <div class="waitlist-basic premium-text-reveal glow-waitlist" data-text="WAITLIST">WAITLIST</div>
     </div>
   </header>
 
@@ -257,44 +405,24 @@
     </div>
 
     <!-- Interest Registration Form (Expandable Box) -->
-    <section class="inline-form-section hidden-reveal" id="interestFormSection" style="margin-top: 0; background: rgba(15, 18, 37, 0.5); backdrop-filter: blur(8px);">
-      <details class="expandable-form-box" style="box-shadow: 0 15px 40px rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.15); border-radius: 16px; padding: 1rem; cursor: pointer; transition: all 0.3s ease; position: relative; z-index: 10;">
-        <summary style="font-weight: 800; font-size: clamp(1.2rem, 4vw, 1.8rem); outline: none; list-style: none; text-align: center; color: #fff; padding: 0.5rem; user-select: none;">
-          Sign up for 10 power phrases <span style="font-size: 0.8em; margin-left: 10px;">▼</span>
+    <section class="inline-form-section hidden-reveal" id="interestFormSection" style="margin-top: 0; background: rgba(15, 18, 37, 0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
+      <details class="expandable-form-box" style="background: rgba(40, 42, 65, 0.4); box-shadow: 0 15px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1); border: 1px solid var(--card-border); border-radius: 20px; padding: 1.5rem; cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; z-index: 10;">
+        <summary style="font-family: var(--font-display); font-weight: 800; font-size: clamp(1.2rem, 4vw, 1.6rem); letter-spacing: 1px; outline: none; list-style: none; text-align: center; color: var(--brand-light); padding: 0.5rem; user-select: none; transition: all 0.3s ease;">
+          Unlock Your 10 Instant Power Phrases <span style="font-size: 0.8em; margin-left: 10px; color: rgba(255,255,255,0.5);">▼</span>
         </summary>
         
         <div style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 1rem; padding-top: 1.5rem;">
-          <p style="text-align: center; margin-bottom: 2rem; color: #ccc;">to launch you into a new language fast.</p>
+          <p style="text-align: center; margin-bottom: 2rem; color: #ccc;">Reserve your spot for early access and we'll instantly send you the 10 phrases that make you sound fluent from day one.</p>
 
           <form class="interest-form" id="investorForm" style="cursor: default;">
             <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" placeholder="John Doe" required>
+              <label for="name">First Name</label>
+              <input type="text" id="name" name="name" placeholder="E.g., Jahronimo" required>
             </div>
 
             <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="john@example.com" required>
-            </div>
-
-            <div class="form-group">
-              <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="+44 7000 000000" required>
-            </div>
-
-            <div class="form-group">
-              <label for="contact">Best way to contact</label>
-              <select id="contact" name="contact" required>
-                <option value="" disabled selected>Select method</option>
-                <option value="email">Email</option>
-                <option value="phone">Phone Call</option>
-                <option value="whatsapp">WhatsApp</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="location">Where you from?</label>
-              <input type="text" id="location" name="location" placeholder="City, Country" required>
+              <label for="email">Best Email Address</label>
+              <input type="email" id="email" name="email" placeholder="Where should we send your phrases?" required>
             </div>
 
             <div class="form-group" style="display: none;">
@@ -304,85 +432,131 @@
               </select>
             </div>
 
-            <div class="form-group full-width">
-              <label for="background">What languages are you learning? (Optional)</label>
-              <textarea id="background" name="background" rows="3"
-                placeholder="Tell us about your language goals or what interests you about FluentFast..."></textarea>
-            </div>
+            <div style="width: 100%; grid-column: 1 / -1; margin-top: 1rem;">
+              <!-- Autoresponse configuration for FormSubmit -->
+              <input type="hidden" name="_autoresponse" value="Thank you for joining the FluentFast waitlist! Here are your 10 starter words to launch you into your new language fast: 1. Hello. | 2. My name is _____ | 3. Can you help, please. | 4. What is that called? | 5. Can you repeat it? | 6. Can you say it again? | 7. Say it slower. | 8. Is this correct? | 9. Can you correct me | 10. Thanks">
 
-            <button type="submit" class="submit-button primary-cta-btn" style="width: 100%; border-radius: 12px; margin-top: 1rem;">COMPLETE SIGNUP</button>
+              <button type="submit" class="submit-button primary-cta-btn" style="width: 100%; border-radius: 12px;">GET MY POWER PHRASES</button>
+              <p style="text-align: center; font-size: 0.85rem; color: #888; margin-top: 15px; margin-bottom: 0;">
+                🔒 100% Secure. Join 500+ others already waiting.
+              </p>
+            </div>
           </form>
         </div>
       </details>
     </section>
 
-    <!-- Details At The End -->
-    <section class="hero-split hidden-reveal" style="margin-top: 2rem; text-align: center; flex-direction: column; align-items: center;">
-      <div class="hero-text-block" style="display: flex; flex-direction: column; align-items: center; padding: 0;">
-        <div class="tagline-pill">PLAY. LEARN. SPEAK. TOGETHER.</div>
-        <h1 class="hero-huge-title" style="font-size: clamp(2rem, 5vw, 4rem);">Are you interested in learning a new language?</h1>
-        <p class="hero-lead" style="margin: 0 auto; margin-top: 1rem;">Are you interested in learning a new language faster? We're going to run through a different type of course on how you can be learning languages a lot more efficiently.</p>
-      </div>
-      <div class="hero-visual-block" style="min-height: 250px;">
-        <div id="hero-lottie" class="header-lottie-koala floating" style="width: 250px; height: 250px; top: 0; position: relative;"></div>
-      </div>
-    </section>
-
-    <section class="info-grid-section" style="position: relative; margin-top: 2rem;">
-      <style>
-        @keyframes floatUpAndDown {
-          0% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
-          100% { transform: translateY(0px); }
-        }
-      </style>
-      <div class="info-card hidden-reveal" style="align-items: center; text-align: center; padding: 2rem; padding-top: 4rem; animation: floatUpAndDown 6s ease-in-out infinite;">
-        <img src="./public/media__1774174625088.png" style="height: 120px; object-fit: contain; margin-bottom: 1rem;" alt="Strategy App Logo">
-        <div class="theme-box theme-learn">THE STRATEGY</div>
-        <p>Master the core strategy and framework of rapid, efficient language acquisition. Build your own personalized learning curriculum mapped exactly to your goals.</p>
-      </div>
-      
-      <div class="info-card hidden-reveal" style="transition-delay: 0.1s; align-items: center; text-align: center; padding: 2rem; padding-top: 2rem; animation: floatUpAndDown 6.5s ease-in-out infinite;">
-        <img src="./public/media__1774174625153.png" style="height: 210px; object-fit: contain; object-position: bottom; margin-bottom: -5px; position: relative; z-index: 5;" alt="Social App Phone Koala">
-        <div class="theme-box theme-fast" style="position: relative; z-index: 2;">SOCIAL APP</div>
-        <p style="margin-top: 1rem;">Learn immersive languages with friends and family via our integrated platform. Track your streaks, chat with partners, and share your conversational progress.</p>
-      </div>
-
-      <div class="info-card hidden-reveal" style="transition-delay: 0.2s; align-items: center; text-align: center; padding: 2rem; padding-top: 6rem; position: relative; margin-top: 60px; animation: floatUpAndDown 7s ease-in-out infinite;">
-        <img src="./public/media__1774174625160.png" style="position: absolute; top: -140px; left: 50%; transform: translateX(-50%); height: 260px; object-fit: contain; z-index: 10;" alt="Rocket Launch Koala">
-        <div class="theme-box theme-earn">WAITLIST NOW</div>
-        <p>Join the alpha list to be the first to experience the fastest structured path to confidently speaking a new language from day one.</p>
-      </div>
-    </section>
-
-    <div style="width: 100%; overflow: hidden; margin-top: 4rem; margin-bottom: 4rem; white-space: nowrap; position: relative;">
+    
+    <div style="width: 100%; overflow: hidden; margin-top: 4rem; margin-bottom: 4rem; margin-left: auto; margin-right: auto; white-space: nowrap; position: relative; padding: 2rem 0;">
+      <!-- Glowing background behind the gallery to make it pop -->
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 100%; background: radial-gradient(ellipse at center, rgba(89, 86, 214, 0.15) 0%, transparent 70%); z-index: 0; pointer-events: none;"></div>
       
       <!-- Top Row: Sliding Left -->
-      <div class="marquee-gallery gallery-fwd" style="display: inline-block;">
-        <img src="./public/new_concept1.jpg" loading="lazy" alt="Concept" class="gallery-img">
-        <img src="./public/new_concept2.jpg" loading="lazy" alt="Concept" class="gallery-img">
-        <img src="./public/new_concept3.png" loading="lazy" alt="Concept" class="gallery-img">
-        <img src="./public/new_concept6.jpg" loading="lazy" alt="Concept" class="gallery-img">
-        <!-- Duplicate set -->
-        <img src="./public/new_concept1.jpg" loading="lazy" alt="Concept" class="gallery-img">
-        <img src="./public/new_concept2.jpg" loading="lazy" alt="Concept" class="gallery-img">
-        <img src="./public/new_concept3.png" loading="lazy" alt="Concept" class="gallery-img">
-        <img src="./public/new_concept6.jpg" loading="lazy" alt="Concept" class="gallery-img">
+      <div class="marquee-gallery gallery-fwd" style="display: inline-block; position: relative; z-index: 5;">
+
+        <div class="gallery-card">
+          <img src="./public/new_concept1.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/new_concept5.png" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/new_concept3.png" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/media__1774174625139.png" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/new_concept7.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/new_concept9.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/brand1.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/brand2.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/new_concept1.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/new_concept5.png" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/new_concept3.png" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/media__1774174625139.png" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/new_concept7.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/new_concept9.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/brand1.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/brand2.jpg" loading="lazy" alt="Concept">
+        </div>
       </div>
       
       <br>
 
       <!-- Bottom Row: Sliding Right -->
-      <div class="marquee-gallery gallery-rev" style="display: inline-block; margin-top: 15px;">
-        <img src="./public/new_concept4.png" loading="lazy" alt="Concept" class="gallery-img">
-        <img src="./public/media__1774174625139.png" loading="lazy" alt="Concept" class="gallery-img" style="background: rgba(15,18,37,0.5); padding: 10px;">
-        <img src="./public/new_concept8.jpg" loading="lazy" alt="Concept" class="gallery-img">
-        <img src="./public/media__1774174625153.png" loading="lazy" alt="Concept" class="gallery-img" style="background: rgba(15,18,37,0.5); padding: 10px;">
-        <!-- Duplicate set -->
-        <img src="./public/new_concept4.png" loading="lazy" alt="Concept" class="gallery-img">
-        <img src="./public/media__1774174625139.png" loading="lazy" alt="Concept" class="gallery-img" style="background: rgba(15,18,37,0.5); padding: 10px;">
-        <img src="./public/new_concept8.jpg" loading="lazy" alt="Concept" class="gallery-img">
-        <img src="./public/media__1774174625153.png" loading="lazy" alt="Concept" class="gallery-img" style="background: rgba(15,18,37,0.5); padding: 10px;">
+      <div class="marquee-gallery gallery-rev" style="display: inline-block; margin-top: 30px; position: relative; z-index: 5;">
+
+        <div class="gallery-card">
+          <img src="./public/new_concept2.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/new_concept4.png" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/new_concept6.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/media__1774174625153.png" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/new_concept8.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/new_concept10.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/brand4.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/brand5.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/new_concept2.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/new_concept4.png" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/new_concept6.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/media__1774174625153.png" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/new_concept8.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/new_concept10.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/brand4.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./public/brand5.jpg" loading="lazy" alt="Concept">
+        </div>
       </div>
     </div>
     
@@ -391,28 +565,60 @@
         will-change: transform;
       }
       .gallery-fwd {
-        animation: scrollGallery 30s linear infinite;
+        animation: scrollGallery 60s linear infinite;
       }
       .gallery-rev {
-        animation: scrollGalleryReverse 35s linear infinite;
+        animation: scrollGalleryReverse 65s linear infinite;
       }
       .marquee-gallery:hover {
         animation-play-state: paused;
       }
-      .gallery-img {
-        height: 250px; 
-        border-radius: 12px; 
-        margin: 0 10px; 
-        box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
-        object-fit: cover;
-        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      .gallery-card {
+        height: 280px;
+        width: 340px;
+        border-radius: 24px;
+        margin: 0 20px;
+        padding: 12px;
+        background: rgba(30, 32, 50, 0.6);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
         display: inline-block;
         vertical-align: middle;
-      }
-      .gallery-img:hover {
-        transform: scale(1.08) rotate(2deg);
-        z-index: 10;
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         position: relative;
+        overflow: hidden;
+      }
+      /* Soft shine effect */
+      .gallery-card::after {
+        content: '';
+        position: absolute;
+        top: 0; left: -100%;
+        width: 50%; height: 100%;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent);
+        transform: skewX(-20deg);
+        transition: 0.7s;
+      }
+      .gallery-card:hover::after {
+        left: 200%;
+      }
+      .gallery-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 14px; /* matches inner padding */
+        transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .gallery-card:hover {
+        transform: scale(1.08) translateY(-10px) rotate(2deg);
+        box-shadow: 0 30px 60px rgba(0,0,0,0.7), 0 0 40px rgba(89, 86, 214, 0.4);
+        border-color: rgba(89, 86, 214, 0.8);
+        background: rgba(40, 42, 65, 0.8);
+        z-index: 20;
+      }
+      .gallery-card:hover img {
+        transform: scale(1.05);
       }
       @keyframes scrollGallery {
         0% { transform: translateX(0); }
@@ -422,7 +628,140 @@
         0% { transform: translateX(-50%); }
         100% { transform: translateX(0%); }
       }
+      @media (max-width: 768px) {
+        .gallery-card {
+          height: 200px;
+          width: 250px;
+          margin: 0 10px;
+          padding: 8px;
+        }
+      }
     </style>
+
+    <!-- Success / Starter Words Area -->
+    <section class="success-section" id="successSection" style="display: none;">
+      <h2 class="success-title">You're In!</h2>
+      <p class="success-subtitle">Welcome to FluentFast. Let's get you set up to speak from day one.</p>
+
+      <div class="language-selectors">
+        <div class="lang-group">
+          <label for="speak-lang">What language do you speak?</label>
+          <select id="speak-lang">
+            <option value="English" selected>English</option>
+            <option value="Spanish">Spanish</option>
+            <option value="French">French</option>
+            <option value="German">German</option>
+            <option value="Italian">Italian</option>
+            <option value="Portuguese">Portuguese</option>
+            <option value="Mandarin">Mandarin (Chinese)</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Korean">Korean</option>
+            <option value="Arabic">Arabic</option>
+            <option value="Russian">Russian</option>
+            <option value="Hindi">Hindi</option>
+          </select>
+        </div>
+        <div class="lang-group">
+          <label for="learn-lang">What language do you want to speak?</label>
+          <select id="learn-lang">
+            <option value="" disabled selected>Select a language...</option>
+            <option value="English">English</option>
+            <option value="Spanish">Spanish</option>
+            <option value="French">French</option>
+            <option value="German">German</option>
+            <option value="Italian">Italian</option>
+            <option value="Portuguese">Portuguese</option>
+            <option value="Mandarin">Mandarin (Chinese)</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Korean">Korean</option>
+            <option value="Arabic">Arabic</option>
+            <option value="Russian">Russian</option>
+            <option value="Hindi">Hindi</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="powerPhrasesArea">
+        <p style="color: rgba(255,255,255,0.9); font-weight: 600; margin-top: 2.5rem; font-size: 1.15rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">Here are your 10 Starter Phrases. Use these to jump-start your conversations today.</p>
+
+        <div class="phrases-grid">
+          <div class="phrase-card">
+            <span class="phrase-number">1</span>
+            <span class="phrase-text">Hello.</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">2</span>
+            <span class="phrase-text">My name is _____</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">3</span>
+            <span class="phrase-text">Can you help, please.</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">4</span>
+            <span class="phrase-text">What is that called?</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">5</span>
+            <span class="phrase-text">Can you repeat it?</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">6</span>
+            <span class="phrase-text">Can you say it again?</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">7</span>
+            <span class="phrase-text">Say it slower.</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">8</span>
+            <span class="phrase-text">Is this correct?</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">9</span>
+            <span class="phrase-text">Can you correct me</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">10</span>
+            <span class="phrase-text">Thanks</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <!-- Details At The End -->
+    <section class="hero-split hidden-reveal" style="margin-top: 2rem; text-align: center; flex-direction: column; align-items: center;">
+      <div class="hero-text-block" style="display: flex; flex-direction: column; align-items: center; padding: 0;">
+        <div class="tagline-pill">PLAY. LEARN. SPEAK. TOGETHER.</div>
+        <h1 class="hero-huge-title" style="font-size: clamp(2.5rem, 5vw, 4rem); background: linear-gradient(90deg, #fff, var(--brand-light)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Are you interested in learning a new language?</h1>
+        <p class="hero-lead" style="color: var(--text-dim); margin: 0 auto; margin-top: 1rem; font-size: 1.25rem;">Are you interested in learning a new language faster? We're going to run through a different type of course on how you can be learning languages a lot more efficiently.</p>
+      </div>
+      <div class="hero-visual-block" style="min-height: 250px;">
+        <div id="hero-lottie" class="header-lottie-koala floating" style="width: 250px; height: 250px; top: 0; position: relative;"></div>
+      </div>
+    </section>
+
+    <section class="info-grid-section" style="position: relative; margin-top: 2rem;">
+      <div class="info-card hidden-reveal" style="align-items: center; text-align: center; padding: 2rem; padding-top: 4rem;">
+        <img src="./public/media__1774174625088.png" style="height: 120px; object-fit: contain; margin-bottom: 1rem;" alt="Strategy App Logo">
+        <div class="theme-box theme-learn">THE STRATEGY</div>
+        <p>Master the core strategy and framework of rapid, efficient language acquisition. Build your own personalized learning curriculum mapped exactly to your goals.</p>
+      </div>
+      
+      <div class="info-card hidden-reveal" style="transition-delay: 0.1s; align-items: center; text-align: center; padding: 2rem; padding-top: 2rem;">
+        <img src="./public/media__1774174625153.png" style="height: 210px; object-fit: contain; object-position: bottom; margin-bottom: -5px; position: relative; z-index: 5;" alt="Social App Phone Koala">
+        <div class="theme-box theme-fast" style="position: relative; z-index: 2;">SOCIAL APP</div>
+        <p style="margin-top: 1rem;">Learn immersive languages with friends and family via our integrated platform. Track your streaks, chat with partners, and share your conversational progress.</p>
+      </div>
+
+      <div class="info-card hidden-reveal" style="transition-delay: 0.2s; align-items: center; text-align: center; padding: 2rem; padding-top: 6rem; position: relative; margin-top: 60px;">
+        <img src="./public/media__1774174625160.png" style="position: absolute; top: -140px; left: 50%; transform: translateX(-50%); height: 260px; object-fit: contain; z-index: 10;" alt="Rocket Launch Koala">
+        <div class="theme-box theme-earn">WAITLIST NOW</div>
+        <p>Join the alpha list to be the first to experience the fastest structured path to confidently speaking a new language from day one.</p>
+      </div>
+    </section>
 
     <div class="contact-card hidden-reveal">
       <h3>CONTACT US</h3>
@@ -500,19 +839,28 @@
         submitBtn.style.opacity = '1';
 
         setTimeout(() => {
-          alert('Thanks for joining the waitlist! We will be in touch soon.\n\n(Note for founder: please check fluentfastkoalas@gmail.com to activate this form if this is your first submission.)');
+          // Transitions to the success section
+          const formSection = document.getElementById('interestFormSection');
+          const successSection = document.getElementById('successSection');
+          
+          formSection.style.display = 'none';
+          successSection.style.display = 'block';
 
+          // Reset the form in the background
           investorForm.reset();
           submitBtn.disabled = false;
-          submitBtn.innerText = 'COMPLETE SIGNUP';
+          submitBtn.innerText = 'GET MY POWER PHRASES';
           submitBtn.style.background = '';
-        }, 2000);
+
+          // Scroll user exactly to the top of the new section smoothly
+          successSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 800);
       })
       .catch(error => {
           console.error(error);
           alert('Oops! There was a problem submitting your form. Please try again.');
           submitBtn.disabled = false;
-          submitBtn.innerText = 'COMPLETE SIGNUP';
+          submitBtn.innerText = 'GET MY POWER PHRASES';
           submitBtn.style.opacity = '1';
       });
     });
@@ -566,6 +914,23 @@
         loop: true,
         autoplay: true,
         path: './Koalas_flying.json'
+      });
+    }
+
+    // Logic to reveal the power phrases when they pick a language
+    const learnLangSelect = document.getElementById('learn-lang');
+    const powerPhrasesArea = document.getElementById('powerPhrasesArea');
+
+    if (learnLangSelect && powerPhrasesArea) {
+      learnLangSelect.addEventListener('change', (e) => {
+        if (e.target.value) {
+          powerPhrasesArea.classList.add('reveal-phrases');
+          
+          // Slight scroll to focus on the cards after the animation starts
+          setTimeout(() => {
+            powerPhrasesArea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }, 300);
+        }
       });
     }
   </script>
