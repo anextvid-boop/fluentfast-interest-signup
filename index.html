@@ -447,6 +447,18 @@
       </h1>
       
       <div class="koalas glow-koalas" data-text="KOALAS" style="position: relative; z-index: 5;">KOALAS</div>
+      
+      <!-- Centerpiece High-Res Koala -->
+      <div style="display: flex; justify-content: center; width: 100%; position: relative; z-index: 12; margin-top: 15px; margin-bottom: 5px;">
+        <img src="./public/media__1774174625160.png" style="max-height: 180px; width: auto; max-width: 95vw; opacity: 1; display: block; filter: drop-shadow(0px 15px 30px rgba(0, 0, 0, 0.4)); animation: floatUpAndDown 4s ease-in-out infinite; object-fit: contain; object-position: bottom;" alt="FluentFast Hero Koala">
+      </div>
+      <div class="waitlist glow-waitlist" data-text="WAITLIST" style="margin-top: 5px; margin-bottom: 20px;">WAITLIST</div>
+      
+      <!-- Centerpiece High-Res Koala -->
+      <div style="display: flex; justify-content: center; width: 100%; position: relative; z-index: 12; margin-top: 15px; margin-bottom: 5px;">
+        <img src="./public/media__1774174625160.png" style="max-height: 180px; width: auto; max-width: 95vw; opacity: 1; display: block; filter: drop-shadow(0px 15px 30px rgba(0, 0, 0, 0.4)); animation: floatUpAndDown 4s ease-in-out infinite; object-fit: contain; object-position: bottom;" alt="FluentFast Hero Koala">
+      </div>
+      <div class="waitlist glow-waitlist" data-text="WAITLIST" style="margin-top: 5px; margin-bottom: 20px;">WAITLIST</div>
       <!-- Vertical Expandable Stack Gallery -->
       <div class="expandable-gallery-container" style="width: 90vw; max-width: 450px; margin: 30px auto; position: relative; z-index: 10;">
         <style>
@@ -534,7 +546,7 @@
         </div>
       </div>
 
-      <div class="waitlist glow-waitlist" data-text="WAITLIST" style="margin-top: 15px; margin-bottom: 10px;">WAITLIST</div>
+      
       
       <div style="margin-bottom: 20px; z-index: 15; position: relative;">
         <a href="https://anextvid-boop.github.io/fluentfast-investors/?cache=v6" class="primary-cta-btn" style="display: inline-block; padding: 20px 45px; font-size: 1.5rem; letter-spacing: 1px; border-radius: 40px; text-decoration: none; font-weight: 900; filter: drop-shadow(0 0 25px rgba(82, 78, 230, 0.6)); text-transform: uppercase;">FUND THE PROJECT</a>
@@ -544,20 +556,17 @@
 
   <div class="container alt-layout" style="padding-top: 1rem; position: relative;">
     
-    <!-- Centerpiece High-Res Koala -->
-    <div style="display: flex; justify-content: center; width: 100%; position: relative; z-index: 12; margin-bottom: -15px;">
-      <img src="./public/media__1774174625160.png" style="max-height: 240px; width: auto; max-width: 95vw; opacity: 1; display: block; filter: drop-shadow(0px 15px 30px rgba(0, 0, 0, 0.4)); animation: floatUpAndDown 4s ease-in-out infinite; object-fit: contain; object-position: bottom;" alt="FluentFast Hero Koala">
-    </div>
+
 
     <!-- Interest Registration Form (Expandable Box) -->
     <section class="inline-form-section hidden-reveal" id="interestFormSection" style="margin-top: 0; background: rgba(15, 18, 37, 0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
       <details class="expandable-form-box" style="background: rgba(40, 42, 65, 0.4); box-shadow: 0 15px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1); border: 1px solid var(--card-border); border-radius: 8px; padding: 1.5rem; cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; z-index: 10;">
         <summary style="font-family: var(--font-display); background: rgba(82, 78, 230, 0.2); border: 1px solid var(--brand-light); border-radius: 4px; font-weight: 900; font-size: clamp(1.6rem, 5.5vw, 2.4rem); letter-spacing: 1px; outline: none; list-style: none; text-align: center; color: var(--text-light); padding: 1.5rem; user-select: none; transition: all 0.3s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
-          Unlock Your 10 Instant Power Phrases <span style="font-size: 0.8em; margin-left: 10px; color: var(--brand-light); display: inline-block; transition: transform 0.3s ease;">▼</span>
+          Join the waiting list <span style="font-size: 0.8em; margin-left: 10px; color: var(--brand-light); display: inline-block; transition: transform 0.3s ease;">▼</span>
         </summary>
         
         <div style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 1rem; padding-top: 1.5rem;">
-          <p style="text-align: center; margin-bottom: 2rem; color: #ccc;">Reserve your spot for early access and we'll instantly send you the 10 phrases that make you sound fluent from day one.</p>
+          <p style="text-align: center; margin-bottom: 2rem; color: #ccc;">Reserve your spot for early access and we'll instantly be the first to know when FluentFast goes live.</p>
 
           <form class="interest-form" id="investorForm" style="cursor: default;">
             <div class="form-group">
@@ -566,8 +575,13 @@
             </div>
 
             <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" placeholder="E.g., Smith" required>
+            </div>
+
+            <div class="form-group">
               <label for="email">Best Email Address</label>
-              <input type="email" id="email" name="email" placeholder="Where should we send your phrases?" required>
+              <input type="email" id="email" name="email" placeholder="Where should we send the updates?" required>
             </div>
 
             <div class="form-group" style="display: none;">
@@ -581,7 +595,7 @@
               <!-- Autoresponse configuration for FormSubmit -->
               <input type="hidden" name="_autoresponse" value="Thank you for joining the FluentFast waitlist! Here are your 10 starter words to launch you into your new language fast: 1. Hello. | 2. My name is _____ | 3. Can you help, please. | 4. What is that called? | 5. Can you repeat it? | 6. Can you say it again? | 7. Say it slower. | 8. Is this correct? | 9. Can you correct me | 10. Thanks">
 
-              <button type="submit" class="submit-button primary-cta-btn" style="width: 100%; border-radius: 12px;">GET MY POWER PHRASES</button>
+              <button type="submit" class="submit-button primary-cta-btn" style="width: 100%; border-radius: 12px;">JOIN THE WAITING LIST</button>
               <p style="text-align: center; font-size: 0.85rem; color: #888; margin-top: 15px; margin-bottom: 0;">
                 🔒 100% Secure. Join 500+ others already waiting.
               </p>
@@ -1037,7 +1051,7 @@
           // Reset the form in the background
           investorForm.reset();
           submitBtn.disabled = false;
-          submitBtn.innerText = 'GET MY POWER PHRASES';
+          submitBtn.innerText = 'JOIN THE WAITING LIST';
           submitBtn.style.background = '';
 
           // Scroll user exactly to the top of the new section smoothly
@@ -1048,7 +1062,7 @@
           console.error(error);
           alert('Oops! There was a problem submitting your form. Please try again.');
           submitBtn.disabled = false;
-          submitBtn.innerText = 'GET MY POWER PHRASES';
+          submitBtn.innerText = 'JOIN THE WAITING LIST';
           submitBtn.style.opacity = '1';
       });
     });
