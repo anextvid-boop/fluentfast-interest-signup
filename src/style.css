@@ -1809,3 +1809,38 @@ textarea:focus {
   0% { opacity: 0.4; transform: scale(0.8) rotate(-10deg); }
   100% { opacity: 1; transform: scale(1.2) rotate(10deg); }
 }
+
+/* New CSS animations for text popping in and flashing */
+
+.pop-in-sequence {
+  opacity: 0;
+  display: inline-block;
+  transform: translateY(20px) scale(0.9);
+  animation: popInAnim 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation-delay: var(--seq-delay, 0s);
+}
+
+@keyframes popInAnim {
+  0% { opacity: 0; transform: translateY(20px) scale(0.9); filter: blur(4px); }
+  100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+.animated-word-flash {
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: flashInFade 2s ease-out infinite;
+  animation-delay: var(--flash-delay, 0s);
+  display: block;
+}
+
+@keyframes flashInFade {
+  0% { opacity: 0; transform: translateX(-30px); filter: brightness(2) blur(2px); color: #fff; }
+  20% { opacity: 1; transform: translateX(0); filter: brightness(1) blur(0); color: inherit; }
+  80% { opacity: 1; transform: translateX(0); filter: brightness(1) blur(0); color: inherit; }
+  100% { opacity: 0; transform: translateX(30px); filter: blur(2px); }
+}
+
+.gradient-text-animate {
+  background-size: 200% 200%;
+  animation: meshFlow 8s ease infinite alternate;
+}
