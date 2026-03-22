@@ -129,6 +129,43 @@ function initializeObservers() {
     
     // Initialize scroll scale manually upon final load
     updateScrollScale();
+
+    // Language Translation Logic for Starter Phrases
+    const phraseTranslations = {
+      "English": ["Hello.", "My name is _____", "Can you help, please.", "What is that called?", "Can you repeat it?", "Can you say it again?", "Say it slower.", "Is this correct?", "Can you correct me", "Thanks"],
+      "Spanish": ["Hola.", "Me llamo _____", "Puedes ayudarme, por favor.", "¿Cómo se llama eso?", "¿Puedes repetirlo?", "¿Puedes decirlo de nuevo?", "Dilo más despacio.", "¿Es esto correcto?", "¿Puedes corregirme?", "Gracias"],
+      "French": ["Bonjour.", "Je m'appelle _____", "Pouvez-vous m'aider, s'il vous plaît.", "Comment ça s'appelle?", "Pouvez-vous répéter?", "Pouvez-vous le redire?", "Parlez plus lentement.", "Est-ce correct?", "Pouvez-vous me corriger?", "Merci"],
+      "German": ["Hallo.", "Ich heiße _____", "Können Sie bitte helfen.", "Wie heißt das?", "Können Sie das wiederholen?", "Können Sie das noch einmal sagen?", "Sagen Sie es langsamer.", "Ist das richtig?", "Können Sie mich korrigieren", "Danke"],
+      "Italian": ["Ciao.", "Mi chiamo _____", "Puoi aiutarmi, per favore.", "Come si chiama quello?", "Puoi ripetere?", "Puoi dirlo di nuovo?", "Dillo più lentamente.", "È corretto?", "Puoi correggermi?", "Grazie"],
+      "Portuguese": ["Olá.", "Meu nome é _____", "Você pode me ajudar, por favor.", "Como se chama isso?", "Você pode repetir?", "Você pode dizer de novo?", "Fale mais devagar.", "Isso está correto?", "Você pode me corrigir?", "Obrigado"],
+      "Mandarin": ["你好。", "我的名字是 _____", "请问你能帮忙吗。", "那个叫什么？", "你能重复一遍吗？", "你能再说一遍吗？", "说慢一点。", "这正确吗？", "你能纠正我吗", "谢谢"],
+      "Japanese": ["こんにちは。", "私の名前は_____です", "手伝ってくれませんか。", "あれは何と呼ばれていますか？", "もう一度繰り返してくれますか？", "もう一度言ってくれますか？", "もっとゆっくり言ってください。", "これは正しいですか？", "私を訂正してくれますか", "ありがとう"],
+      "Korean": ["안녕하세요.", "제 이름은 _____입니다", "도와주시겠어요.", "저것은 무엇이라고 부르나요?", "다시 반복해주시겠어요?", "다시 한번 말씀해주시겠어요?", "더 천천히 말씀해주세요.", "이것이 맞나요?", "저를 고쳐주시겠어요", "감사합니다"],
+      "Arabic": ["مرحبا.", "اسمي _____", "هل يمكنك المساعدة من فضلك.", "ماذا يسمى هذا؟", "هل يمكنك تكرار ذلك؟", "هل يمكنك قول ذلك مرة أخرى؟", "قلها ببطء أكثر.", "هل هذا صحيح؟", "هل يمكنك تصحيحي", "شكرا"],
+      "Russian": ["Здравствуйте.", "Меня зовут _____", "Вы не могли бы помочь, пожалуйста.", "Как это называется?", "Вы не могли бы повторить?", "Вы не могли бы сказать это еще раз?", "Говорите медленнее.", "Это правильно?", "Вы не могли бы меня исправить", "Спасибо"],
+      "Hindi": ["नमस्ते।", "मेरा नाम _____ है", "क्या आप मदद कर सकते हैं, कृपया।", "उसे क्या कहते हैं?", "क्या आप इसे दोहरा सकते हैं?", "क्या आप इसे फिर से कह सकते हैं?", "इसे धीमे बोलें।", "क्या यह सही है?", "क्या आप मुझे सही कर सकते हैं", "धन्यवाद"]
+    };
+
+    const learnLangSelect = document.getElementById('learn-lang');
+    if (learnLangSelect) {
+        learnLangSelect.addEventListener('change', (e) => {
+            const selectedLang = e.target.value;
+            const newPhrases = phraseTranslations[selectedLang];
+            if (newPhrases) {
+                const phraseTexts = document.querySelectorAll('.phrase-card .phrase-text');
+                phraseTexts.forEach((el, index) => {
+                    if (newPhrases[index]) {
+                        // Add a subtle fade effect for the text change
+                        el.style.opacity = 0;
+                        setTimeout(() => {
+                            el.innerText = newPhrases[index];
+                            el.style.opacity = 1;
+                        }, 200);
+                    }
+                });
+            }
+        });
+    }
 }
 
 if (document.readyState === 'loading') {
