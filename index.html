@@ -202,16 +202,21 @@
         }
         @keyframes pulseScale {
           0% { transform: scale(1); }
-          50% { transform: scale(1.05); }
+          50% { transform: scale(1.03); }
           100% { transform: scale(1); }
         }
+        @keyframes glowShimmer {
+          0% { text-shadow: 0 0 10px rgba(89,86,214,0.4), 0 0 5px rgba(255,255,255,0.1); transform: scale(1); }
+          50% { text-shadow: 0 0 25px rgba(89,86,214,0.8), 0 0 10px rgba(255,255,255,0.6); transform: scale(1.02); }
+          100% { text-shadow: 0 0 10px rgba(89,86,214,0.4), 0 0 5px rgba(255,255,255,0.1); transform: scale(1); }
+        }
         .shiny-text {
-          background: linear-gradient(270deg, #5956d6, #00d4ff, #ff007a, #5956d6);
-          background-size: 200% 200%;
+          background: linear-gradient(270deg, #ffffff, #ffffff, #C4C2FF, #5956d6, #ffffff, #ffffff);
+          background-size: 300% 300%;
           -webkit-background-clip: text;
           background-clip: text;
           -webkit-text-fill-color: transparent;
-          animation: textShine 3s ease infinite, pulseScale 3s ease-in-out infinite;
+          animation: textShine 4s ease infinite, pulseScale 3s ease-in-out infinite;
         }
         .fluent-fast-container {
           margin-bottom: 5px;
@@ -230,11 +235,7 @@
         <span class="shiny-text" style="font-size: clamp(3rem, 14vw, 8rem); line-height: 0.85; font-weight: 900;">FAST</span>
       </div>
       
-      <div class="koalas" style="font-size: clamp(2rem, 8vw, 4rem); letter-spacing: clamp(5px, 3vw, 15px); color: #C4C2FF; text-shadow: 0 0 15px rgba(89,86,214,0.4); font-weight: 800; text-transform: uppercase; margin-top: 15px; margin-bottom: 25px; animation: koalaPulse 4s ease-in-out infinite;">KOALAS</div>
-      
-      <div style="margin-bottom: 25px;">
-        <img src="./public/media__1774174625139.png" style="height: 60px; object-fit: contain; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));" alt="Decoration">
-      </div>
+      <div class="koalas" style="font-size: clamp(2.5rem, 9vw, 4.5rem); letter-spacing: clamp(5px, 3vw, 15px); color: #C4C2FF; font-weight: 800; text-transform: uppercase; margin-top: 15px; margin-bottom: 40px; animation: glowShimmer 3s ease-in-out infinite;">KOALAS</div>
       
       <div class="waitlist-basic" style="font-size: clamp(3.5rem, 15vw, 9rem); font-family: var(--font-display); font-weight: 900; letter-spacing: clamp(5px, 2.5vw, 15px); text-transform: uppercase; color: #fff;">
         WAITLIST
