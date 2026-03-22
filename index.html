@@ -193,9 +193,29 @@
 
   <header style="padding-top: 6rem; padding-bottom: 2rem; width: 100%; overflow: hidden; display: flex; justify-content: center; align-items: center;">
     <div class="brand-text" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%;">
-      <div style="font-size: clamp(5rem, 25vw, 20rem); line-height: 0.8; margin-bottom: 20px; display: flex; flex-direction: column; align-items: center; width: 100vw; max-width: 100%;">
-        <span class="fluent" style="display: block; width: 100%; white-space: nowrap; font-weight: 900;">FLUENT</span>
-        <span class="fast" style="display: block; width: 100%; white-space: nowrap; font-weight: 900;">FAST</span>
+      <style>
+        @keyframes fluentSlideIn {
+          0% { transform: translateX(-50px) scale(0.95); opacity: 0; }
+          100% { transform: translateX(0) scale(1); opacity: 1; }
+        }
+        @keyframes fastSlideIn {
+          0% { transform: translateX(50px) scale(0.95); opacity: 0; }
+          100% { transform: translateX(0) scale(1); opacity: 1; }
+        }
+        .fluent-fast-container {
+          font-size: clamp(4rem, 25vw, 20rem);
+          line-height: 0.8;
+          margin-bottom: 20px;
+          display: flex;
+          flex-direction: column;
+          width: 100vw;
+          box-sizing: border-box;
+          overflow: hidden;
+        }
+      </style>
+      <div class="fluent-fast-container">
+        <span class="fluent" style="display: block; width: 100%; text-align: left; padding-left: 4vw; white-space: nowrap; font-weight: 900; animation: fluentSlideIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;">FLUENT</span>
+        <span class="fast" style="display: block; width: 100%; text-align: right; padding-right: 4vw; white-space: nowrap; font-weight: 900; animation: fastSlideIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; margin-top: -5px;">FAST</span>
       </div>
       <div class="koalas" style="font-size: clamp(4rem, 20vw, 12rem); letter-spacing: clamp(10px, 4vw, 35px); color: var(--brand-light); text-shadow: 0 0 25px rgba(89,86,214,0.7); font-weight: 900; text-transform: uppercase; animation: koalaPulse 4s ease-in-out infinite;">KOALAS</div>
       <style>
@@ -205,7 +225,7 @@
           100% { transform: scale(1); text-shadow: 0 0 25px rgba(89,86,214,0.7); }
         }
       </style>
-      <div class="waitlist-shiny" style="font-size: clamp(3.5rem, 18vw, 10rem); margin-top: 2rem; font-family: var(--font-display); font-weight: 900; letter-spacing: clamp(5px, 2.5vw, 15px); text-transform: uppercase;">
+      <div class="waitlist-basic" style="font-size: clamp(3.5rem, 18vw, 10rem); margin-top: 2rem; font-family: var(--font-display); font-weight: 900; letter-spacing: clamp(5px, 2.5vw, 15px); text-transform: uppercase; color: #fff;">
         WAITLIST
       </div>
     </div>
@@ -286,19 +306,26 @@
     </section>
 
     <section class="info-grid-section" style="position: relative; margin-top: 2rem;">
-      <div class="info-card hidden-reveal" style="align-items: center; text-align: center; padding: 2rem; padding-top: 4rem;">
+      <style>
+        @keyframes floatUpAndDown {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+          100% { transform: translateY(0px); }
+        }
+      </style>
+      <div class="info-card hidden-reveal" style="align-items: center; text-align: center; padding: 2rem; padding-top: 4rem; animation: floatUpAndDown 6s ease-in-out infinite;">
         <img src="./public/media__1774174625119.png" style="height: 120px; object-fit: contain; margin-bottom: 1rem;" alt="Strategy App Logo">
         <div class="theme-box theme-learn">THE STRATEGY</div>
         <p>Master the core strategy and framework of rapid, efficient language acquisition.</p>
       </div>
       
-      <div class="info-card hidden-reveal" style="transition-delay: 0.1s; align-items: center; text-align: center; padding: 2rem; padding-top: 4rem;">
+      <div class="info-card hidden-reveal" style="transition-delay: 0.1s; align-items: center; text-align: center; padding: 2rem; padding-top: 4rem; animation: floatUpAndDown 6.5s ease-in-out infinite;">
         <img src="./public/media__1774174625153.png" style="height: 180px; object-fit: contain; margin-bottom: 1rem;" alt="Social App Phone Koala">
         <div class="theme-box theme-fast">SOCIAL APP</div>
         <p>Learn immersive languages with friends and family via our integrated platform.</p>
       </div>
 
-      <div class="info-card hidden-reveal" style="transition-delay: 0.2s; align-items: center; text-align: center; padding: 2rem; padding-top: 6rem; position: relative; margin-top: 60px;">
+      <div class="info-card hidden-reveal" style="transition-delay: 0.2s; align-items: center; text-align: center; padding: 2rem; padding-top: 6rem; position: relative; margin-top: 60px; animation: floatUpAndDown 7s ease-in-out infinite;">
         <img src="./public/media__1774174625160.png" style="position: absolute; top: -140px; left: 50%; transform: translateX(-50%); height: 260px; object-fit: contain; z-index: 10;" alt="Rocket Launch Koala">
         <div class="theme-box theme-ultimate">WAITLIST</div>
         <p>Secure your priority spot today. Gain exclusive early access when we launch.</p>
@@ -306,28 +333,71 @@
     </section>
 
     <div style="width: 100%; overflow: hidden; margin-top: 4rem; margin-bottom: 4rem; white-space: nowrap; position: relative;">
-      <div class="marquee-gallery" style="display: inline-block; animation: scrollGallery 40s linear infinite;">
-        <!-- First set -->
-        <img src="./public/new_concept1.jpg" loading="lazy" alt="Concept" style="height: 250px; border-radius: 12px; margin: 0 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); object-fit: cover;">
-        <img src="./public/new_concept2.jpg" loading="lazy" alt="Concept" style="height: 250px; border-radius: 12px; margin: 0 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); object-fit: cover;">
-        <img src="./public/new_concept3.png" loading="lazy" alt="Concept" style="height: 250px; border-radius: 12px; margin: 0 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); object-fit: cover;">
-        <img src="./public/new_concept4.png" loading="lazy" alt="Concept" style="height: 250px; border-radius: 12px; margin: 0 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); object-fit: cover;">
-        <img src="./public/new_concept6.jpg" loading="lazy" alt="Concept" style="height: 250px; border-radius: 12px; margin: 0 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); object-fit: cover;">
-        <img src="./public/new_concept8.jpg" loading="lazy" alt="Concept" style="height: 250px; border-radius: 12px; margin: 0 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); object-fit: cover;">
-        <!-- Duplicate set for seamless looping -->
-        <img src="./public/new_concept1.jpg" loading="lazy" alt="Concept" style="height: 250px; border-radius: 12px; margin: 0 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); object-fit: cover;">
-        <img src="./public/new_concept2.jpg" loading="lazy" alt="Concept" style="height: 250px; border-radius: 12px; margin: 0 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); object-fit: cover;">
-        <img src="./public/new_concept3.png" loading="lazy" alt="Concept" style="height: 250px; border-radius: 12px; margin: 0 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); object-fit: cover;">
-        <img src="./public/new_concept4.png" loading="lazy" alt="Concept" style="height: 250px; border-radius: 12px; margin: 0 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); object-fit: cover;">
-        <img src="./public/new_concept6.jpg" loading="lazy" alt="Concept" style="height: 250px; border-radius: 12px; margin: 0 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); object-fit: cover;">
-        <img src="./public/new_concept8.jpg" loading="lazy" alt="Concept" style="height: 250px; border-radius: 12px; margin: 0 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); object-fit: cover;">
+      
+      <!-- Top Row: Sliding Left -->
+      <div class="marquee-gallery gallery-fwd" style="display: inline-block;">
+        <img src="./public/new_concept1.jpg" loading="lazy" alt="Concept" class="gallery-img">
+        <img src="./public/new_concept2.jpg" loading="lazy" alt="Concept" class="gallery-img">
+        <img src="./public/new_concept3.png" loading="lazy" alt="Concept" class="gallery-img">
+        <img src="./public/new_concept6.jpg" loading="lazy" alt="Concept" class="gallery-img">
+        <!-- Duplicate set -->
+        <img src="./public/new_concept1.jpg" loading="lazy" alt="Concept" class="gallery-img">
+        <img src="./public/new_concept2.jpg" loading="lazy" alt="Concept" class="gallery-img">
+        <img src="./public/new_concept3.png" loading="lazy" alt="Concept" class="gallery-img">
+        <img src="./public/new_concept6.jpg" loading="lazy" alt="Concept" class="gallery-img">
+      </div>
+      
+      <br>
+
+      <!-- Bottom Row: Sliding Right -->
+      <div class="marquee-gallery gallery-rev" style="display: inline-block; margin-top: 15px;">
+        <img src="./public/new_concept4.png" loading="lazy" alt="Concept" class="gallery-img">
+        <img src="./public/media__1774174625139.png" loading="lazy" alt="Concept" class="gallery-img" style="background: rgba(15,18,37,0.5); padding: 10px;">
+        <img src="./public/new_concept8.jpg" loading="lazy" alt="Concept" class="gallery-img">
+        <img src="./public/media__1774174625153.png" loading="lazy" alt="Concept" class="gallery-img" style="background: rgba(15,18,37,0.5); padding: 10px;">
+        <!-- Duplicate set -->
+        <img src="./public/new_concept4.png" loading="lazy" alt="Concept" class="gallery-img">
+        <img src="./public/media__1774174625139.png" loading="lazy" alt="Concept" class="gallery-img" style="background: rgba(15,18,37,0.5); padding: 10px;">
+        <img src="./public/new_concept8.jpg" loading="lazy" alt="Concept" class="gallery-img">
+        <img src="./public/media__1774174625153.png" loading="lazy" alt="Concept" class="gallery-img" style="background: rgba(15,18,37,0.5); padding: 10px;">
       </div>
     </div>
     
     <style>
+      .marquee-gallery {
+        will-change: transform;
+      }
+      .gallery-fwd {
+        animation: scrollGallery 30s linear infinite;
+      }
+      .gallery-rev {
+        animation: scrollGalleryReverse 35s linear infinite;
+      }
+      .marquee-gallery:hover {
+        animation-play-state: paused;
+      }
+      .gallery-img {
+        height: 250px; 
+        border-radius: 12px; 
+        margin: 0 10px; 
+        box-shadow: 0 4px 15px rgba(0,0,0,0.5); 
+        object-fit: cover;
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .gallery-img:hover {
+        transform: scale(1.08) rotate(2deg);
+        z-index: 10;
+        position: relative;
+      }
       @keyframes scrollGallery {
         0% { transform: translateX(0); }
         100% { transform: translateX(-50%); }
+      }
+      @keyframes scrollGalleryReverse {
+        0% { transform: translateX(-50%); }
+        100% { transform: translateX(0%); }
       }
     </style>
 
