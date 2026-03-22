@@ -197,18 +197,20 @@
         <span class="fluent" style="display: block;">FLUENT</span>
         <span class="fast" style="display: block;">FAST</span>
       </div>
-      <div class="koalas" style="font-size: clamp(1.5rem, 8vw, 4rem); letter-spacing: clamp(8px, 4vw, 25px); color: var(--brand-light); text-shadow: 0 0 15px rgba(89,86,214,0.5); font-weight: 800; text-transform: uppercase;">KOALAS</div>
-      <div style="font-size: clamp(3rem, 16vw, 8rem); color: white; margin-top: 2.5rem; font-family: var(--font-display); font-weight: 900; letter-spacing: clamp(5px, 2.5vw, 15px); text-shadow: 0 10px 30px rgba(0,0,0,0.8); text-transform: uppercase;">WAITLIST</div>
+      <div class="koalas" style="font-size: clamp(2.5rem, 15vw, 6.5rem); letter-spacing: clamp(10px, 4vw, 35px); color: var(--brand-light); text-shadow: 0 0 25px rgba(89,86,214,0.7); font-weight: 800; text-transform: uppercase;">KOALAS</div>
+      <div class="waitlist-shiny" style="font-size: clamp(3rem, 16vw, 8rem); margin-top: 2.5rem; font-family: var(--font-display); font-weight: 900; letter-spacing: clamp(5px, 2.5vw, 15px); text-transform: uppercase;">
+        <span class="sparkle">✨</span> WAITLIST <span class="sparkle">✨</span>
+      </div>
     </div>
   </header>
 
   <div class="container alt-layout" style="padding-top: 2rem; position: relative;">
     
-    <!-- Transparent Decorative Images -->
-    <img src="./public/koala_parachute.png" class="deco-koala floating" style="top: -5%; left: 0%; max-width: 150px; opacity: 0.25; z-index: -1;" alt="Decorative Koala">
-    <img src="./public/koala_juggling.png" class="deco-koala floating" style="top: 25%; right: -5%; max-width: 180px; opacity: 0.25; z-index: -1; animation-delay: 1.2s;" alt="Decorative Koala">
-    <img src="./public/koala_phone.png" class="deco-koala floating" style="bottom: 12%; left: -2%; max-width: 200px; opacity: 0.25; z-index: -1; animation-delay: 2.1s;" alt="Decorative Koala">
-    <img src="./public/koala_happy.png" class="deco-koala floating" style="bottom: 0%; right: 5%; max-width: 140px; opacity: 0.3; z-index: -1; animation-delay: 0.7s;" alt="Decorative Koala">
+    <!-- Transparent Decorative Images (Massive & Visible) -->
+    <img src="./public/koala_parachute.png" class="deco-koala floating" style="top: -10%; left: -5%; max-width: 400px; width: 35vw; opacity: 0.55; z-index: -1;" alt="Decorative Koala">
+    <img src="./public/koala_juggling.png" class="deco-koala floating" style="top: 25%; right: -10%; max-width: 450px; width: 40vw; opacity: 0.55; z-index: -1; animation-delay: 1.2s;" alt="Decorative Koala">
+    <img src="./public/koala_phone.png" class="deco-koala floating" style="bottom: 12%; left: -8%; max-width: 380px; width: 35vw; opacity: 0.6; z-index: -1; animation-delay: 2.1s;" alt="Decorative Koala">
+    <img src="./public/koala_happy.png" class="deco-koala floating" style="bottom: -5%; right: 0%; max-width: 350px; width: 30vw; opacity: 0.65; z-index: -1; animation-delay: 0.7s;" alt="Decorative Koala">
     
     <!-- Interest Registration Form Moved to Top -->
     <section class="inline-form-section hidden-reveal" id="interestFormSection" style="margin-top: 0;">
@@ -278,7 +280,11 @@
       </div>
     </section>
 
-    <section class="info-grid-section">
+    <section class="info-grid-section" style="position: relative;">
+      <!-- Added extra transparent images to grids -->
+      <img src="./public/koala_stacked.png" class="deco-koala floating" style="position: absolute; top: -100px; right: -30px; max-width: 300px; width: 35vw; opacity: 0.6; z-index: -1; animation-delay: 1.5s;" alt="Stacked Koala Decorative">
+      <img src="./public/fluentfast_koala.png" class="deco-koala floating" style="position: absolute; bottom: -80px; left: -30px; max-width: 350px; width: 35vw; opacity: 0.5; z-index: -1; animation-delay: 0.3s;" alt="Fluent Koala Decorative">
+
       <div class="info-card hidden-reveal" style="align-items: center; text-align: center;">
         <div class="theme-box theme-learn">THE STRATEGY</div>
         <p>Using different types of techniques, it's a lot less about the language itself, and more about the strategy behind how you're going to be able to learn the language as quick as humanly possible.</p>
