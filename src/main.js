@@ -33,34 +33,21 @@ function initAudioContext() {
     }
 }
 
+const clickAudio = new Audio('./public/sounds/click.mp3');
+clickAudio.volume = 0.5;
+
 function playClickSound() {
     try {
-        initAudioContext();
-        const oscillator = audioCtx.createOscillator();
-        const gainNode = audioCtx.createGain();
-        
-        oscillator.type = 'sine';
-        
-        // Premium sweep down creates a physical "knock" pop feel
-        oscillator.frequency.setValueAtTime(1000, audioCtx.currentTime);
-        oscillator.frequency.exponentialRampToValueAtTime(80, audioCtx.currentTime + 0.08); 
-        
-        gainNode.gain.setValueAtTime(0.4, audioCtx.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08); 
-        
-        oscillator.connect(gainNode);
-        gainNode.connect(audioCtx.destination);
-        
-        oscillator.start();
-        oscillator.stop(audioCtx.currentTime + 0.08);
+        clickAudio.currentTime = 0;
+        clickAudio.play().catch(e => console.log('Audio autoplay blocked', e));
     } catch (e) {
-        // Fail silently if browser entirely bans AudioContext without touch explicit interaction tracking
+        // Fail silently
     }
 }
 
 // Attach sound to interactive elements
 function initializeObservers() {
-    const interactables = document.querySelectorAll('button, a.invest-button');
+    const interactables = document.querySelectorAll('button, a.invest-button, summary, .phrase-card');
     interactables.forEach(el => {
         el.addEventListener('mousedown', playClickSound);
     });
