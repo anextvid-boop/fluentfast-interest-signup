@@ -413,61 +413,18 @@
       </h1>
       
       <div class="koalas glow-koalas" data-text="KOALAS" style="position: relative; z-index: 5;">KOALAS</div>
-      <!-- Expand-on-Hover Deck Gallery -->
-      <div class="expand-deck-gallery" style="position: relative; width: 100vw; max-width: 600px; height: 180px; margin: 30px auto; display: flex; justify-content: center; align-items: center; z-index: 10; cursor: pointer; user-select: none;">
-        <style>
-          .expand-deck-gallery .deck-card {
-            position: absolute;
-            width: 120px;
-            height: 160px;
-            object-fit: cover;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.2);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            /* Start perfectly stacked securely */
-            transform: translateX(0) scale(1);
-            opacity: 0;
-            z-index: 1;
-          }
-          /* The 'cover' image initially visible */
-          .expand-deck-gallery .deck-card:nth-of-type(4) {
-            opacity: 1;
-            z-index: 5;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
-          }
+      <!-- Premium Symmetric Horizontal Scroll Gallery -->
+      <div class="elegant-h-scroll" style="width: 100vw; margin-top: 25px; margin-bottom: 25px; margin-left: calc(-50vw + 50%); position: relative; z-index: 10;">
+        <div style="display: flex; gap: 15px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 25px calc(50vw - 70px); -webkit-overflow-scrolling: touch; scrollbar-width: none;">
+          <style>.elegant-h-scroll div::-webkit-scrollbar { display: none; }</style>
           
-          /* Visual cue */
-          .expand-deck-gallery::after {
-            content: 'Tap to expand gallery';
-            position: absolute;
-            bottom: -25px;
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.6);
-            font-family: var(--font-body);
-            letter-spacing: 1px;
-            transition: opacity 0.3s;
-          }
-          
-          /* EXPANDED FLY-OUT STATE (Hover or Active) */
-          .expand-deck-gallery:hover::after, .expand-deck-gallery:active::after { opacity: 0; }
-          
-          .expand-deck-gallery:hover .deck-card:nth-of-type(1), .expand-deck-gallery:active .deck-card:nth-of-type(1) { transform: translateX(-150px) scale(0.8); opacity: 0.6; z-index: 1; }
-          .expand-deck-gallery:hover .deck-card:nth-of-type(2), .expand-deck-gallery:active .deck-card:nth-of-type(2) { transform: translateX(-100px) scale(0.9); opacity: 0.85; z-index: 2; }
-          .expand-deck-gallery:hover .deck-card:nth-of-type(3), .expand-deck-gallery:active .deck-card:nth-of-type(3) { transform: translateX(-50px) scale(0.95); opacity: 1; z-index: 3; }
-          .expand-deck-gallery:hover .deck-card:nth-of-type(4), .expand-deck-gallery:active .deck-card:nth-of-type(4) { transform: translateX(0) scale(1.05); opacity: 1; z-index: 7; box-shadow: 0 15px 40px rgba(82, 78, 230, 0.6); }
-          .expand-deck-gallery:hover .deck-card:nth-of-type(5), .expand-deck-gallery:active .deck-card:nth-of-type(5) { transform: translateX(50px) scale(0.95); opacity: 1; z-index: 3; }
-          .expand-deck-gallery:hover .deck-card:nth-of-type(6), .expand-deck-gallery:active .deck-card:nth-of-type(6) { transform: translateX(100px) scale(0.9); opacity: 0.85; z-index: 2; }
-          .expand-deck-gallery:hover .deck-card:nth-of-type(7), .expand-deck-gallery:active .deck-card:nth-of-type(7) { transform: translateX(150px) scale(0.8); opacity: 0.6; z-index: 1; }
-        </style>
-        
-        <img class="deck-card" src="./public/brand1.jpg" alt="Gallery Concept">
-        <img class="deck-card" src="./public/new_concept6.jpg" alt="Gallery Concept">
-        <img class="deck-card" src="./public/brand5.jpg" alt="Gallery Concept">
-        <img class="deck-card" src="./public/new_concept8.jpg" alt="Gallery Concept">
-        <img class="deck-card" src="./public/brand3.jpg" alt="Gallery Concept">
-        <img class="deck-card" src="./public/brand2.jpg" alt="Gallery Concept">
-        <img class="deck-card" src="./public/new_concept10.jpg" alt="Gallery Concept">
+          <img src="./public/brand1.jpg" style="scroll-snap-align: center; width: 140px; height: 180px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 20px rgba(0,0,0,0.5); flex-shrink: 0;" alt="Concept">
+          <img src="./public/new_concept6.jpg" style="scroll-snap-align: center; width: 140px; height: 180px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 20px rgba(0,0,0,0.5); flex-shrink: 0;" alt="Concept">
+          <img src="./public/new_concept8.jpg" style="scroll-snap-align: center; width: 140px; height: 180px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 20px rgba(0,0,0,0.5); flex-shrink: 0;" alt="Concept">
+          <img src="./public/brand5.jpg" style="scroll-snap-align: center; width: 140px; height: 180px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 20px rgba(0,0,0,0.5); flex-shrink: 0;" alt="Concept">
+          <img src="./public/brand2.jpg" style="scroll-snap-align: center; width: 140px; height: 180px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 20px rgba(0,0,0,0.5); flex-shrink: 0;" alt="Concept">
+          <img src="./public/new_concept10.jpg" style="scroll-snap-align: center; width: 140px; height: 180px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); box-shadow: 0 10px 20px rgba(0,0,0,0.5); flex-shrink: 0;" alt="Concept">
+        </div>
       </div>
 
       <div class="waitlist glow-waitlist" data-text="WAITLIST">WAITLIST</div>
