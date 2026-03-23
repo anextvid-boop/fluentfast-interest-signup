@@ -8,7 +8,7 @@
   <title>WAITLIST | FluentFast</title>
   <!-- Removed unused Lottie preload and brand3.jpg preload -->
   <link rel="preload" href="./public/media__1774174625139.png" as="image" fetchpriority="high" />
-  <link rel="stylesheet" href="./src/style.css?v=24" />
+  <link rel="stylesheet" href="./src/style.css?v=25" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
 
   <style>
@@ -326,7 +326,7 @@
       }
     }
     
-    details[open] summary span {
+    details[open] summary span:last-child {
       transform: rotate(180deg);
     }
     .phrase-card {
@@ -1094,7 +1094,6 @@
         submitBtn.style.opacity = '1';
 
         setTimeout(() => {
-          // Transitions to the success section
           const formSection = document.getElementById('interestFormSection');
           const successSection = document.getElementById('successSection');
           
@@ -1180,6 +1179,30 @@
         }
       });
     }
+    
+    // PREMIUM UI SOUND - Synthesized Pop on interactions
+    function playPremiumPop() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      try {
+        const osc = audioCtx.createOscillator();
+        const gainNode = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(600, audioCtx.currentTime); 
+        osc.frequency.exponentialRampToValueAtTime(150, audioCtx.currentTime + 0.08);
+        gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime); 
+        gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.08);
+        osc.connect(gainNode);
+        gainNode.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.08);
+      } catch(e) {}
+    }
+
+    document.querySelectorAll('a, button, summary, .gallery-stack, input, select').forEach(el => {
+      el.addEventListener('mousedown', playPremiumPop);
+      el.addEventListener('touchstart', playPremiumPop, {passive: true});
+    });
   </script>
 </body>
 </html>

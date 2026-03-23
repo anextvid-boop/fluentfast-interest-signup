@@ -1368,6 +1368,7 @@ textarea {
   background: rgba(142, 140, 246, 0.05);
   color: var(--text-light);
   transition: all 0.3s ease;
+  text-align: center;
 }
 
 input:focus,
