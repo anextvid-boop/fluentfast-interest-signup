@@ -475,7 +475,7 @@
       <!-- Moved Form Box Here -->
 <!-- Interest Registration Form (Expandable Box) -->
     <section class="inline-form-section hidden-reveal" id="interestFormSection" style="margin-top: 0; background: rgba(15, 18, 37, 0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
-      <details class="expandable-form-box" style="background: rgba(40, 42, 65, 0.4); box-shadow: 0 15px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1); border: 1px solid var(--card-border); border-radius: 8px; padding: 1.5rem; cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; z-index: 10;">
+      <details id="formArea" class="expandable-form-box" style="background: rgba(40, 42, 65, 0.4); box-shadow: 0 15px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1); border: 1px solid var(--card-border); border-radius: 8px; padding: 1.5rem; cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; z-index: 10;">
         <summary style="font-family: var(--font-display); background: rgba(82, 78, 230, 0.2); border: 1px solid var(--brand-light); border-radius: 4px; font-weight: 900; font-size: clamp(1.6rem, 5.5vw, 2.4rem); letter-spacing: 1px; outline: none; list-style: none; color: var(--text-light); padding: 1.5rem; user-select: none; transition: all 0.3s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.4); line-height: 1.2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; box-sizing: border-box;">
           <span style="display: block; width: 100%; text-align: center; margin: 0; padding: 0;">Join<br>the waiting list</span>
           <span style="font-size: 0.8em; color: var(--brand-light); transition: transform 0.3s ease;">▼</span>
@@ -498,6 +498,16 @@
             <div class="form-group">
               <label for="email">Best Email Address</label>
               <input type="email" id="email" name="email" placeholder="Where should we send the updates?" required>
+            </div>
+
+            <div class="form-group">
+              <label for="native_lang">Native Language (Optional)</label>
+              <input type="text" id="native_lang" name="native_lang" placeholder="E.g., English">
+            </div>
+
+            <div class="form-group">
+              <label for="target_lang">Language to Learn (Optional)</label>
+              <input type="text" id="target_lang" name="target_lang" placeholder="E.g., Spanish">
             </div>
 
             <div class="form-group" style="display: none;">
@@ -1158,6 +1168,31 @@
 
     document.querySelectorAll('.primary-cta-btn').forEach(btn => {
       btn.addEventListener('mouseenter', playHoverSound);
+    });
+
+    // Handle clicks on jump links to the formArea
+    document.querySelectorAll('a[href="#formArea"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const formDetails = document.getElementById('formArea');
+        if (formDetails) {
+          formDetails.open = true; // Auto open the details element
+          setTimeout(() => {
+            // Scroll to the form area precisely
+            const headerOffset = 150;
+            const elementPosition = formDetails.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            
+            window.scrollTo({
+                 top: offsetPosition,
+                 behavior: "smooth"
+            });
+            // Focus on the first input
+            const nameInput = document.getElementById('name');
+            if(nameInput) nameInput.focus();
+          }, 150);
+        }
+      });
     });
 
     // Removed unused lottie script
