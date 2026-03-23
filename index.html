@@ -6,7 +6,8 @@
   <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WAITLIST | FluentFast</title>
-  <!-- Removed unused Lottie preload -->  <link rel="preload" href="./public/brand3.jpg" as="image" fetchpriority="high" />
+  <!-- Removed unused Lottie preload and brand3.jpg preload -->
+  <link rel="preload" href="./public/media__1774174625139.png" as="image" fetchpriority="high" />
   
   <link rel="stylesheet" href="./src/style.css?v=4" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
@@ -392,7 +393,7 @@
     .light-parallax-section {
       width: 100%;
       position: relative;
-      background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(240, 240, 255, 0.98)), url('./public/brand3.jpg') no-repeat center center fixed;
+      background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(240, 240, 255, 0.98));
       background-size: cover;
       box-shadow: 0 0 50px rgba(0,0,0,0.5); /* Strong shadow cast on adjacent dark sections */
       z-index: 20; /* Increased to ensure overlapping contents stay atop dark sections */
@@ -948,21 +949,25 @@
     <section class="info-grid-section" style="position: relative; margin-top: 0; padding-top: 0; gap: 1.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">
       <div class="info-card hidden-reveal" style="transition-delay: 0s; align-items: center; text-align: center; padding: 2rem; border: 1px solid rgba(255,255,255,0.2); background: rgba(20, 20, 50, 0.8); grid-column: 1 / -1; display: flex; flex-direction: column; justify-content: center; border-radius: 20px;">
         <img src="./public/media__1774174625160.png" style="height: 120px; object-fit: contain; margin-bottom: 0.5rem; filter: drop-shadow(0 0 10px rgba(157,155,255,0.4)); transition: transform 0.3s;" alt="Rocket Launch Koala" onmouseover="this.style.transform='scale(1.1) translateY(-5px)';" onmouseout="this.style.transform='none';">
-        <div style="margin-bottom: 0.5rem;">
-          <a href="#formArea" class="invest-button" style="display: inline-block; padding: 12px 25px; font-size: 1.15rem; font-weight: 700; border-radius: 30px; text-decoration: none;">WAITLIST NOW</a>
+        <div style="margin-bottom: 0.5rem; text-align: center;">
+          <a href="#formArea" class="invest-button" style="display: inline-flex; justify-content: center; align-items: center; width: 220px; box-sizing: border-box; padding: 12px 0; font-size: 1.15rem; font-weight: 700; border-radius: 30px; text-decoration: none;">WAITLIST NOW</a>
         </div>
         <p style="font-size: 1.05rem; margin-top: 0.5rem; color: rgba(255,255,255,0.9); max-width: 90%; margin-left: auto; margin-right: auto; line-height: 1.5;">Join the alpha list to experience the fastest structured path to confidently speaking a new language.</p>
       </div>
 
       <div class="info-card hidden-reveal" style="transition-delay: 0.1s; align-items: center; text-align: center; padding: 1.25rem; border-radius: 20px;">
         <img src="./public/media__1774174625088.png" style="height: 50px; object-fit: contain; margin-bottom: 0.5rem;" alt="Strategy App Logo">
-        <div class="theme-box theme-learn" style="margin-bottom: 0.5rem; padding: 5px 12px; font-size: 0.85rem; font-weight: 700; height: auto;">THE STRATEGY</div>
+        <div style="margin-bottom: 0.5rem; text-align: center;">
+          <div class="invest-button" style="display: inline-flex; justify-content: center; align-items: center; width: 220px; box-sizing: border-box; padding: 12px 0; font-size: 1.15rem; font-weight: 700; border-radius: 30px; cursor: pointer;">THE STRATEGY</div>
+        </div>
         <p style="font-size: 0.95rem; margin-top: 0.5rem; line-height: 1.4; color: rgba(255,255,255,0.9);">Master the core framework of rapid language acquisition mapped to your goals.</p>
       </div>
       
       <div class="info-card hidden-reveal" style="transition-delay: 0.2s; align-items: center; text-align: center; padding: 1.25rem; border-radius: 20px;">
         <div style="height: 50px; margin-bottom: 0.5rem;"></div>
-        <div class="theme-box theme-fast" style="margin-bottom: 0.5rem; padding: 5px 12px; font-size: 0.85rem; font-weight: 700; height: auto;">SOCIAL APP</div>
+        <div style="margin-bottom: 0.5rem; text-align: center;">
+          <div class="invest-button" style="display: inline-flex; justify-content: center; align-items: center; width: 220px; box-sizing: border-box; padding: 12px 0; font-size: 1.15rem; font-weight: 700; border-radius: 30px; cursor: pointer;">SOCIAL APP</div>
+        </div>
         <p style="font-size: 0.95rem; margin-top: 0.5rem; line-height: 1.4; color: rgba(255,255,255,0.9);">Learn immersive languages with friends. Track streaks, chat, and share progress.</p>
       </div>
     </section>
