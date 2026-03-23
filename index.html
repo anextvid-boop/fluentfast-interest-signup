@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon-Bs_r76O8.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WAITLIST | FluentFast</title>
+  <!-- Removed unused Lottie preload and brand3.jpg preload -->
+  <link rel="preload" href="./assets/media__1774174625139-zR_m3zQa.png" as="image" fetchpriority="high" />
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
+
+  <style>
+
+
+    .alt-layout {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .hero-split {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    @media (min-width: 900px) {
+      .hero-split {
+        flex-direction: row;
+        align-items: center;
+        text-align: left;
+      }
+      .hero-text-block {
+        flex: 1;
+        padding-right: 2rem;
+      }
+      .hero-visual-block {
+        flex: 1;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    .tagline-pill {
+      display: inline-block;
+      background: rgba(82, 78, 230, 0.2);
+      color: var(--brand-light);
+      border: 1px solid var(--brand-light);
+      padding: 0.4rem 1.2rem;
+      border-radius: 100px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      font-family: var(--font-display);
+    }
+
+    .hero-huge-title {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    }
+
+    .hero-lead {
+      font-size: 1.3rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+      font-weight: 400;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+    }
+
+    .hero-visual-block .curved-hero-img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 30px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 40px rgba(82, 78, 230, 0.4);
+      object-fit: cover;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .hero-visual-block .header-lottie-koala {
+      position: absolute;
+      top: -100px;
+      right: 0;
+      width: 250px;
+      height: 250px;
+      z-index: 10;
+    }
+
+    .primary-cta-btn {
+      background: linear-gradient(135deg, var(--royal-blue), #8e8cf6);
+      color: #fff;
+      border: none;
+      padding: 1.2rem 3rem;
+      border-radius: 100px;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(82, 78, 230, 0.5);
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+    }
+
+    .primary-cta-btn:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 15px 40px rgba(82, 78, 230, 0.8);
+    }
+
+    .info-grid-section {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (min-width: 900px) {
+      .info-grid-section {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .info-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      scale: var(--scroll-scale, 1);
+      transition: box-shadow 0.3s ease, filter 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .info-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle 300px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.08), transparent);
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .info-card:hover::before {
+      opacity: 1;
+    }
+
+    .info-card > * {
+      position: relative;
+      z-index: 10;
+    }
+
+    .info-card:hover {
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
+    }
+
+    .info-card p {
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+      margin-top: 1rem;
+    }
+
+    .inline-form-section {
+      background: var(--card-bg);
+      border-radius: 30px;
+      padding: 3rem;
+      border: 1px solid var(--card-border);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+      scale: var(--scroll-scale, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .inline-form-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle 400px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.05), transparent);
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    
+    .inline-form-section:hover::before {
+      opacity: 1;
+    }
+
+    @media (max-width: 600px) {
+      .inline-form-section {
+        padding: 2rem 1.5rem;
+      }
+      .nav-alt {
+        justify-content: center;
+      }
+      .hero-visual-block .header-lottie-koala {
+        position: relative;
+        top: 0;
+        margin-bottom: -50px;
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    /* Starter Words Success Section */
+    .success-section {
+      background: rgba(15, 18, 37, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-radius: 30px;
+      padding: 3rem;
+      border: 1px solid rgba(82, 78, 230, 0.5);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+      text-align: center;
+    }
+    .success-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      color: #fff;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    }
+    .success-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-dim);
+      margin-bottom: 2rem;
+    }
+    .language-selectors {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    @media (min-width: 600px) {
+      .language-selectors {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+    .lang-group {
+      flex: 1;
+      text-align: left;
+    }
+    .lang-group label {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .lang-group select {
+      width: 100%;
+      padding: 1rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      color: #fff;
+      font-size: 1.1rem;
+      outline: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .lang-group select:focus {
+      border-color: var(--brand-light);
+      background: rgba(255,255,255,0.1);
+    }
+    .lang-group select option {
+      background: #0f1225;
+      color: #fff;
+    }
+
+    .phrases-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    @media (min-width: 600px) {
+      .phrases-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    details[open] summary span {
+      transform: rotate(180deg);
+    }
+    .phrase-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 1.5rem;
+      border-radius: 16px;
+      text-align: left;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .phrase-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--brand-light);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .phrase-card:hover {
+      background: rgba(82, 78, 230, 0.1);
+      border-color: rgba(82, 78, 230, 0.3);
+      transform: translateY(-3px);
+    }
+    .phrase-card:hover::before {
+      opacity: 1;
+    }
+    .phrase-card:active {
+      transform: scale(0.97);
+    }
+    summary:active {
+      transform: scale(0.97);
+    }
+    .phrase-number {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--brand-light);
+      opacity: 0.5;
+      min-width: 30px;
+    }
+    .phrase-text {
+      font-size: 1.15rem;
+      font-weight: 500;
+      line-height: 1.3;
+      transition: opacity 0.2s ease;
+      color: rgba(255,255,255,0.9);
+      font-weight: 500;
+    }
+
+    #powerPhrasesArea {
+      display: none;
+    }
+    .reveal-phrases {
+      display: block !important;
+      animation: popUpFade 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+    @keyframes popUpFade {
+      0% { opacity: 0; transform: scale(0.95) translateY(20px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+  
+    .light-parallax-section {
+      width: 100%;
+      position: relative;
+      background: linear-gradient(rgba(255, 255, 255, 0.88), rgba(240, 240, 255, 0.98));
+      background-size: cover;
+      box-shadow: 0 0 50px rgba(0,0,0,0.5); /* Strong shadow cast on adjacent dark sections */
+      z-index: 20; /* Increased to ensure overlapping contents stay atop dark sections */
+    }
+    .particles-container { position: fixed; inset: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+    .particle {
+      position: absolute;
+      bottom: -20px;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #fff, 0 0 20px rgba(82, 78, 230, 0.8), 0 0 30px rgba(40, 42, 65, 0.8);
+      opacity: 0;
+    }
+    @keyframes zigZagUp {
+      0% { transform: translateY(0) translateX(0); opacity: 0; }
+      20% { opacity: 1; }
+      25% { transform: translateY(-25vh) translateX(25px); }
+      50% { transform: translateY(-50vh) translateX(-20px); }
+      75% { transform: translateY(-75vh) translateX(15px); }
+      100% { transform: translateY(-110vh) translateX(-25px); opacity: 0; }
+    }
+    .p1 { left: 10%; width: 4px; height: 4px; animation: zigZagUp 8s infinite linear 0s; }
+    .p2 { left: 25%; width: 3px; height: 3px; animation: zigZagUp 10s infinite linear 2s; }
+    .p3 { left: 40%; width: 5px; height: 5px; animation: zigZagUp 7s infinite linear 4s; }
+    .p4 { left: 60%; width: 3px; height: 3px; animation: zigZagUp 11s infinite linear 1s; }
+    .p5 { left: 75%; width: 4px; height: 4px; animation: zigZagUp 6s infinite linear 5s; }
+    .p6 { left: 90%; width: 2px; height: 2px; animation: zigZagUp 12s infinite linear 3s; }
+    .p7 { left: 15%; width: 5px; height: 5px; animation: zigZagUp 9s infinite linear 6s; }
+    .p8 { left: 35%; width: 3px; height: 3px; animation: zigZagUp 8s infinite linear 7s; }
+    .p9 { left: 50%; width: 4px; height: 4px; animation: zigZagUp 10s infinite linear 0.5s; }
+    .p10 { left: 70%; width: 2px; height: 2px; animation: zigZagUp 7s infinite linear 8s; }
+    .p11 { left: 85%; width: 3px; height: 3px; animation: zigZagUp 11s infinite linear 4.5s; }
+    .p12 { left: 95%; width: 4px; height: 4px; animation: zigZagUp 9s infinite linear 1.5s; }
+  </style>
+  <script type="module" crossorigin src="./assets/main-c5HBIAw0.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/main-_BBBzR34.css">
+</head>
+
+<body>
+  <div class="bg-gradient"></div>
+  <div class="particles-container">
+    <div class="particle p1"></div><div class="particle p2"></div><div class="particle p3"></div><div class="particle p4"></div>
+    <div class="particle p5"></div><div class="particle p6"></div><div class="particle p7"></div><div class="particle p8"></div>
+    <div class="particle p9"></div><div class="particle p10"></div><div class="particle p11"></div><div class="particle p12"></div>
+  </div>
+
+  <header class="hero-header" style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; z-index: 999; padding-top: 110px; padding-bottom: 0px;">
+    <img src="./assets/media__1774174625088-DDPoivl6.png" style="position: absolute; top: 40px; left: 50%; transform: translateX(-50%); height: 50px; z-index: 1000; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.9)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.8));" alt="FluentFast Logo F">
+
+    <div class="brand-text" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.8));">
+      
+      <h1 style="font-family: var(--font-display); font-size: clamp(3rem, 16vw, 9.5rem); font-weight: 900; line-height: 0.95; text-align: center; margin: 0; margin-bottom: 5px; letter-spacing: -1px; z-index: 10; position: relative;">
+        <span class="fluent">FLUENT</span> <span class="fast">FAST</span>
+      </h1>
+      <!-- Divider -->
+      <hr style="width: 80%; max-width: 300px; border: none; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); margin: 0px auto 10px auto;">
+
+      
+      <div class="koalas glow-koalas" data-text="KOALAS" style="position: relative; z-index: 5;">KOALAS</div>
+      <!-- Divider -->
+      <hr style="width: 80%; max-width: 300px; border: none; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); margin: 0px auto 10px auto;">
+
+      
+      <!-- Centerpiece High-Res Koala -->
+      <div style="display: flex; justify-content: center; width: 100%; position: relative; z-index: 12; margin-top: 15px; margin-bottom: 5px;">
+        <img src="./assets/media__1774174625160-S_n-4Qz6.png" style="max-height: 280px; width: auto; max-width: 95vw; opacity: 1; display: block; filter: drop-shadow(0px 15px 30px rgba(0, 0, 0, 0.4)); animation: floatUpAndDown 4s ease-in-out infinite; object-fit: contain; object-position: bottom;" alt="FluentFast Hero Koala">
+      </div>
+      <!-- Divider -->
+      <hr style="width: 80%; max-width: 300px; border: none; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); margin: 0px auto 10px auto;">
+
+      <div class="waitlist glow-waitlist" data-text="WAITLIST" style="margin-top: 5px; margin-bottom: 20px;">WAITLIST</div>
+      
+      <!-- Moved Form Box Here -->
+<!-- Interest Registration Form (Expandable Box) -->
+    <section class="inline-form-section hidden-reveal" id="interestFormSection" style="margin-top: 0; background: rgba(15, 18, 37, 0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
+      <details class="expandable-form-box" style="background: rgba(40, 42, 65, 0.4); box-shadow: 0 15px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1); border: 1px solid var(--card-border); border-radius: 8px; padding: 1.5rem; cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; z-index: 10;">
+        <summary style="font-family: var(--font-display); background: rgba(82, 78, 230, 0.2); border: 1px solid var(--brand-light); border-radius: 4px; font-weight: 900; font-size: clamp(1.6rem, 5.5vw, 2.4rem); letter-spacing: 1px; outline: none; list-style: none; text-align: center; color: var(--text-light); padding: 1.5rem; user-select: none; transition: all 0.3s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          Join the waiting list <span style="font-size: 0.8em; margin-left: 10px; color: var(--brand-light); display: inline-block; transition: transform 0.3s ease;">▼</span>
+        </summary>
+        
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 1rem; padding-top: 1.5rem;">
+          <p style="text-align: center; margin-bottom: 2rem; color: #ccc;">Reserve your spot for early access and we'll instantly be the first to know when FluentFast goes live.</p>
+
+          <form class="interest-form" id="investorForm" style="cursor: default;">
+            <div class="form-group">
+              <label for="name">First Name</label>
+              <input type="text" id="name" name="name" placeholder="E.g., Jahronimo" required>
+            </div>
+
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" placeholder="E.g., Smith" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Best Email Address</label>
+              <input type="email" id="email" name="email" placeholder="Where should we send the updates?" required>
+            </div>
+
+            <div class="form-group" style="display: none;">
+              <label for="amount">Investment Tier</label>
+              <select id="amount" name="amount" required>
+                <option value="waitlist" selected>Waitlist</option>
+              </select>
+            </div>
+
+            <div style="width: 100%; grid-column: 1 / -1; margin-top: 1rem;">
+              <!-- Autoresponse configuration for FormSubmit -->
+              <input type="hidden" name="_autoresponse" value="Thank you for joining the FluentFast waitlist! Here are your 10 starter words to launch you into your new language fast: 1. Hello. | 2. My name is _____ | 3. Can you help, please. | 4. What is that called? | 5. Can you repeat it? | 6. Can you say it again? | 7. Say it slower. | 8. Is this correct? | 9. Can you correct me | 10. Thanks">
+
+              <button type="submit" class="submit-button primary-cta-btn" style="width: 100%; border-radius: 12px;">JOIN THE WAITING LIST</button>
+              <p style="text-align: center; font-size: 0.85rem; color: #888; margin-top: 15px; margin-bottom: 0;">
+                🔒 100% Secure. Join 500+ others already waiting.
+              </p>
+            </div>
+          </form>
+        </div>
+      </details>
+    </section>
+
+      
+
+      <!-- Vertical Expandable Stack Gallery -->
+      <div class="expandable-gallery-container" style="width: 90vw; max-width: 450px; margin: 0 auto; margin-bottom: 30px; position: relative; z-index: 10;">
+        <style>
+          .gallery-stack {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            transition: all 0.5s ease;
+            position: relative;
+          }
+          .gallery-stack img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+          }
+          .gallery-stack:hover img.gallery-main-img {
+            transform: scale(1.02);
+            box-shadow: 0 15px 30px rgba(82, 78, 230, 0.4);
+          }
+          .gallery-stack.expanded:hover img.gallery-main-img {
+            transform: scale(1); /* Reset on hover when expanded */
+          }
+          .gallery-hidden-imgs {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            width: 100%;
+            
+            /* Hidden trick for smooth expansion */
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.8s cubic-bezier(0.175, 0.885, 0.32, 1), opacity 0.5s ease;
+            pointer-events: none;
+            margin-top: 0;
+          }
+          .gallery-stack.expanded .gallery-hidden-imgs {
+            max-height: 2500px;
+            opacity: 1;
+            pointer-events: auto;
+          }
+          /* Visual cue to click */
+          .tap-expand {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            pointer-events: none;
+            transition: opacity 0.4s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.2);
+          }
+          .gallery-stack.expanded .tap-expand {
+            opacity: 0;
+          }
+        </style>
+        
+        <div class="gallery-stack" id="galleryStack" onclick="this.classList.toggle('expanded')">
+          <img src="./assets/new_concept6-C8t4y-zz.jpg" alt="Gallery Concept" class="gallery-main-img">
+          <div class="tap-expand">Tap to Expand ▼</div>
+          <div class="gallery-hidden-imgs">
+            <img src="./assets/brand1-DbukHr-E.jpg" loading="lazy" alt="Gallery Concept">
+            <img src="./assets/new_concept8-CVona-H9.jpg" loading="lazy" alt="Gallery Concept">
+            <img src="./assets/new_concept1-Cggdmfc5.jpg" loading="lazy" alt="Gallery Concept">
+            <img src="./assets/brand5-Di2iX6mw.jpg" loading="lazy" alt="Gallery Concept">
+            <img src="./assets/new_concept2-zCAABzS1.jpg" loading="lazy" alt="Gallery Concept">
+            <img src="./assets/brand2-DcTa5VYz.jpg" loading="lazy" alt="Gallery Concept">
+            <img src="./assets/new_concept7-X4OUXWrv.jpg" loading="lazy" alt="Gallery Concept">
+            <img src="./assets/new_concept9-makXRYp9.jpg" loading="lazy" alt="Gallery Concept">
+            <img src="./assets/new_concept10-BY--skc4.jpg" loading="lazy" alt="Gallery Concept">
+          </div>
+        </div>
+      </div>
+
+      
+      
+      
+    </div>
+  </header>
+
+  <div class="container alt-layout" style="padding-top: 1rem; position: relative;">
+    
+
+
+    
+
+    <!-- Success / Starter Words Area -->
+    <section class="success-section" id="successSection" style="display: none;">
+      <h2 class="success-title">You're In!</h2>
+      <p class="success-subtitle">Welcome to FluentFast. Let's get you set up to speak from day one.</p>
+
+      <div class="language-selectors">
+        <div class="lang-group">
+          <label for="speak-lang">What language do you speak?</label>
+          <select id="speak-lang">
+            <option value="English" selected>English</option>
+            <option value="Spanish">Spanish</option>
+            <option value="French">French</option>
+            <option value="German">German</option>
+            <option value="Italian">Italian</option>
+            <option value="Portuguese">Portuguese</option>
+            <option value="Mandarin">Mandarin (Chinese)</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Korean">Korean</option>
+            <option value="Arabic">Arabic</option>
+            <option value="Russian">Russian</option>
+            <option value="Hindi">Hindi</option>
+          </select>
+        </div>
+        <div class="lang-group">
+          <label for="learn-lang">What language do you want to speak?</label>
+          <select id="learn-lang">
+            <option value="" disabled selected>Select a language...</option>
+            <option value="English">English</option>
+            <option value="Spanish">Spanish</option>
+            <option value="French">French</option>
+            <option value="German">German</option>
+            <option value="Italian">Italian</option>
+            <option value="Portuguese">Portuguese</option>
+            <option value="Mandarin">Mandarin (Chinese)</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Korean">Korean</option>
+            <option value="Arabic">Arabic</option>
+            <option value="Russian">Russian</option>
+            <option value="Hindi">Hindi</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="powerPhrasesArea">
+        <p style="color: rgba(255,255,255,0.9); font-weight: 600; margin-top: 2.5rem; font-size: 1.15rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem;">Here are your 10 Starter Phrases. Use these to jump-start your conversations today.</p>
+
+        <div class="phrases-grid">
+          <div class="phrase-card">
+            <span class="phrase-number">1</span>
+            <span class="phrase-text">Hello.</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">2</span>
+            <span class="phrase-text">My name is _____</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">3</span>
+            <span class="phrase-text">Can you help, please.</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">4</span>
+            <span class="phrase-text">What is that called?</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">5</span>
+            <span class="phrase-text">Can you repeat it?</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">6</span>
+            <span class="phrase-text">Can you say it again?</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">7</span>
+            <span class="phrase-text">Say it slower.</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">8</span>
+            <span class="phrase-text">Is this correct?</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">9</span>
+            <span class="phrase-text">Can you correct me</span>
+          </div>
+          <div class="phrase-card">
+            <span class="phrase-number">10</span>
+            <span class="phrase-text">Thanks</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- Moved Fund Project Button Down Here -->
+    <div style="display: flex; justify-content: center; margin: 2rem 0; width: 100%;">
+      <div style="margin-bottom: 20px; z-index: 15; position: relative;">
+        <a href="https://anextvid-boop.github.io/fluentfast-investors/?cache=v6" class="primary-cta-btn" style="display: inline-block; padding: 20px 45px; font-size: 1.5rem; letter-spacing: 1px; border-radius: 40px; text-decoration: none; font-weight: 900; filter: drop-shadow(0 0 25px rgba(82, 78, 230, 0.6)); text-transform: uppercase;">FUND THE PROJECT</a>
+      </div>
+    </div>
+    
+    <!-- iPad Koala Anchored to Gallery Area -->
+    <div style="display: flex; justify-content: center; margin-top: 0; margin-bottom: 0; position: relative; z-index: 5;">
+      <img src="./assets/media_hero_koala_2-BycrdO7k.png" style="max-height: 950px; width: auto; max-width: 100vw; opacity: 1; display: block; filter: drop-shadow(0px 15px 30px rgba(0, 0, 0, 0.4)); object-fit: contain; object-position: bottom;" alt="iPad Koala">
+    </div>
+
+  </div> <!-- Close original alt-layout -->
+
+  <div class="light-parallax-section" style="padding-top: 1rem;">
+<div style="width: 100%; overflow: hidden; margin-top: 0; margin-bottom: 1rem; margin-left: auto; margin-right: auto; white-space: nowrap; position: relative; padding: 1rem 0;">
+      <!-- Glowing background behind the gallery to make it pop -->
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 100%; background: radial-gradient(ellipse at center, rgba(82, 78, 230, 0.15) 0%, transparent 70%); z-index: 0; pointer-events: none;"></div>
+      
+      <!-- Top Row: Sliding Left -->
+      <div class="marquee-gallery gallery-fwd" style="display: inline-block; position: relative; z-index: 5;">
+
+        <div class="gallery-card">
+          <img src="./assets/new_concept1-Cggdmfc5.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/new_concept10-BY--skc4.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/new_concept7-X4OUXWrv.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/new_concept9-makXRYp9.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/brand1-DbukHr-E.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/brand2-DcTa5VYz.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/new_concept1-Cggdmfc5.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/new_concept10-BY--skc4.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/new_concept7-X4OUXWrv.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/new_concept9-makXRYp9.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/brand1-DbukHr-E.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/brand2-DcTa5VYz.jpg" loading="lazy" alt="Concept">
+        </div>
+      </div>
+      
+      <br>
+
+      <!-- Bottom Row: Sliding Right -->
+      <div class="marquee-gallery gallery-rev" style="display: inline-block; margin-top: 30px; position: relative; z-index: 5;">
+
+        <div class="gallery-card">
+          <img src="./assets/new_concept2-zCAABzS1.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card" style="display:none;">
+          <!-- Deleted image per user strict demand -->
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/new_concept6-C8t4y-zz.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card" style="display:none;">
+          <!-- Deleted image per user strict demand -->
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/new_concept8-CVona-H9.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/new_concept10-BY--skc4.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/brand4-CoRnrb0R.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/brand5-Di2iX6mw.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/new_concept2-zCAABzS1.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card" style="display:none;">
+          <!-- Deleted image per user strict demand -->
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/new_concept6-C8t4y-zz.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card" style="display:none;">
+          <!-- Deleted image per user strict demand -->
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/new_concept8-CVona-H9.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/new_concept10-BY--skc4.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/brand4-CoRnrb0R.jpg" loading="lazy" alt="Concept">
+        </div>
+        <div class="gallery-card">
+          <img src="./assets/brand5-Di2iX6mw.jpg" loading="lazy" alt="Concept">
+        </div>
+      </div>
+    </div>
+    
+    <style>
+      .marquee-gallery {
+        will-change: transform;
+      }
+      .gallery-fwd {
+        animation: scrollGallery 60s linear infinite;
+      }
+      .gallery-rev {
+        animation: scrollGalleryReverse 65s linear infinite;
+      }
+      .marquee-gallery:hover {
+        animation-play-state: paused;
+      }
+      .gallery-card {
+        height: auto;
+        width: auto;
+        border-radius: 16px;
+        margin: 0 10px;
+        padding: 8px;
+        background: rgba(30, 32, 50, 0.6);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+        display: inline-block;
+        vertical-align: middle;
+        transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+      }
+      /* Soft shine effect */
+      .gallery-card::after {
+        content: '';
+        position: absolute;
+        top: 0; left: -100%;
+        width: 50%; height: 100%;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent);
+        transform: skewX(-20deg);
+        transition: 0.7s;
+      }
+      .gallery-card:hover::after {
+        left: 200%;
+      }
+      .gallery-card img {
+        height: 250px;
+        width: auto;
+        display: block;
+        object-fit: contain;
+        border-radius: 8px; /* matches inner padding */
+        transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+      .gallery-card:hover {
+        transform: scale(1.08) translateY(-10px) rotate(2deg);
+        box-shadow: 0 30px 60px rgba(0,0,0,0.7), 0 0 40px rgba(82, 78, 230, 0.4);
+        border-color: rgba(82, 78, 230, 0.8);
+        background: rgba(40, 42, 65, 0.8);
+        z-index: 20;
+      }
+      .gallery-card:hover img {
+        transform: scale(1.03);
+      }
+      @keyframes scrollGallery {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      @keyframes scrollGalleryReverse {
+        0% { transform: translateX(-50%); }
+        100% { transform: translateX(0%); }
+      }
+      @media (max-width: 768px) {
+        .gallery-card {
+          margin: 0 6px;
+          padding: 6px;
+          border-radius: 12px;
+        }
+        .gallery-card img {
+          height: 180px;
+          border-radius: 6px;
+        }
+      }
+    </style>
+
+
+    <!-- New Text Section -->
+    <div class="light-section-text-container" style="max-width: 1000px; margin: 0 auto; text-align: center; padding: 1rem 1rem 0 1rem; color: #1a1b41; position: relative; z-index: 10;">
+      <h2 style="font-family: var(--font-display); font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; letter-spacing: 0px; line-height: 1.1; margin-bottom: 1.5rem; text-shadow: 0 4px 15px rgba(255,255,255,0.8);" class="gradient-text-animate">
+        <span style="color: var(--royal-blue); display: inline-block;" class="pop-in-sequence" style="--seq-delay: 0.1s;">FLUENT FAST:</span> <br>
+        <span class="pop-in-sequence" style="--seq-delay: 0.3s; display: inline-block;">#1 LANGUAGE LAUNCHER</span>
+      </h2>
+      <p class="pop-in-sequence" style="--seq-delay: 0.5s; font-size: clamp(1.4rem, 4vw, 1.8rem); font-weight: 600; color: #333; margin-bottom: 2rem; line-height: 1.6;">
+        Having fun with friends. Learning with friends. Play together. Speak together.
+      </p>
+      
+      <div style="font-family: var(--font-display); font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 900; line-height: 1.1; letter-spacing: -1px; text-transform: uppercase; color: #1a1b41; display: flex; flex-direction: column; align-items: center; margin-bottom: 2rem;">
+        <span class="animated-word-flash" style="--flash-delay: 0s;">PLAY.</span>
+        <span class="animated-word-flash" style="--flash-delay: 0.4s;">LEARN.</span>
+        <span class="animated-word-flash" style="--flash-delay: 0.8s;">SPEAK.</span>
+        <span class="animated-word-flash" style="--flash-delay: 1.2s; color: var(--royal-blue); text-shadow: 0 5px 20px rgba(82, 78, 230, 0.2);">TOGETHER.</span>
+      </div>
+
+      <!-- Single Transparent Koala Image -->
+      <div class="koala-pyramid-container" style="margin-bottom: 0; display: flex; justify-content: center; position: relative; z-index: 100;">
+        <div class="pop-in-sequence" style="--seq-delay: 0.8s; width: 100%; max-width: 850px; position: relative; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.5));">
+          <img src="./assets/media__1774174625139-zR_m3zQa.png?v=5" style="width: 100%; height: auto; display: block; object-fit: contain; object-position: bottom;" alt="FluentFast Koalas Playing">
+        </div>
+      </div>
+
+    </div>
+
+  </div> <!-- Close light-parallax-section -->
+
+  <div class="container alt-layout" style="position: relative;">
+
+
+    
+
+    
+
+    <!-- Details At The End -->
+    <section class="hero-split hidden-reveal" style="margin-top: 1rem; text-align: center; flex-direction: column; align-items: center;">
+      <div class="hero-text-block" style="display: flex; flex-direction: column; align-items: center; padding: 0;">
+        <div class="tagline-pill" style="margin-bottom: 0.5rem;">PLAY. LEARN. SPEAK. TOGETHER.</div>
+        <h1 class="hero-huge-title" style="font-size: clamp(1.8rem, 4vw, 2.5rem); background: linear-gradient(90deg, #fff, var(--brand-light)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">Are you interested in learning a new language?</h1>
+        <p class="hero-lead" style="color: var(--text-dim); margin: 0 auto; margin-top: 0.5rem; font-size: 1rem; max-width: 600px;">Are you interested in learning a new language faster? We're going to run through a different type of course on how you can be learning languages a lot more efficiently.</p>
+      </div>
+    </section>
+
+    <section class="info-grid-section" style="position: relative; margin-top: 0; padding-top: 0; max-width: 1100px; margin-left: auto; margin-right: auto;">
+      
+      <!-- Card 1: WAITLIST NOW -->
+      <div class="info-card hidden-reveal" style="transition-delay: 0s; align-items: center; text-align: center; padding: 2.5rem 1.5rem; border: 1px solid var(--card-border); background: var(--card-bg); display: flex; flex-direction: column; justify-content: flex-start; border-radius: 20px;">
+        <img src="./assets/media__1774174625119-CC1_ugC5.png" style="height: 60px; object-fit: contain; margin-bottom: 1.5rem;" alt="Waitlist">
+        <div style="margin-bottom: 0.5rem; text-align: center; width: 100%;">
+          <a href="#formArea" class="primary-cta-btn" style="display: inline-flex; justify-content: center; align-items: center; width: 100%; max-width: 220px; box-sizing: border-box; padding: 0 !important; margin: 0 auto 1rem auto !important; height: 50px !important; min-height: 50px !important; font-size: 1.15rem; font-weight: 800; border-radius: 30px; text-decoration: none; color: #fff;">WAITLIST NOW</a>
+        </div>
+        <p style="font-size: 1.05rem; margin-top: 0; color: var(--text-dim); line-height: 1.6;">Join the alpha list to experience the fastest structured path to confidently speaking a new language.</p>
+      </div>
+
+      <!-- Card 2: THE STRATEGY -->
+      <div class="info-card hidden-reveal" style="transition-delay: 0.1s; align-items: center; text-align: center; padding: 2.5rem 1.5rem; border: 1px solid var(--card-border); background: var(--card-bg); display: flex; flex-direction: column; justify-content: flex-start; border-radius: 20px;">
+        <img src="./assets/media__1774174625088-DDPoivl6.png" style="height: 60px; object-fit: contain; margin-bottom: 1.5rem;" alt="Strategy App Logo">
+        <div style="margin-bottom: 0.5rem; text-align: center; width: 100%;">
+          <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 1px; margin: 0 auto 1rem auto; height: 50px; display: flex; align-items: center; justify-content: center;">THE STRATEGY</h3>
+        </div>
+        <p style="font-size: 1.05rem; margin-top: 0; color: var(--text-dim); line-height: 1.6;">Master the core framework of rapid language acquisition mapped to your goals.</p>
+      </div>
+      
+      <!-- Card 3: SOCIAL APP -->
+      <div class="info-card hidden-reveal" style="transition-delay: 0.2s; align-items: center; text-align: center; padding: 2.5rem 1.5rem; border: 1px solid var(--card-border); background: var(--card-bg); display: flex; flex-direction: column; justify-content: flex-start; border-radius: 20px;">
+        <img src="./assets/koala_happy-CpVgnGLl.png" style="height: 60px; object-fit: contain; margin-bottom: 1.5rem; filter: drop-shadow(0 5px 10px rgba(82,78,230,0.3));" alt="Social App">
+        <div style="margin-bottom: 0.5rem; text-align: center; width: 100%;">
+          <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 1px; margin: 0 auto 1rem auto; height: 50px; display: flex; align-items: center; justify-content: center;">SOCIAL APP</h3>
+        </div>
+        <p style="font-size: 1.05rem; margin-top: 0; color: var(--text-dim); line-height: 1.6;">Learn immersive languages with friends. Track streaks, chat, and share progress.</p>
+      </div>
+    </section>
+
+    <div class="contact-card hidden-reveal">
+      <h3>CONTACT US</h3>
+      <p class="contact-subtitle">Have questions or ideas? Get in touch directly.</p>
+
+      <div class="contact-details">
+        <div class="contact-row">
+          <span class="contact-label">EMAIL COMMUNICATION</span>
+          <div class="contact-emails">
+            <a href="mailto:fluentfastkoalas@gmail.com" class="contact-link">fluentfastkoalas@gmail.com</a>
+            <a href="mailto:anextvid@gmail.com" class="contact-link">anextvid@gmail.com</a>
+            <a href="mailto:jahronimo1@hotmail.com" class="contact-link">jahronimo1@hotmail.com</a>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <span class="contact-label">DIRECT PHONE</span>
+          <a href="tel:+447538068550" class="contact-phone">07538 068 550</a>
+        </div>
+      </div>
+
+      <a href="https://wa.me/447538068550" target="_blank" class="whatsapp-btn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.347-.272.297-1.039 1.016-1.039 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+        MESSAGE ON WHATSAPP
+      </a>
+    </div>
+
+    <div style="text-align: center; margin: 40px 0 20px 0; position: relative; z-index: 10;">
+      <!-- Main investor CTA moved upwards to hero -->
+    </div>
+
+    <footer>
+      <a href="https://www.instagram.com/fluentfast_koalas/?hl=en" target="_blank" class="insta-link">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0 3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+        </svg>
+        @fluentfast_koalas
+      </a>
+    </footer>
+  </div>
+
+  <!-- Floating Pinned WhatsApp Button -->
+  <a href="https://wa.me/447538068550" target="_blank" class="floating-whatsapp" aria-label="Message us on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.347-.272.297-1.039 1.016-1.039 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+    <span>Contact me for more information</span>
+  </a>
+
+  <script>
+    const investorForm = document.getElementById('investorForm');
+
+    investorForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const submitBtn = investorForm.querySelector('.submit-button');
+      const originalText = submitBtn.innerText;
+
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'SENDING...';
+      submitBtn.style.opacity = '0.7';
+
+      const formData = new FormData(investorForm);
+
+      fetch('https://formsubmit.co/ajax/fluentfastkoalas@gmail.com', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json'
+        },
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        submitBtn.innerText = '✓ SENT SUCCESSFULLY';
+        submitBtn.style.background = 'var(--brand-light)';
+        submitBtn.style.opacity = '1';
+
+        setTimeout(() => {
+          // Transitions to the success section
+          const formSection = document.getElementById('interestFormSection');
+          const successSection = document.getElementById('successSection');
+          
+          formSection.style.display = 'none';
+          successSection.style.display = 'block';
+
+          // Reset the form in the background
+          investorForm.reset();
+          submitBtn.disabled = false;
+          submitBtn.innerText = 'JOIN THE WAITING LIST';
+          submitBtn.style.background = '';
+
+          // Scroll user exactly to the top of the new section smoothly
+          successSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 800);
+      })
+      .catch(error => {
+          console.error(error);
+          alert('Oops! There was a problem submitting your form. Please try again.');
+          submitBtn.disabled = false;
+          submitBtn.innerText = 'JOIN THE WAITING LIST';
+          submitBtn.style.opacity = '1';
+      });
+    });
+
+    // Parallax background ticking script completely removed due to native body fixed application
+    
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15
+    };
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible-reveal');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.info-card, .hero-split > *, .inline-form-section, .gallery-item, .contact-card').forEach(el => {
+      el.classList.add('hidden-reveal');
+      revealObserver.observe(el);
+    });
+
+    let audioCtx = null;
+    function playHoverSound() {
+      if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gainNode = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(300, audioCtx.currentTime + 0.05);
+      gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+      osc.connect(gainNode);
+      gainNode.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.05);
+    }
+
+    document.querySelectorAll('.primary-cta-btn').forEach(btn => {
+      btn.addEventListener('mouseenter', playHoverSound);
+    });
+
+    // Removed unused lottie script
+
+    // Logic to reveal the power phrases when they pick a language
+    const learnLangSelect = document.getElementById('learn-lang');
+    const powerPhrasesArea = document.getElementById('powerPhrasesArea');
+
+    if (learnLangSelect && powerPhrasesArea) {
+      learnLangSelect.addEventListener('change', (e) => {
+        if (e.target.value) {
+          powerPhrasesArea.classList.add('reveal-phrases');
+          
+          // Slight scroll to focus on the cards after the animation starts
+          setTimeout(() => {
+            powerPhrasesArea.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }, 300);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
