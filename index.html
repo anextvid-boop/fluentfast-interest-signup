@@ -442,17 +442,76 @@
     <img src="./public/media__1774174625088.png" style="position: absolute; top: 15px; left: 50%; transform: translateX(-50%); height: 50px; z-index: 1000; filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.9)) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.8));" alt="FluentFast Logo F">
 
     <div class="brand-text" style="display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; filter: drop-shadow(0 15px 25px rgba(0,0,0,0.8));">
+      
       <h1 style="font-family: var(--font-display); font-size: clamp(3rem, 16vw, 9.5rem); font-weight: 900; line-height: 0.95; text-align: center; margin: 0; margin-bottom: 5px; letter-spacing: -1px; z-index: 10; position: relative;">
         <span class="fluent">FLUENT</span> <span class="fast">FAST</span>
       </h1>
+      <!-- Divider -->
+      <hr style="width: 80%; max-width: 300px; border: none; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); margin: 0px auto 10px auto;">
+
       
       <div class="koalas glow-koalas" data-text="KOALAS" style="position: relative; z-index: 5;">KOALAS</div>
+      <!-- Divider -->
+      <hr style="width: 80%; max-width: 300px; border: none; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); margin: 0px auto 10px auto;">
+
       
       <!-- Centerpiece High-Res Koala -->
       <div style="display: flex; justify-content: center; width: 100%; position: relative; z-index: 12; margin-top: 15px; margin-bottom: 5px;">
         <img src="./public/media__1774174625160.png" style="max-height: 180px; width: auto; max-width: 95vw; opacity: 1; display: block; filter: drop-shadow(0px 15px 30px rgba(0, 0, 0, 0.4)); animation: floatUpAndDown 4s ease-in-out infinite; object-fit: contain; object-position: bottom;" alt="FluentFast Hero Koala">
       </div>
+      <!-- Divider -->
+      <hr style="width: 80%; max-width: 300px; border: none; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); margin: 0px auto 10px auto;">
+
       <div class="waitlist glow-waitlist" data-text="WAITLIST" style="margin-top: 5px; margin-bottom: 20px;">WAITLIST</div>
+      
+      <!-- Moved Form Box Here -->
+<!-- Interest Registration Form (Expandable Box) -->
+    <section class="inline-form-section hidden-reveal" id="interestFormSection" style="margin-top: 0; background: rgba(15, 18, 37, 0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
+      <details class="expandable-form-box" style="background: rgba(40, 42, 65, 0.4); box-shadow: 0 15px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1); border: 1px solid var(--card-border); border-radius: 8px; padding: 1.5rem; cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; z-index: 10;">
+        <summary style="font-family: var(--font-display); background: rgba(82, 78, 230, 0.2); border: 1px solid var(--brand-light); border-radius: 4px; font-weight: 900; font-size: clamp(1.6rem, 5.5vw, 2.4rem); letter-spacing: 1px; outline: none; list-style: none; text-align: center; color: var(--text-light); padding: 1.5rem; user-select: none; transition: all 0.3s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
+          Join the waiting list <span style="font-size: 0.8em; margin-left: 10px; color: var(--brand-light); display: inline-block; transition: transform 0.3s ease;">▼</span>
+        </summary>
+        
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 1rem; padding-top: 1.5rem;">
+          <p style="text-align: center; margin-bottom: 2rem; color: #ccc;">Reserve your spot for early access and we'll instantly be the first to know when FluentFast goes live.</p>
+
+          <form class="interest-form" id="investorForm" style="cursor: default;">
+            <div class="form-group">
+              <label for="name">First Name</label>
+              <input type="text" id="name" name="name" placeholder="E.g., Jahronimo" required>
+            </div>
+
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" placeholder="E.g., Smith" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Best Email Address</label>
+              <input type="email" id="email" name="email" placeholder="Where should we send the updates?" required>
+            </div>
+
+            <div class="form-group" style="display: none;">
+              <label for="amount">Investment Tier</label>
+              <select id="amount" name="amount" required>
+                <option value="waitlist" selected>Waitlist</option>
+              </select>
+            </div>
+
+            <div style="width: 100%; grid-column: 1 / -1; margin-top: 1rem;">
+              <!-- Autoresponse configuration for FormSubmit -->
+              <input type="hidden" name="_autoresponse" value="Thank you for joining the FluentFast waitlist! Here are your 10 starter words to launch you into your new language fast: 1. Hello. | 2. My name is _____ | 3. Can you help, please. | 4. What is that called? | 5. Can you repeat it? | 6. Can you say it again? | 7. Say it slower. | 8. Is this correct? | 9. Can you correct me | 10. Thanks">
+
+              <button type="submit" class="submit-button primary-cta-btn" style="width: 100%; border-radius: 12px;">JOIN THE WAITING LIST</button>
+              <p style="text-align: center; font-size: 0.85rem; color: #888; margin-top: 15px; margin-bottom: 0;">
+                🔒 100% Secure. Join 500+ others already waiting.
+              </p>
+            </div>
+          </form>
+        </div>
+      </details>
+    </section>
+
       
 
       <!-- Vertical Expandable Stack Gallery -->
@@ -542,9 +601,7 @@
 
       
       
-      <div style="margin-bottom: 20px; z-index: 15; position: relative;">
-        <a href="https://anextvid-boop.github.io/fluentfast-investors/?cache=v6" class="primary-cta-btn" style="display: inline-block; padding: 20px 45px; font-size: 1.5rem; letter-spacing: 1px; border-radius: 40px; text-decoration: none; font-weight: 900; filter: drop-shadow(0 0 25px rgba(82, 78, 230, 0.6)); text-transform: uppercase;">FUND THE PROJECT</a>
-      </div>
+      
     </div>
   </header>
 
@@ -552,52 +609,7 @@
     
 
 
-    <!-- Interest Registration Form (Expandable Box) -->
-    <section class="inline-form-section hidden-reveal" id="interestFormSection" style="margin-top: 0; background: rgba(15, 18, 37, 0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
-      <details class="expandable-form-box" style="background: rgba(40, 42, 65, 0.4); box-shadow: 0 15px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1); border: 1px solid var(--card-border); border-radius: 8px; padding: 1.5rem; cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; z-index: 10;">
-        <summary style="font-family: var(--font-display); background: rgba(82, 78, 230, 0.2); border: 1px solid var(--brand-light); border-radius: 4px; font-weight: 900; font-size: clamp(1.6rem, 5.5vw, 2.4rem); letter-spacing: 1px; outline: none; list-style: none; text-align: center; color: var(--text-light); padding: 1.5rem; user-select: none; transition: all 0.3s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
-          Join the waiting list <span style="font-size: 0.8em; margin-left: 10px; color: var(--brand-light); display: inline-block; transition: transform 0.3s ease;">▼</span>
-        </summary>
-        
-        <div style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 1rem; padding-top: 1.5rem;">
-          <p style="text-align: center; margin-bottom: 2rem; color: #ccc;">Reserve your spot for early access and we'll instantly be the first to know when FluentFast goes live.</p>
-
-          <form class="interest-form" id="investorForm" style="cursor: default;">
-            <div class="form-group">
-              <label for="name">First Name</label>
-              <input type="text" id="name" name="name" placeholder="E.g., Jahronimo" required>
-            </div>
-
-            <div class="form-group">
-              <label for="lname">Last Name</label>
-              <input type="text" id="lname" name="lname" placeholder="E.g., Smith" required>
-            </div>
-
-            <div class="form-group">
-              <label for="email">Best Email Address</label>
-              <input type="email" id="email" name="email" placeholder="Where should we send the updates?" required>
-            </div>
-
-            <div class="form-group" style="display: none;">
-              <label for="amount">Investment Tier</label>
-              <select id="amount" name="amount" required>
-                <option value="waitlist" selected>Waitlist</option>
-              </select>
-            </div>
-
-            <div style="width: 100%; grid-column: 1 / -1; margin-top: 1rem;">
-              <!-- Autoresponse configuration for FormSubmit -->
-              <input type="hidden" name="_autoresponse" value="Thank you for joining the FluentFast waitlist! Here are your 10 starter words to launch you into your new language fast: 1. Hello. | 2. My name is _____ | 3. Can you help, please. | 4. What is that called? | 5. Can you repeat it? | 6. Can you say it again? | 7. Say it slower. | 8. Is this correct? | 9. Can you correct me | 10. Thanks">
-
-              <button type="submit" class="submit-button primary-cta-btn" style="width: 100%; border-radius: 12px;">JOIN THE WAITING LIST</button>
-              <p style="text-align: center; font-size: 0.85rem; color: #888; margin-top: 15px; margin-bottom: 0;">
-                🔒 100% Secure. Join 500+ others already waiting.
-              </p>
-            </div>
-          </form>
-        </div>
-      </details>
-    </section>
+    
 
     <!-- Success / Starter Words Area -->
     <section class="success-section" id="successSection" style="display: none;">
@@ -690,6 +702,14 @@
       </div>
     </section>
 
+    
+    <!-- Moved Fund Project Button Down Here -->
+    <div style="display: flex; justify-content: center; margin: 2rem 0; width: 100%;">
+      <div style="margin-bottom: 20px; z-index: 15; position: relative;">
+        <a href="https://anextvid-boop.github.io/fluentfast-investors/?cache=v6" class="primary-cta-btn" style="display: inline-block; padding: 20px 45px; font-size: 1.5rem; letter-spacing: 1px; border-radius: 40px; text-decoration: none; font-weight: 900; filter: drop-shadow(0 0 25px rgba(82, 78, 230, 0.6)); text-transform: uppercase;">FUND THE PROJECT</a>
+      </div>
+    </div>
+    
     <!-- iPad Koala Anchored to Gallery Area -->
     <div style="display: flex; justify-content: center; margin-top: 0; margin-bottom: 0; position: relative; z-index: 5;">
       <img src="./public/media_hero_koala_2.png" style="max-height: 280px; width: auto; max-width: 95vw; opacity: 1; display: block; filter: drop-shadow(0px 15px 30px rgba(0, 0, 0, 0.4)); object-fit: contain; object-position: bottom;" alt="iPad Koala">
