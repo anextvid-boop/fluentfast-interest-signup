@@ -8,7 +8,7 @@
   <title>WAITLIST | FluentFast</title>
   <!-- Removed unused Lottie preload and brand3.jpg preload -->
   <link rel="preload" href="./public/media__1774174625139.png" as="image" fetchpriority="high" />
-  <link rel="stylesheet" href="./src/style.css?v=21" />
+  <link rel="stylesheet" href="./src/style.css?v=22" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
 
   <style>
@@ -518,16 +518,26 @@
       
 
       <!-- Vertical Expandable Stack Gallery -->
-      <div class="expandable-gallery-container" style="width: 90vw; max-width: 450px; margin: 0 auto; margin-bottom: 30px; position: relative; z-index: 10;">
+      <div class="expandable-gallery-container" style="width: 95vw; margin: 0 auto 30px auto; position: relative; z-index: 10;">
         <style>
+          .expandable-gallery-container {
+            max-width: 500px; /* Base for mobile */
+          }
+          @media (min-width: 800px) {
+            .expandable-gallery-container {
+              max-width: 1000px; /* Big for desktop */
+            }
+          }
+          
           .gallery-stack {
             cursor: pointer;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
             align-items: center;
             transition: all 0.5s ease;
             position: relative;
+            width: 100%;
           }
           .gallery-stack img {
             width: 100%;
@@ -542,24 +552,31 @@
             box-shadow: 0 15px 30px rgba(82, 78, 230, 0.4);
           }
           .gallery-stack.expanded:hover img.gallery-main-img {
-            transform: scale(1); /* Reset on hover when expanded */
+            transform: scale(1);
           }
           .gallery-hidden-imgs {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
+            grid-template-columns: 1fr; /* 1 column on mobile */
+            gap: 20px;
             width: 100%;
             
             /* Hidden trick for smooth expansion */
             max-height: 0;
             opacity: 0;
             overflow: hidden;
-            transition: max-height 0.8s cubic-bezier(0.175, 0.885, 0.32, 1), opacity 0.5s ease;
+            transition: max-height 1.2s cubic-bezier(0.175, 0.885, 0.32, 1), opacity 0.8s ease;
             pointer-events: none;
             margin-top: 0;
           }
+          
+          @media (min-width: 800px) {
+            .gallery-hidden-imgs {
+              grid-template-columns: 1fr 1fr; /* 2 columns on desktop to see images better */
+            }
+          }
+
           .gallery-stack.expanded .gallery-hidden-imgs {
-            max-height: 2500px;
+            max-height: 8000px; /* Massive max-height to cleanly fit desktop & mobile grids */
             opacity: 1;
             pointer-events: auto;
           }
@@ -571,14 +588,15 @@
             background: rgba(0,0,0,0.7);
             backdrop-filter: blur(5px);
             color: white;
-            padding: 6px 14px;
+            padding: 8px 18px;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: bold;
             pointer-events: none;
             transition: opacity 0.4s;
             box-shadow: 0 4px 10px rgba(0,0,0,0.5);
             border: 1px solid rgba(255,255,255,0.2);
+            z-index: 10;
           }
           .gallery-stack.expanded .tap-expand {
             opacity: 0;
