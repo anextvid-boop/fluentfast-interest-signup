@@ -8,7 +8,7 @@
   <title>WAITLIST | FluentFast</title>
   <!-- Removed unused Lottie preload and brand3.jpg preload -->
   <link rel="preload" href="./public/media__1774174625139.png" as="image" fetchpriority="high" />
-  <link rel="stylesheet" href="./src/style.css?v=58" />
+  <link rel="stylesheet" href="./src/style.css?v=59" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
 
   <style>
@@ -991,7 +991,7 @@
         }
       }
       .brand-title-glisten {
-        display: block;
+        display: inline-block;
         background: linear-gradient(
           110deg,
           #ffffff 0%,
@@ -1003,8 +1003,8 @@
         background-size: 200% auto;
         color: #ffffff; /* iOS solid fallback */
         -webkit-background-clip: text;
-        background-clip: text;
         -webkit-text-fill-color: transparent;
+        background-clip: text;
         text-shadow: 0px 8px 20px rgba(0, 0, 0, 0.7), 0px 0px 25px rgba(82, 78, 230, 0.8);
         animation: text-shine-sweep 4s linear infinite;
         font-family: var(--font-display); 
@@ -1020,9 +1020,7 @@
         will-change: background-position;
       }
       .brand-title-glisten > span {
-        display: block; 
-        margin: 0 auto;
-        -webkit-background-clip: text;
+        display: inline-block; 
       }
       @keyframes text-shine-sweep {
         0% { background-position: 200% center; }
@@ -1060,8 +1058,8 @@
     <div class="light-section-text-container" style="max-width: 1000px; margin: 0 auto; text-align: center; padding: 0.5rem 1rem 0 1rem; color: #1a1b41; position: relative; z-index: 10;">
       <div style="margin-bottom: 0.5rem; display: flex; justify-content: center; width: 100%;">
         <h2 class="brand-title-glisten">
-          <span style="font-size: clamp(1.8rem, 6vw, 3rem); text-transform: uppercase;">FLUENT FAST:</span>
-          <span style="font-size: clamp(6.5rem, 20vw, 14rem); margin: 1.5rem auto; line-height: 0.85;">#1</span>
+          <span style="font-size: clamp(1.8rem, 6vw, 3rem); text-transform: uppercase;">FLUENT FAST:</span><br>
+          <span style="font-size: clamp(6.5rem, 20vw, 14rem); margin: 0.5rem auto; line-height: 0.85;">#1</span><br>
           <span style="font-size: clamp(2.5rem, 8vw, 5.5rem); text-transform: uppercase;">LANGUAGE LAUNCHER</span>
         </h2>
       </div>
