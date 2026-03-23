@@ -6,8 +6,7 @@
   <link rel="icon" type="image/svg+xml" href="./public/favicon.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WAITLIST | FluentFast</title>
-  <link rel="preload" href="./Koalas_flying.json" as="fetch" type="application/json" crossorigin="anonymous" />
-  <link rel="preload" href="./public/brand3.jpg" as="image" fetchpriority="high" />
+  <!-- Removed unused Lottie preload -->  <link rel="preload" href="./public/brand3.jpg" as="image" fetchpriority="high" />
   
   <link rel="stylesheet" href="./src/style.css?v=4" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
@@ -131,7 +130,7 @@
 
     @media (min-width: 768px) {
       .info-grid-section {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
@@ -920,7 +919,9 @@
       </div>
 
       <div style="margin-bottom: -2rem; display: flex; justify-content: center; position: relative; z-index: 100;">
-        <img src="./public/media__1774174625139.png" class="pop-in-sequence" style="--seq-delay: 0.8s; width: 100%; max-width: 650px; height: auto; display: block; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.5));" alt="FluentFast Visual Setup">
+        <div class="pop-in-sequence" style="--seq-delay: 0.8s; width: 100%; max-width: 650px; aspect-ratio: 1024 / 370; overflow: hidden; position: relative; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.5));">
+          <img src="./public/media__1774174625139.png" style="width: 100%; height: auto; display: block; position: absolute; top: 0; left: 0;" alt="FluentFast Visual Setup">
+        </div>
       </div>
       
     </div>
@@ -954,12 +955,13 @@
 
       <div class="info-card hidden-reveal" style="transition-delay: 0.1s; align-items: center; text-align: center; padding: 1.25rem; border-radius: 20px;">
         <img src="./public/media__1774174625088.png" style="height: 50px; object-fit: contain; margin-bottom: 0.5rem;" alt="Strategy App Logo">
-        <div class="theme-box theme-learn" style="margin-bottom: 0.5rem; padding: 5px 12px; font-size: 0.85rem; font-weight: 700;">THE STRATEGY</div>
+        <div class="theme-box theme-learn" style="margin-bottom: 0.5rem; padding: 5px 12px; font-size: 0.85rem; font-weight: 700; height: auto;">THE STRATEGY</div>
         <p style="font-size: 0.95rem; margin-top: 0.5rem; line-height: 1.4; color: rgba(255,255,255,0.9);">Master the core framework of rapid language acquisition mapped to your goals.</p>
       </div>
       
       <div class="info-card hidden-reveal" style="transition-delay: 0.2s; align-items: center; text-align: center; padding: 1.25rem; border-radius: 20px;">
-        <div class="theme-box theme-fast" style="margin-bottom: 0.5rem; padding: 5px 12px; font-size: 0.85rem; font-weight: 700; margin-top: 0.5rem;">SOCIAL APP</div>
+        <div style="height: 50px; margin-bottom: 0.5rem;"></div>
+        <div class="theme-box theme-fast" style="margin-bottom: 0.5rem; padding: 5px 12px; font-size: 0.85rem; font-weight: 700; height: auto;">SOCIAL APP</div>
         <p style="font-size: 0.95rem; margin-top: 0.5rem; line-height: 1.4; color: rgba(255,255,255,0.9);">Learn immersive languages with friends. Track streaks, chat, and share progress.</p>
       </div>
     </section>
@@ -1112,15 +1114,7 @@
       btn.addEventListener('mouseenter', playHoverSound);
     });
 
-    if (document.getElementById('hero-lottie')) {
-      lottie.loadAnimation({
-        container: document.getElementById('hero-lottie'),
-        renderer: 'canvas',
-        loop: true,
-        autoplay: true,
-        path: './Koalas_flying.json'
-      });
-    }
+    // Removed unused lottie script
 
     // Logic to reveal the power phrases when they pick a language
     const learnLangSelect = document.getElementById('learn-lang');
