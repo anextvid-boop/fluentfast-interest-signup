@@ -8,11 +8,12 @@
   <title>WAITLIST | FluentFast</title>
   <!-- Removed unused Lottie preload and brand3.jpg preload -->
   <link rel="preload" href="./assets/media__1774174625139-zR_m3zQa.png" as="image" fetchpriority="high" />
-  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
 
   <style>
-
+    /* Safely hide summary markers for absolute mobile centering */
+    summary { list-style: none; }
+    summary::-webkit-details-marker { display: none; }
 
     .alt-layout {
       max-width: 1400px;
@@ -469,12 +470,13 @@
 <!-- Interest Registration Form (Expandable Box) -->
     <section class="inline-form-section hidden-reveal" id="interestFormSection" style="margin-top: 0; background: rgba(15, 18, 37, 0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
       <details class="expandable-form-box" style="background: rgba(40, 42, 65, 0.4); box-shadow: 0 15px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1); border: 1px solid var(--card-border); border-radius: 8px; padding: 1.5rem; cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; z-index: 10;">
-        <summary style="font-family: var(--font-display); background: rgba(82, 78, 230, 0.2); border: 1px solid var(--brand-light); border-radius: 4px; font-weight: 900; font-size: clamp(1.6rem, 5.5vw, 2.4rem); letter-spacing: 1px; outline: none; list-style: none; text-align: center; color: var(--text-light); padding: 1.5rem; user-select: none; transition: all 0.3s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.4);">
-          Join the waiting list <span style="font-size: 0.8em; margin-left: 10px; color: var(--brand-light); display: inline-block; transition: transform 0.3s ease;">▼</span>
+        <summary style="font-family: var(--font-display); background: rgba(82, 78, 230, 0.2); border: 1px solid var(--brand-light); border-radius: 4px; font-weight: 900; font-size: clamp(1.6rem, 5.5vw, 2.4rem); letter-spacing: 1px; outline: none; list-style: none; color: var(--text-light); padding: 1.5rem; user-select: none; transition: all 0.3s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.4); line-height: 1.2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; box-sizing: border-box;">
+          <span style="display: block; width: 100%; text-align: center; margin: 0; padding: 0;">Join<br>the waiting list</span>
+          <span style="font-size: 0.8em; color: var(--brand-light); transition: transform 0.3s ease;">▼</span>
         </summary>
         
         <div style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 1rem; padding-top: 1.5rem;">
-          <p style="text-align: center; margin-bottom: 2rem; color: #ccc;">Reserve your spot for early access and we'll instantly be the first to know when FluentFast goes live.</p>
+          <p style="text-align: center; margin: 0 auto 2rem auto; color: rgba(255,255,255,0.7); font-size: 0.95rem; max-width: 450px; line-height: 1.5; font-weight: 400;">Reserve your spot for early access and we'll instantly be the first to know when FluentFast goes live.</p>
 
           <form class="interest-form" id="investorForm" style="cursor: default;">
             <div class="form-group">
@@ -711,14 +713,14 @@
       </div>
     </div>
     
-    <!-- iPad Koala Anchored to Gallery Area -->
-    <div style="display: flex; justify-content: center; margin-top: 0; margin-bottom: 0; position: relative; z-index: 5;">
-      <img src="./assets/media_hero_koala_2-BycrdO7k.png" style="max-height: 950px; width: auto; max-width: 100vw; opacity: 1; display: block; filter: drop-shadow(0px 15px 30px rgba(0, 0, 0, 0.4)); object-fit: contain; object-position: bottom;" alt="iPad Koala">
-    </div>
-
   </div> <!-- Close original alt-layout -->
 
-  <div class="light-parallax-section" style="padding-top: 1rem;">
+  <!-- iPad Koala Anchored Directly to Gallery Area -->
+  <div style="display: flex; justify-content: center; width: 100%; margin: 0 auto -5px auto; padding: 0; position: relative; z-index: 25; pointer-events: none;">
+    <img src="./assets/media_hero_koala_2-BycrdO7k.png" style="max-height: 950px; width: auto; max-width: 100vw; opacity: 1; display: block; filter: drop-shadow(0px 15px 30px rgba(0, 0, 0, 0.4)); object-fit: contain; object-position: bottom;" alt="iPad Koala">
+  </div>
+
+  <div class="light-parallax-section" style="padding-top: 0;">
 <div style="width: 100%; overflow: hidden; margin-top: 0; margin-bottom: 1rem; margin-left: auto; margin-right: auto; white-space: nowrap; position: relative; padding: 1rem 0;">
       <!-- Glowing background behind the gallery to make it pop -->
       <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 100%; height: 100%; background: radial-gradient(ellipse at center, rgba(82, 78, 230, 0.15) 0%, transparent 70%); z-index: 0; pointer-events: none;"></div>
@@ -950,28 +952,25 @@
     <section class="info-grid-section" style="position: relative; margin-top: 0; padding-top: 0; max-width: 1100px; margin-left: auto; margin-right: auto;">
       
       <!-- Card 1: WAITLIST NOW -->
-      <div class="info-card hidden-reveal" style="transition-delay: 0s; align-items: center; text-align: center; padding: 2.5rem 1.5rem; border: 1px solid var(--card-border); background: var(--card-bg); display: flex; flex-direction: column; justify-content: flex-start; border-radius: 20px;">
-        <img src="./assets/media__1774174625119-CC1_ugC5.png" style="height: 60px; object-fit: contain; margin-bottom: 1.5rem;" alt="Waitlist">
+      <div class="info-card hidden-reveal" style="transition-delay: 0s; align-items: center; text-align: center; padding: 2.5rem 1.5rem; border: 1px solid var(--card-border); background: var(--card-bg); display: flex; flex-direction: column; justify-content: center; border-radius: 20px;">
         <div style="margin-bottom: 0.5rem; text-align: center; width: 100%;">
-          <a href="#formArea" class="primary-cta-btn" style="display: inline-flex; justify-content: center; align-items: center; width: 100%; max-width: 220px; box-sizing: border-box; padding: 0 !important; margin: 0 auto 1rem auto !important; height: 50px !important; min-height: 50px !important; font-size: 1.15rem; font-weight: 800; border-radius: 30px; text-decoration: none; color: #fff;">WAITLIST NOW</a>
+          <a href="#formArea" class="primary-cta-btn" style="display: inline-flex; justify-content: center; align-items: center; width: 100%; max-width: 220px; box-sizing: border-box; padding: 0 !important; margin: 0 auto 1.5rem auto !important; height: 50px !important; min-height: 50px !important; font-size: 1.15rem; font-weight: 800; border-radius: 30px; text-decoration: none; color: #fff;">WAITLIST NOW</a>
         </div>
         <p style="font-size: 1.05rem; margin-top: 0; color: var(--text-dim); line-height: 1.6;">Join the alpha list to experience the fastest structured path to confidently speaking a new language.</p>
       </div>
 
       <!-- Card 2: THE STRATEGY -->
-      <div class="info-card hidden-reveal" style="transition-delay: 0.1s; align-items: center; text-align: center; padding: 2.5rem 1.5rem; border: 1px solid var(--card-border); background: var(--card-bg); display: flex; flex-direction: column; justify-content: flex-start; border-radius: 20px;">
-        <img src="./assets/media__1774174625088-DDPoivl6.png" style="height: 60px; object-fit: contain; margin-bottom: 1.5rem;" alt="Strategy App Logo">
+      <div class="info-card hidden-reveal" style="transition-delay: 0.1s; align-items: center; text-align: center; padding: 2.5rem 1.5rem; border: 1px solid var(--card-border); background: var(--card-bg); display: flex; flex-direction: column; justify-content: center; border-radius: 20px;">
         <div style="margin-bottom: 0.5rem; text-align: center; width: 100%;">
-          <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 1px; margin: 0 auto 1rem auto; height: 50px; display: flex; align-items: center; justify-content: center;">THE STRATEGY</h3>
+          <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 1px; margin: 0 auto 1.5rem auto; height: 50px; display: flex; align-items: center; justify-content: center;">THE STRATEGY</h3>
         </div>
         <p style="font-size: 1.05rem; margin-top: 0; color: var(--text-dim); line-height: 1.6;">Master the core framework of rapid language acquisition mapped to your goals.</p>
       </div>
       
       <!-- Card 3: SOCIAL APP -->
-      <div class="info-card hidden-reveal" style="transition-delay: 0.2s; align-items: center; text-align: center; padding: 2.5rem 1.5rem; border: 1px solid var(--card-border); background: var(--card-bg); display: flex; flex-direction: column; justify-content: flex-start; border-radius: 20px;">
-        <img src="./assets/koala_happy-CpVgnGLl.png" style="height: 60px; object-fit: contain; margin-bottom: 1.5rem; filter: drop-shadow(0 5px 10px rgba(82,78,230,0.3));" alt="Social App">
+      <div class="info-card hidden-reveal" style="transition-delay: 0.2s; align-items: center; text-align: center; padding: 2.5rem 1.5rem; border: 1px solid var(--card-border); background: var(--card-bg); display: flex; flex-direction: column; justify-content: center; border-radius: 20px;">
         <div style="margin-bottom: 0.5rem; text-align: center; width: 100%;">
-          <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 1px; margin: 0 auto 1rem auto; height: 50px; display: flex; align-items: center; justify-content: center;">SOCIAL APP</h3>
+          <h3 style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 900; color: #fff; text-transform: uppercase; letter-spacing: 1px; margin: 0 auto 1.5rem auto; height: 50px; display: flex; align-items: center; justify-content: center;">SOCIAL APP</h3>
         </div>
         <p style="font-size: 1.05rem; margin-top: 0; color: var(--text-dim); line-height: 1.6;">Learn immersive languages with friends. Track streaks, chat, and share progress.</p>
       </div>
