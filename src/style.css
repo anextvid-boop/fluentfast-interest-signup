@@ -1887,3 +1887,29 @@ textarea:focus {
   background-size: 200% 200%;
   animation: meshFlow 8s ease infinite alternate;
 }
+
+@keyframes shine-sweep {
+  0% { left: -100%; opacity: 0; }
+  20% { opacity: 0.8; }
+  100% { left: 200%; opacity: 0; }
+}
+
+.title-glisten {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.title-glisten::after {
+  content: '';
+  position: absolute;
+  top: 0; 
+  left: -100%;
+  width: 50%; 
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.9), transparent);
+  transform: skewX(-20deg);
+  animation: shine-sweep 4s infinite linear;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
