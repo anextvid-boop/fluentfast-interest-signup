@@ -995,18 +995,18 @@
         display: block;
         background: linear-gradient(
           110deg,
-          #524ee6 0%,
-          #524ee6 40%,
-          #ffffff 50%,
-          #524ee6 60%,
-          #524ee6 100%
+          #ffffff 0%,
+          #ffffff 40%,
+          #524ee6 50%,
+          #ffffff 60%,
+          #ffffff 100%
         );
         background-size: 200% auto;
-        color: #524ee6; /* iOS solid fallback */
+        color: #ffffff; /* iOS solid fallback */
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
-        text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.4), 0px 0px 20px rgba(82, 78, 230, 0.6);
+        text-shadow: 0px 10px 15px rgba(0, 0, 0, 0.6), 0px 0px 20px rgba(255, 255, 255, 0.3);
         animation: text-shine-sweep 4s linear infinite;
         font-family: var(--font-display); 
         font-weight: 900; 
@@ -1026,8 +1026,8 @@
         -webkit-background-clip: text;
       }
       @keyframes text-shine-sweep {
-        0% { background-position: -100% center; }
-        100% { background-position: 200% center; }
+        0% { background-position: 200% center; }
+        100% { background-position: -200% center; }
       }
 
       /* Premium Loading Spinner for Submit Buttons */
