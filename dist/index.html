@@ -15,6 +15,34 @@
     summary { list-style: none; }
     summary::-webkit-details-marker { display: none; }
 
+    /* Custom Webkit Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0f1225;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--royal-blue);
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #6561f0;
+    }
+
+    /* Selection Highlight */
+    ::selection {
+      background: var(--royal-blue);
+      color: #ffffff;
+      text-shadow: none;
+    }
+    ::-moz-selection {
+      background: var(--royal-blue);
+      color: #ffffff;
+      text-shadow: none;
+    }
+
     .alt-layout {
       max-width: 1400px;
       margin: 0 auto;
@@ -180,7 +208,9 @@
     }
 
     .info-card:hover {
-      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), inset 0 0 0 2px rgba(82, 78, 230, 0.6);
+      transform: translateY(-8px);
+      border-color: rgba(82, 78, 230, 0.8);
     }
 
     .info-card p {
@@ -586,6 +616,20 @@
             pointer-events: none;
             margin-top: 0;
           }
+
+          /* Edge fade mask for horizontal gallery wrapper */
+          .gallery-scroll-wrapper {
+            position: relative;
+            width: 100%;
+          }
+          .gallery-scroll-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            pointer-events: none;
+            background: linear-gradient(90deg, #ffffff 0%, transparent 10%, transparent 90%, #ffffff 100%);
+            z-index: 5;
+          }
           
           @media (min-width: 800px) {
             .gallery-hidden-imgs {
@@ -985,6 +1029,31 @@
         0% { background-position: -100% center; }
         100% { background-position: 200% center; }
       }
+
+      /* Premium Loading Spinner for Submit Buttons */
+      .submit-button {
+        position: relative;
+        overflow: hidden;
+      }
+      .submit-button.loading {
+        color: transparent !important;
+        pointer-events: none;
+      }
+      .submit-button.loading::after {
+        content: "";
+        position: absolute;
+        top: calc(50% - 12px);
+        left: calc(50% - 12px);
+        width: 24px;
+        height: 24px;
+        border: 3px solid rgba(255,255,255,0.3);
+        border-radius: 50%;
+        border-top-color: #fff;
+        animation: btn-spin 0.8s linear infinite;
+      }
+      @keyframes btn-spin {
+        to { transform: rotate(360deg); }
+      }
     </style>
 
 
@@ -1259,6 +1328,11 @@
     
     // PREMIUM UI SOUND - Synthesized Pop on interactions
     function playPremiumPop() {
+      // Haptic Feedback for supported devices
+      if (navigator.vibrate) {
+        navigator.vibrate(15);
+      }
+      
       if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
       if (audioCtx.state === 'suspended') audioCtx.resume();
       try {
@@ -1280,6 +1354,17 @@
       el.addEventListener('mousedown', playPremiumPop);
       el.addEventListener('touchstart', playPremiumPop, {passive: true});
     });
+
+    // Form Loading State Hook
+    if(investorForm) {
+      investorForm.addEventListener('submit', function(e) {
+        const btn = this.querySelector('.submit-button');
+        if(btn) {
+           btn.classList.add('loading');
+           if (navigator.vibrate) navigator.vibrate([15, 30, 15]);
+        }
+      });
+    }
   </script>
 </body>
 </html>
