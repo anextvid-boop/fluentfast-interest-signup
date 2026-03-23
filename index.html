@@ -8,7 +8,7 @@
   <title>WAITLIST | FluentFast</title>
   <!-- Removed unused Lottie preload and brand3.jpg preload -->
   <link rel="preload" href="./public/media__1774174625139.png" as="image" fetchpriority="high" />
-  <link rel="stylesheet" href="./src/style.css?v=50" />
+  <link rel="stylesheet" href="./src/style.css?v=52" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
 
   <style>
@@ -946,36 +946,52 @@
           border-radius: 6px;
         }
       }
+      .text-shine-container {
+        filter: drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.6)) drop-shadow(0px 0px 20px rgba(82, 78, 230, 0.8));
+        margin-bottom: 0.5rem; 
+        text-align: center;
+      }
       .brand-title-glisten {
+        display: block;
         background: linear-gradient(
           110deg,
-          var(--royal-blue) 0%,
-          var(--royal-blue) 40%,
+          #524ee6 0%,
+          #524ee6 40%,
           #ffffff 50%,
-          var(--royal-blue) 60%,
-          var(--royal-blue) 100%
+          #524ee6 60%,
+          #524ee6 100%
         );
         background-size: 200% auto;
-        color: transparent;
+        color: #524ee6; /* iOS solid fallback */
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
         animation: text-shine-sweep 4s linear infinite;
-        filter: drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.6)) drop-shadow(0px 0px 20px rgba(82, 78, 230, 0.8));
+        font-family: var(--font-display); 
+        font-weight: 900; 
+        line-height: 1.1; 
+        letter-spacing: -1px;
+        margin: 0; 
+        padding: 0;
+      }
+      .brand-title-glisten > span {
+        display: block; /* Native block stacking instead of flexbox for Safari */
+        margin: 0 auto;
+        -webkit-background-clip: text;
       }
       @keyframes text-shine-sweep {
-        from { background-position: -50% center; }
-        to { background-position: 150% center; }
+        0% { background-position: -100% center; }
+        100% { background-position: 200% center; }
       }
     </style>
 
 
     <!-- New Text Section -->
     <div class="light-section-text-container" style="max-width: 1000px; margin: 0 auto; text-align: center; padding: 0.5rem 1rem 0 1rem; color: #1a1b41; position: relative; z-index: 10;">
-      <div style="margin-bottom: 0.5rem; display: flex; justify-content: center;">
-        <h2 class="brand-title-glisten" style="margin: 0; padding: 0; font-family: var(--font-display); font-weight: 900; line-height: 1.1; letter-spacing: -1px; display: flex; flex-direction: column; align-items: center;">
+      <div class="text-shine-container">
+        <h2 class="brand-title-glisten">
           <span style="font-size: clamp(1.8rem, 6vw, 3rem); text-transform: uppercase;">FLUENT FAST:</span>
-          <span style="font-size: clamp(6.5rem, 20vw, 14rem); display: block; margin: 1.5rem 0; line-height: 0.85;">#1</span>
+          <span style="font-size: clamp(6.5rem, 20vw, 14rem); margin: 1.5rem auto; line-height: 0.85;">#1</span>
           <span style="font-size: clamp(2.5rem, 8vw, 5.5rem); text-transform: uppercase;">LANGUAGE LAUNCHER</span>
         </h2>
       </div>
