@@ -8,11 +8,13 @@
   <title>WAITLIST | FluentFast</title>
   <!-- Removed unused Lottie preload and brand3.jpg preload -->
   <link rel="preload" href="./public/media__1774174625139.png" as="image" fetchpriority="high" />
-  <link rel="stylesheet" href="./src/style.css?v=6" />
+  <link rel="stylesheet" href="./src/style.css?v=7" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
 
   <style>
-
+    /* Safely hide summary markers for absolute mobile centering */
+    summary { list-style: none; }
+    summary::-webkit-details-marker { display: none; }
 
     .alt-layout {
       max-width: 1400px;
@@ -467,8 +469,9 @@
 <!-- Interest Registration Form (Expandable Box) -->
     <section class="inline-form-section hidden-reveal" id="interestFormSection" style="margin-top: 0; background: rgba(15, 18, 37, 0.5); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
       <details class="expandable-form-box" style="background: rgba(40, 42, 65, 0.4); box-shadow: 0 15px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1); border: 1px solid var(--card-border); border-radius: 8px; padding: 1.5rem; cursor: pointer; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); position: relative; z-index: 10;">
-        <summary style="font-family: var(--font-display); background: rgba(82, 78, 230, 0.2); border: 1px solid var(--brand-light); border-radius: 4px; font-weight: 900; font-size: clamp(1.6rem, 5.5vw, 2.4rem); letter-spacing: 1px; outline: none; list-style: none; text-align: center; color: var(--text-light); padding: 1.5rem; user-select: none; transition: all 0.3s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.4); line-height: 1.1;">
-          Join<br>the waiting list <span style="font-size: 0.8em; margin-left: 10px; color: var(--brand-light); display: inline-block; transition: transform 0.3s ease; vertical-align: middle;">▼</span>
+        <summary style="font-family: var(--font-display); background: rgba(82, 78, 230, 0.2); border: 1px solid var(--brand-light); border-radius: 4px; font-weight: 900; font-size: clamp(1.6rem, 5.5vw, 2.4rem); letter-spacing: 1px; outline: none; list-style: none; color: var(--text-light); padding: 1.5rem; user-select: none; transition: all 0.3s ease; box-shadow: 0 10px 20px rgba(0,0,0,0.4); line-height: 1.2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; box-sizing: border-box;">
+          <span style="display: block; width: 100%; text-align: center; margin: 0; padding: 0;">Join<br>the waiting list</span>
+          <span style="font-size: 0.8em; color: var(--brand-light); transition: transform 0.3s ease;">▼</span>
         </summary>
         
         <div style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 1rem; padding-top: 1.5rem;">
@@ -1022,7 +1025,7 @@
     <span>Contact me for more information</span>
   </a>
 
-  <script type="module" src="./src/main.js?v=6"></script>
+  <script type="module" src="./src/main.js?v=7"></script>
   <script>
     const investorForm = document.getElementById('investorForm');
 
