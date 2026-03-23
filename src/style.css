@@ -1890,8 +1890,8 @@ textarea:focus {
 }
 
 @keyframes shine-text {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
 }
 
 .title-glisten {
@@ -1911,5 +1911,6 @@ textarea:focus {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: shine-text 5s linear infinite;
-  filter: drop-shadow(0px 5px 15px rgba(82, 78, 230, 0.2));
+  /* Double stacked drop-shadow for extra boldness: Dark grounding shadow + vibrant glow */
+  filter: drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.4)) drop-shadow(0px 0px 20px rgba(82, 78, 230, 0.6));
 }
